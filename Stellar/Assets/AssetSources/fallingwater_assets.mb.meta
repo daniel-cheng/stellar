@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: 22d46f635a9bebe4bbb92b16e310e868
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: pCylinder1
+    100004: pCylinder2
+    100006: polySurface1
+    100008: polySurface10
+    100010: polySurface11
+    100012: polySurface12
+    100014: polySurface13
+    100016: polySurface14
+    100018: polySurface15
+    100020: polySurface16
+    100022: polySurface2
+    100024: polySurface3
+    100026: polySurface4
+    100028: polySurface5
+    100030: polySurface6
+    100032: polySurface7
+    100034: polySurface8
+    100036: polySurface9
+    100038: pPipe1
+    100040: pPlane1
+    100042: pPlane2
+    100044: pPlane3
+    100046: pPlane4
+    100048: pPrism1
+    100050: pPrism2
+    100052: pPrism3
+    100054: pPrism4
+    100056: pPrism5
+    100058: pPrism6
+    100060: pPrism7
+    100062: pPrism8
+    100064: transform1
+    100066: transform10
+    100068: transform11
+    100070: transform12
+    100072: transform13
+    100074: transform14
+    100076: transform15
+    100078: transform16
+    100080: transform2
+    100082: transform3
+    100084: transform4
+    100086: transform5
+    100088: transform6
+    100090: transform7
+    100092: transform8
+    100094: transform9
+    100096: pPlane5
+    100098: pCube1
+    100100: pCube2
+    100102: polySurface17
+    100104: polySurface18
+    100106: polySurface19
+    100108: polySurface20
+    100110: polySurface21
+    100112: polySurface22
+    100114: polySurface23
+    100116: polySurface24
+    100118: polySurface25
+    100120: polySurface26
+    100122: polySurface27
+    100124: polySurface28
+    100126: polySurface29
+    100128: base
+    100130: box_bottom
+    100132: box_top
+    100134: down0
+    100136: down1
+    100138: down2
+    100140: down3
+    100142: plane
+    100144: up0
+    100146: up1
+    100148: up2
+    100150: up3
+    100152: box
+    100154: cipher
+    100156: ring
+    100158: down0 1
+    100160: down1 1
+    100162: down2 1
+    100164: down3 1
+    100166: plane 1
+    100168: up1 1
+    100170: up2 1
+    100172: up3 1
+    100174: up8
+    100176: base1
+    100178: group
+    100180: group1
+    100182: pasted__pCube1
+    100184: pasted__pCube1 1
+    400000: //RootNode
+    400002: pCylinder1
+    400004: pCylinder2
+    400006: polySurface1
+    400008: polySurface10
+    400010: polySurface11
+    400012: polySurface12
+    400014: polySurface13
+    400016: polySurface14
+    400018: polySurface15
+    400020: polySurface16
+    400022: polySurface2
+    400024: polySurface3
+    400026: polySurface4
+    400028: polySurface5
+    400030: polySurface6
+    400032: polySurface7
+    400034: polySurface8
+    400036: polySurface9
+    400038: pPipe1
+    400040: pPlane1
+    400042: pPlane2
+    400044: pPlane3
+    400046: pPlane4
+    400048: pPrism1
+    400050: pPrism2
+    400052: pPrism3
+    400054: pPrism4
+    400056: pPrism5
+    400058: pPrism6
+    400060: pPrism7
+    400062: pPrism8
+    400064: transform1
+    400066: transform10
+    400068: transform11
+    400070: transform12
+    400072: transform13
+    400074: transform14
+    400076: transform15
+    400078: transform16
+    400080: transform2
+    400082: transform3
+    400084: transform4
+    400086: transform5
+    400088: transform6
+    400090: transform7
+    400092: transform8
+    400094: transform9
+    400096: pPlane5
+    400098: pCube1
+    400100: pCube2
+    400102: polySurface17
+    400104: polySurface18
+    400106: polySurface19
+    400108: polySurface20
+    400110: polySurface21
+    400112: polySurface22
+    400114: polySurface23
+    400116: polySurface24
+    400118: polySurface25
+    400120: polySurface26
+    400122: polySurface27
+    400124: polySurface28
+    400126: polySurface29
+    400128: base
+    400130: box_bottom
+    400132: box_top
+    400134: down0
+    400136: down1
+    400138: down2
+    400140: down3
+    400142: plane
+    400144: up0
+    400146: up1
+    400148: up2
+    400150: up3
+    400152: box
+    400154: cipher
+    400156: ring
+    400158: down0 1
+    400160: down1 1
+    400162: down2 1
+    400164: down3 1
+    400166: plane 1
+    400168: up1 1
+    400170: up2 1
+    400172: up3 1
+    400174: up8
+    400176: base1
+    400178: group
+    400180: group1
+    400182: pasted__pCube1
+    400184: pasted__pCube1 1
+    2300000: polySurface10
+    2300002: polySurface11
+    2300004: polySurface12
+    2300006: polySurface13
+    2300008: polySurface14
+    2300010: polySurface15
+    2300012: polySurface16
+    2300014: polySurface2
+    2300016: polySurface3
+    2300018: polySurface4
+    2300020: polySurface5
+    2300022: polySurface6
+    2300024: polySurface7
+    2300026: polySurface8
+    2300028: polySurface9
+    2300030: pPlane5
+    2300032: //RootNode
+    2300034: polySurface17
+    2300036: polySurface18
+    2300038: polySurface19
+    2300040: polySurface20
+    2300042: polySurface21
+    2300044: polySurface22
+    2300046: polySurface23
+    2300048: polySurface24
+    2300050: polySurface25
+    2300052: polySurface26
+    2300054: polySurface27
+    2300056: polySurface28
+    2300058: polySurface29
+    2300060: base
+    2300062: box_bottom
+    2300064: box_top
+    2300066: down0
+    2300068: down1
+    2300070: down2
+    2300072: down3
+    2300074: plane
+    2300076: up0
+    2300078: up1
+    2300080: up2
+    2300082: up3
+    2300084: ring
+    2300086: down0 1
+    2300088: down1 1
+    2300090: down2 1
+    2300092: down3 1
+    2300094: plane 1
+    2300096: up1 1
+    2300098: up2 1
+    2300100: up3 1
+    2300102: up8
+    2300104: base1
+    2300106: pasted__pCube1
+    2300108: pasted__pCube1 1
+    3300000: polySurface10
+    3300002: polySurface11
+    3300004: polySurface12
+    3300006: polySurface13
+    3300008: polySurface14
+    3300010: polySurface15
+    3300012: polySurface16
+    3300014: polySurface2
+    3300016: polySurface3
+    3300018: polySurface4
+    3300020: polySurface5
+    3300022: polySurface6
+    3300024: polySurface7
+    3300026: polySurface8
+    3300028: polySurface9
+    3300030: pPlane5
+    3300032: //RootNode
+    3300034: polySurface17
+    3300036: polySurface18
+    3300038: polySurface19
+    3300040: polySurface20
+    3300042: polySurface21
+    3300044: polySurface22
+    3300046: polySurface23
+    3300048: polySurface24
+    3300050: polySurface25
+    3300052: polySurface26
+    3300054: polySurface27
+    3300056: polySurface28
+    3300058: polySurface29
+    3300060: base
+    3300062: box_bottom
+    3300064: box_top
+    3300066: down0
+    3300068: down1
+    3300070: down2
+    3300072: down3
+    3300074: plane
+    3300076: up0
+    3300078: up1
+    3300080: up2
+    3300082: up3
+    3300084: ring
+    3300086: down0 1
+    3300088: down1 1
+    3300090: down2 1
+    3300092: down3 1
+    3300094: plane 1
+    3300096: up1 1
+    3300098: up2 1
+    3300100: up3 1
+    3300102: up8
+    3300104: base1
+    3300106: pasted__pCube1
+    3300108: pasted__pCube1 1
+    4300000: polySurface2
+    4300002: polySurface3
+    4300004: polySurface4
+    4300006: polySurface5
+    4300008: polySurface6
+    4300010: polySurface7
+    4300012: polySurface8
+    4300014: polySurface9
+    4300016: polySurface10
+    4300018: polySurface11
+    4300020: polySurface12
+    4300022: polySurface13
+    4300024: polySurface14
+    4300026: polySurface15
+    4300028: polySurface16
+    4300030: pPlane5
+    4300032: polySurface17
+    4300034: polySurface18
+    4300036: polySurface19
+    4300038: polySurface20
+    4300040: polySurface21
+    4300042: polySurface22
+    4300044: polySurface23
+    4300046: polySurface24
+    4300048: polySurface25
+    4300050: polySurface26
+    4300052: polySurface27
+    4300054: polySurface28
+    4300056: polySurface29
+    4300058: base
+    4300060: up2
+    4300062: down2
+    4300064: down1
+    4300066: up1
+    4300068: up0
+    4300070: down0
+    4300072: up3
+    4300074: down3
+    4300076: plane
+    4300078: box_bottom
+    4300080: box_top
+    4300082: ring
+    4300084: down0
+    4300086: down1
+    4300088: down2
+    4300090: down3
+    4300092: plane
+    4300094: up3
+    4300096: up2
+    4300098: up1
+    4300100: up8
+    4300102: base1
+    4300104: pasted__pCube1
+    4300106: pasted__pCube1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

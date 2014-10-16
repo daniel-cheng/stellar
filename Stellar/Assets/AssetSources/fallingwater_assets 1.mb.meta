@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 49d2cfafbaf4505409b4f5e3606b5b46
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: base
+    100002: base1
+    100004: box
+    100006: box_bottom
+    100008: box_top
+    100010: cipher
+    100012: down0
+    100014: down0 1
+    100016: down1
+    100018: down1 1
+    100020: down2
+    100022: down2 1
+    100024: down3
+    100026: down3 1
+    100028: //RootNode
+    100030: group
+    100032: group1
+    100034: pasted__pCube1
+    100036: pasted__pCube1 1
+    100038: plane
+    100040: plane 1
+    100042: ring
+    100044: up0
+    100046: up1
+    100048: up1 1
+    100050: up2
+    100052: up2 1
+    100054: up3
+    100056: up3 1
+    100058: up8
+    400000: base
+    400002: base1
+    400004: box
+    400006: box_bottom
+    400008: box_top
+    400010: cipher
+    400012: down0
+    400014: down0 1
+    400016: down1
+    400018: down1 1
+    400020: down2
+    400022: down2 1
+    400024: down3
+    400026: down3 1
+    400028: //RootNode
+    400030: group
+    400032: group1
+    400034: pasted__pCube1
+    400036: pasted__pCube1 1
+    400038: plane
+    400040: plane 1
+    400042: ring
+    400044: up0
+    400046: up1
+    400048: up1 1
+    400050: up2
+    400052: up2 1
+    400054: up3
+    400056: up3 1
+    400058: up8
+    2300000: base
+    2300002: base1
+    2300004: box_bottom
+    2300006: box_top
+    2300008: down0
+    2300010: down0 1
+    2300012: down1
+    2300014: down1 1
+    2300016: down2
+    2300018: down2 1
+    2300020: down3
+    2300022: down3 1
+    2300024: pasted__pCube1
+    2300026: pasted__pCube1 1
+    2300028: plane
+    2300030: plane 1
+    2300032: ring
+    2300034: up0
+    2300036: up1
+    2300038: up1 1
+    2300040: up2
+    2300042: up2 1
+    2300044: up3
+    2300046: up3 1
+    2300048: up8
+    3300000: base
+    3300002: base1
+    3300004: box_bottom
+    3300006: box_top
+    3300008: down0
+    3300010: down0 1
+    3300012: down1
+    3300014: down1 1
+    3300016: down2
+    3300018: down2 1
+    3300020: down3
+    3300022: down3 1
+    3300024: pasted__pCube1
+    3300026: pasted__pCube1 1
+    3300028: plane
+    3300030: plane 1
+    3300032: ring
+    3300034: up0
+    3300036: up1
+    3300038: up1 1
+    3300040: up2
+    3300042: up2 1
+    3300044: up3
+    3300046: up3 1
+    3300048: up8
+    4300000: base
+    4300002: ring
+    4300004: up2
+    4300006: down2
+    4300008: down1
+    4300010: up1
+    4300012: up0
+    4300014: down0
+    4300016: up3
+    4300018: down3
+    4300020: plane
+    4300022: base1
+    4300024: box_bottom
+    4300026: box_top
+    4300028: down0
+    4300030: down1
+    4300032: down2
+    4300034: down3
+    4300036: plane
+    4300038: up3
+    4300040: up2
+    4300042: up1
+    4300044: up8
+    4300046: pasted__pCube1
+    4300048: pasted__pCube1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
