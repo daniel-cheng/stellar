@@ -111,12 +111,6 @@ public class Fly : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.T)) {
 			sas = !sas;
 		}
-		if (Input.GetKeyDown(KeyCode.X)) {
-			throttle = 0;
-			rigidbody.angularVelocity = Vector3.zero;
-			rigidbody.velocity = Vector3.zero;
-			rigidbody.position = new Vector3(0, 250, 0);
-		}
 		if (Input.GetKeyDown(KeyCode.F)) {
 			sas = !sas;
 		}

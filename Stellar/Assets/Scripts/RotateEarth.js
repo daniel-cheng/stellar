@@ -1,5 +1,3 @@
-#pragma strict
-
 var speed : float = 1.0;
 
 function Update () 

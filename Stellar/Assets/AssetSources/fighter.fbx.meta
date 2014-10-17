@@ -1,0 +1,409 @@
+fileFormatVersion: 2
+guid: 9b612204781fa23499b86de975f1ebcd
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: axle
+    100002: axle 1
+    100004: axle 2
+    100006: body
+    100008: body 1
+    100010: canopy
+    100012: //RootNode
+    100014: guns
+    100016: head1
+    100018: head2
+    100020: i_turret_canopy
+    100022: joint10
+    100024: joint10 1
+    100026: joint10 2
+    100028: joint11
+    100030: joint11 1
+    100032: joint11 2
+    100034: joint12
+    100036: joint12 1
+    100038: joint12 2
+    100040: joint3
+    100042: joint3 1
+    100044: joint3 2
+    100046: joint5
+    100048: joint5 1
+    100050: joint5 2
+    100052: joint9
+    100054: joint9 1
+    100056: joint9 2
+    100058: l_elevator
+    100060: l_inner_upper_aileron
+    100062: l_l_i_aileron
+    100064: l_l_o_aileron
+    100066: l_lower_nozzle
+    100068: l_primary_nozzle
+    100070: l_rudder
+    100072: l_shock
+    100074: l_shock 1
+    100076: l_shock 2
+    100078: l_stablizer
+    100080: l_stablizer 1
+    100082: l_stablizer 2
+    100084: l_u_o_aileron
+    100086: l_u_stablizer
+    100088: l_u_stablizer 1
+    100090: l_u_stablizer 2
+    100092: l_upper_nozzle
+    100094: l_wheel
+    100096: l_wheel 1
+    100098: l_wheel 2
+    100100: landing_gear1
+    100102: landing_gear2
+    100104: landing_gear3
+    100106: o_turret_canopy
+    100108: pasted__polySurface15
+    100110: pasted__polySurface15 1
+    100112: pasted__polySurface15 2
+    100114: pasted__polySurface17
+    100116: pasted__polySurface17 1
+    100118: pasted__polySurface17 2
+    100120: pasted__polySurface28
+    100122: pasted__polySurface28 1
+    100124: pasted__polySurface28 2
+    100126: polySurface30
+    100128: polySurface31
+    100130: polySurface32
+    100132: polySurface43
+    100134: polySurface44
+    100136: polySurface45
+    100138: r_elevator
+    100140: r_l_i_aileron
+    100142: r_l_i_aileron1
+    100144: r_l_o_aileron
+    100146: r_lower_nozzle
+    100148: r_primary_nozzle
+    100150: r_rudder
+    100152: r_u_o_aileron
+    100154: r_u_stablizer
+    100156: r_u_stablizer 1
+    100158: r_u_stablizer 2
+    100160: r_upper_nozzle
+    100162: r_wheel
+    100164: r_wheel 1
+    100166: r_wheel 2
+    100168: supsension
+    100170: supsension 1
+    100172: supsension 2
+    100174: turret
+    100176: turret_body
+    100178: turret_body 1
+    100180: u_shock
+    100182: u_shock 1
+    100184: u_shock 2
+    100186: wheel1
+    100188: wheel2
+    100190: wheel3
+    400000: axle
+    400002: axle 1
+    400004: axle 2
+    400006: body
+    400008: body 1
+    400010: canopy
+    400012: //RootNode
+    400014: guns
+    400016: head1
+    400018: head2
+    400020: i_turret_canopy
+    400022: joint10
+    400024: joint10 1
+    400026: joint10 2
+    400028: joint11
+    400030: joint11 1
+    400032: joint11 2
+    400034: joint12
+    400036: joint12 1
+    400038: joint12 2
+    400040: joint3
+    400042: joint3 1
+    400044: joint3 2
+    400046: joint5
+    400048: joint5 1
+    400050: joint5 2
+    400052: joint9
+    400054: joint9 1
+    400056: joint9 2
+    400058: l_elevator
+    400060: l_inner_upper_aileron
+    400062: l_l_i_aileron
+    400064: l_l_o_aileron
+    400066: l_lower_nozzle
+    400068: l_primary_nozzle
+    400070: l_rudder
+    400072: l_shock
+    400074: l_shock 1
+    400076: l_shock 2
+    400078: l_stablizer
+    400080: l_stablizer 1
+    400082: l_stablizer 2
+    400084: l_u_o_aileron
+    400086: l_u_stablizer
+    400088: l_u_stablizer 1
+    400090: l_u_stablizer 2
+    400092: l_upper_nozzle
+    400094: l_wheel
+    400096: l_wheel 1
+    400098: l_wheel 2
+    400100: landing_gear1
+    400102: landing_gear2
+    400104: landing_gear3
+    400106: o_turret_canopy
+    400108: pasted__polySurface15
+    400110: pasted__polySurface15 1
+    400112: pasted__polySurface15 2
+    400114: pasted__polySurface17
+    400116: pasted__polySurface17 1
+    400118: pasted__polySurface17 2
+    400120: pasted__polySurface28
+    400122: pasted__polySurface28 1
+    400124: pasted__polySurface28 2
+    400126: polySurface30
+    400128: polySurface31
+    400130: polySurface32
+    400132: polySurface43
+    400134: polySurface44
+    400136: polySurface45
+    400138: r_elevator
+    400140: r_l_i_aileron
+    400142: r_l_i_aileron1
+    400144: r_l_o_aileron
+    400146: r_lower_nozzle
+    400148: r_primary_nozzle
+    400150: r_rudder
+    400152: r_u_o_aileron
+    400154: r_u_stablizer
+    400156: r_u_stablizer 1
+    400158: r_u_stablizer 2
+    400160: r_upper_nozzle
+    400162: r_wheel
+    400164: r_wheel 1
+    400166: r_wheel 2
+    400168: supsension
+    400170: supsension 1
+    400172: supsension 2
+    400174: turret
+    400176: turret_body
+    400178: turret_body 1
+    400180: u_shock
+    400182: u_shock 1
+    400184: u_shock 2
+    400186: wheel1
+    400188: wheel2
+    400190: wheel3
+    2300000: body 1
+    2300002: canopy
+    2300004: i_turret_canopy
+    2300006: l_elevator
+    2300008: l_inner_upper_aileron
+    2300010: l_l_i_aileron
+    2300012: l_l_o_aileron
+    2300014: l_lower_nozzle
+    2300016: l_primary_nozzle
+    2300018: l_rudder
+    2300020: l_u_o_aileron
+    2300022: l_upper_nozzle
+    2300024: o_turret_canopy
+    2300026: pasted__polySurface17
+    2300028: pasted__polySurface17 1
+    2300030: pasted__polySurface17 2
+    2300032: polySurface30
+    2300034: polySurface31
+    2300036: polySurface32
+    2300038: polySurface43
+    2300040: polySurface44
+    2300042: polySurface45
+    2300044: r_elevator
+    2300046: r_l_i_aileron
+    2300048: r_l_i_aileron1
+    2300050: r_l_o_aileron
+    2300052: r_lower_nozzle
+    2300054: r_primary_nozzle
+    2300056: r_rudder
+    2300058: r_u_o_aileron
+    2300060: r_upper_nozzle
+    2300062: turret_body 1
+    3300000: body 1
+    3300002: canopy
+    3300004: i_turret_canopy
+    3300006: l_elevator
+    3300008: l_inner_upper_aileron
+    3300010: l_l_i_aileron
+    3300012: l_l_o_aileron
+    3300014: l_lower_nozzle
+    3300016: l_primary_nozzle
+    3300018: l_rudder
+    3300020: l_u_o_aileron
+    3300022: l_upper_nozzle
+    3300024: o_turret_canopy
+    3300026: pasted__polySurface17
+    3300028: pasted__polySurface17 1
+    3300030: pasted__polySurface17 2
+    3300032: polySurface30
+    3300034: polySurface31
+    3300036: polySurface32
+    3300038: polySurface43
+    3300040: polySurface44
+    3300042: polySurface45
+    3300044: r_elevator
+    3300046: r_l_i_aileron
+    3300048: r_l_i_aileron1
+    3300050: r_l_o_aileron
+    3300052: r_lower_nozzle
+    3300054: r_primary_nozzle
+    3300056: r_rudder
+    3300058: r_u_o_aileron
+    3300060: r_upper_nozzle
+    3300062: turret_body 1
+    4300000: l_wheel
+    4300002: u_shock
+    4300004: l_shock
+    4300006: axle
+    4300008: l_stablizer
+    4300010: r_u_stablizer
+    4300012: l_u_stablizer
+    4300014: r_wheel
+    4300016: pasted__polySurface15
+    4300018: pasted__polySurface17
+    4300020: pasted__polySurface28
+    4300022: axle
+    4300024: l_shock
+    4300026: l_stablizer
+    4300028: l_u_stablizer
+    4300030: l_wheel
+    4300032: r_u_stablizer
+    4300034: r_wheel
+    4300036: u_shock
+    4300038: pasted__polySurface28
+    4300040: pasted__polySurface17
+    4300042: pasted__polySurface15
+    4300044: l_shock
+    4300046: l_stablizer
+    4300048: l_u_stablizer
+    4300050: l_wheel
+    4300052: r_u_stablizer
+    4300054: r_wheel
+    4300056: u_shock
+    4300058: axle
+    4300060: pasted__polySurface17
+    4300062: pasted__polySurface28
+    4300064: pasted__polySurface15
+    4300066: polySurface30
+    4300068: polySurface31
+    4300070: polySurface32
+    4300072: polySurface43
+    4300074: polySurface44
+    4300076: polySurface45
+    4300078: o_turret_canopy
+    4300080: i_turret_canopy
+    4300082: turret_body
+    4300084: l_lower_nozzle
+    4300086: l_upper_nozzle
+    4300088: r_l_i_aileron
+    4300090: r_u_o_aileron
+    4300092: r_l_i_aileron1
+    4300094: r_rudder
+    4300096: r_elevator
+    4300098: r_primary_nozzle
+    4300100: r_lower_nozzle
+    4300102: r_upper_nozzle
+    4300104: l_l_i_aileron
+    4300106: l_u_o_aileron
+    4300108: l_inner_upper_aileron
+    4300110: l_rudder
+    4300112: l_elevator
+    4300114: l_primary_nozzle
+    4300116: canopy
+    4300118: r_l_o_aileron
+    4300120: l_l_o_aileron
+    4300122: body
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: axle
+    13700002: axle 1
+    13700004: axle 2
+    13700006: l_shock
+    13700008: l_shock 1
+    13700010: l_shock 2
+    13700012: l_stablizer
+    13700014: l_stablizer 1
+    13700016: l_stablizer 2
+    13700018: l_u_stablizer
+    13700020: l_u_stablizer 1
+    13700022: l_u_stablizer 2
+    13700024: l_wheel
+    13700026: l_wheel 1
+    13700028: l_wheel 2
+    13700030: pasted__polySurface15
+    13700032: pasted__polySurface15 1
+    13700034: pasted__polySurface15 2
+    13700036: pasted__polySurface28
+    13700038: pasted__polySurface28 1
+    13700040: pasted__polySurface28 2
+    13700042: r_u_stablizer
+    13700044: r_u_stablizer 1
+    13700046: r_u_stablizer 2
+    13700048: r_wheel
+    13700050: r_wheel 1
+    13700052: r_wheel 2
+    13700054: u_shock
+    13700056: u_shock 1
+    13700058: u_shock 2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
