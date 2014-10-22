@@ -3193,7 +3193,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: d30d0c1a8ae51ab4fbc34ebf2cc1b041, type: 2}
+  - {fileID: 2100000, guid: 01bc08427b3ac3048acec5ae4335fa65, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3213,7 +3213,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: d30d0c1a8ae51ab4fbc34ebf2cc1b041, type: 2}
+  - {fileID: 2100000, guid: 01bc08427b3ac3048acec5ae4335fa65, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -3773,7 +3773,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: d30d0c1a8ae51ab4fbc34ebf2cc1b041, type: 2}
+  - {fileID: 2100000, guid: 01bc08427b3ac3048acec5ae4335fa65, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -4795,13 +4795,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100210}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21e5926c9a8814544b76cb63f84aaa74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 0}
-  magnitude: 0
+  magnitude: .0500000007
   gravitationalParameter: 398600384
 --- !u!137 &13700000
 SkinnedMeshRenderer:

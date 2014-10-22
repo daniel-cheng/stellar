@@ -160,7 +160,7 @@ MonoBehaviour:
     type: 2}
   skyFromSpaceMaterial: {fileID: 2100000, guid: f5d41d96315ef6442a423e5e31b701ea,
     type: 2}
-  groundFromAtmosphereMaterial: {fileID: 2100000, guid: 932a910c30c46c3459d761633b6af9a0,
+  groundFromAtmosphereMaterial: {fileID: 2100000, guid: 2cc6927673615bb48b8a3f33637d4a14,
     type: 2}
   skyFromAtmosphereMaterial: {fileID: 2100000, guid: e81a7837fe7a8b74a9978c6591f0ec27,
     type: 2}

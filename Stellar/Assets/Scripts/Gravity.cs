@@ -17,7 +17,8 @@ public class Gravity : MonoBehaviour {
 	void Update () {	
 		earthDirection = transform.position - planet.position;
 		Debug.DrawRay(transform.position, -earthDirection);
-		Debug.Log ((-gravitationalParameter / earthDirection.sqrMagnitude).ToString());
-		rigidbody.AddForce((-gravitationalParameter / earthDirection.sqrMagnitude) * earthDirection.normalized, ForceMode.VelocityChange);
+		Debug.Log ("hhhehe");
+		rigidbody.velocity = rigidbody.velocity - Vector3.up * magnitude;
+
 	}
 }
