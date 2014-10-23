@@ -1428,8 +1428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 666317046}
-  magnitude: .0500000007
-  gravitationalParameter: 398600384
+  magnitude: 1
 --- !u!95 &11419524
 Animator:
   serializedVersion: 3
@@ -8392,6 +8391,10 @@ Prefab:
       propertyPath: planet
       value: 
       objectReference: {fileID: 666317046}
+    - target: {fileID: 11400002, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: magnitude
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
   m_RootGameObject: {fileID: 11419518}
@@ -17047,7 +17050,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1887041916}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3acad43cbcc4f2e44b01ae8bde1aa1b9, type: 3}
   m_Name: 
