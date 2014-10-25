@@ -2,7 +2,8 @@
 using System.Collections;
 
 /// <summary>
-/// Applies gravitational force to all rigidbodies, with exception to those on the noGravity list.
+/// Gravity alters the direction of Unity's graviy vector to the 
+/// correct direction and magnitude with respect to the central planet.
 /// </summary>
 
 public class Gravity : MonoBehaviour {
