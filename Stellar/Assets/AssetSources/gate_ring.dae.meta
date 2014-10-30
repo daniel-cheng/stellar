@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: d093c3dcf0ebef0418e4a223d64e52e6
+guid: f3896bcbde3c0fe44ad18fbd6a3ae500
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: chevrons
     100002: //RootNode
@@ -24,7 +24,6 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
-    motionNodeName: 
     animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
@@ -68,5 +67,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
-  additionalBone: 0
   userData: 

@@ -1,0 +1,467 @@
+fileFormatVersion: 2
+guid: ce2ad95a6a2067b419f47335c9406ba8
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Body
+    100002: Bottom_Engine
+    100004: Canister_1
+    100006: Canister_2
+    100008: Canister_3
+    100010: Canister_4
+    100012: Canister_Holders
+    100014: Cargo_1
+    100016: Cargo_2
+    100018: Cargo_3
+    100020: Cargo_4
+    100022: Cargo_5
+    100024: Cargo_6
+    100026: Engine
+    100028: Engine_No_joint
+    100030: Engine_No_joint 1
+    100032: //RootNode
+    100034: Front_Ring_Joint
+    100036: Fuel_Canisters
+    100038: group_0
+    100040: group_1
+    100042: Group_10
+    100044: Group_10 1
+    100046: Group_11
+    100048: Group_11 1
+    100050: Group_11 10
+    100052: Group_11 11
+    100054: Group_11 2
+    100056: Group_11 3
+    100058: Group_11 4
+    100060: Group_11 5
+    100062: Group_11 6
+    100064: Group_11 7
+    100066: Group_11 8
+    100068: Group_11 9
+    100070: Group_13
+    100072: Group_13 1
+    100074: Group_13 2
+    100076: Group_13 3
+    100078: Group_2
+    100080: group_2
+    100082: group_3
+    100084: Group_5
+    100086: Group_5 1
+    100088: Group_5 2
+    100090: Group_5 3
+    100092: Group_6
+    100094: Group_6 1
+    100096: Group_6 2
+    100098: Group_6 3
+    100100: Group_7
+    100102: Group_7 1
+    100104: Group_7 2
+    100106: Group_7 3
+    100108: Group_7 4
+    100110: Group_7 5
+    100112: Group_7 6
+    100114: Group_7 7
+    100116: Group_9
+    100118: Group_9 1
+    100120: ID125
+    100122: ID131
+    100124: ID137
+    100126: ID14
+    100128: ID14 1
+    100130: ID14 2
+    100132: ID14 3
+    100134: ID143
+    100136: ID155
+    100138: ID161
+    100140: ID167
+    100142: ID173
+    100144: ID218
+    100146: ID218 1
+    100148: ID224
+    100150: ID224 1
+    100152: ID230
+    100154: ID230 1
+    100156: ID234
+    100158: ID234 1
+    100160: ID246
+    100162: ID246 1
+    100164: ID252
+    100166: ID252 1
+    100168: ID258
+    100170: ID258 1
+    100172: ID262
+    100174: ID262 1
+    100176: ID28
+    100178: ID28 1
+    100180: ID28 2
+    100182: ID28 3
+    100184: instance_0
+    100186: instance_1
+    100188: instance_10
+    100190: instance_11
+    100192: instance_12
+    100194: instance_13
+    100196: instance_14
+    100198: instance_15
+    100200: instance_16
+    100202: instance_17
+    100204: instance_18
+    100206: instance_19
+    100208: instance_2
+    100210: instance_20
+    100212: instance_21
+    100214: instance_22
+    100216: instance_23
+    100218: instance_24
+    100220: instance_25
+    100222: instance_26
+    100224: instance_27
+    100226: instance_28
+    100228: instance_29
+    100230: instance_3
+    100232: instance_30
+    100234: instance_31
+    100236: instance_32
+    100238: instance_33
+    100240: instance_34
+    100242: instance_35
+    100244: instance_4
+    100246: instance_5
+    100248: instance_6
+    100250: instance_7
+    100252: instance_8
+    100254: instance_9
+    100256: Joint
+    100258: Joint 1
+    100260: Ring
+    100262: Ring_body
+    100264: Ring_Joint
+    100266: Ring_only
+    100268: Top_Engine
+    400000: Body
+    400002: Bottom_Engine
+    400004: Canister_1
+    400006: Canister_2
+    400008: Canister_3
+    400010: Canister_4
+    400012: Canister_Holders
+    400014: Cargo_1
+    400016: Cargo_2
+    400018: Cargo_3
+    400020: Cargo_4
+    400022: Cargo_5
+    400024: Cargo_6
+    400026: Engine
+    400028: Engine_No_joint
+    400030: Engine_No_joint 1
+    400032: //RootNode
+    400034: Front_Ring_Joint
+    400036: Fuel_Canisters
+    400038: group_0
+    400040: group_1
+    400042: Group_10
+    400044: Group_10 1
+    400046: Group_11
+    400048: Group_11 1
+    400050: Group_11 10
+    400052: Group_11 11
+    400054: Group_11 2
+    400056: Group_11 3
+    400058: Group_11 4
+    400060: Group_11 5
+    400062: Group_11 6
+    400064: Group_11 7
+    400066: Group_11 8
+    400068: Group_11 9
+    400070: Group_13
+    400072: Group_13 1
+    400074: Group_13 2
+    400076: Group_13 3
+    400078: Group_2
+    400080: group_2
+    400082: group_3
+    400084: Group_5
+    400086: Group_5 1
+    400088: Group_5 2
+    400090: Group_5 3
+    400092: Group_6
+    400094: Group_6 1
+    400096: Group_6 2
+    400098: Group_6 3
+    400100: Group_7
+    400102: Group_7 1
+    400104: Group_7 2
+    400106: Group_7 3
+    400108: Group_7 4
+    400110: Group_7 5
+    400112: Group_7 6
+    400114: Group_7 7
+    400116: Group_9
+    400118: Group_9 1
+    400120: ID125
+    400122: ID131
+    400124: ID137
+    400126: ID14
+    400128: ID14 1
+    400130: ID14 2
+    400132: ID14 3
+    400134: ID143
+    400136: ID155
+    400138: ID161
+    400140: ID167
+    400142: ID173
+    400144: ID218
+    400146: ID218 1
+    400148: ID224
+    400150: ID224 1
+    400152: ID230
+    400154: ID230 1
+    400156: ID234
+    400158: ID234 1
+    400160: ID246
+    400162: ID246 1
+    400164: ID252
+    400166: ID252 1
+    400168: ID258
+    400170: ID258 1
+    400172: ID262
+    400174: ID262 1
+    400176: ID28
+    400178: ID28 1
+    400180: ID28 2
+    400182: ID28 3
+    400184: instance_0
+    400186: instance_1
+    400188: instance_10
+    400190: instance_11
+    400192: instance_12
+    400194: instance_13
+    400196: instance_14
+    400198: instance_15
+    400200: instance_16
+    400202: instance_17
+    400204: instance_18
+    400206: instance_19
+    400208: instance_2
+    400210: instance_20
+    400212: instance_21
+    400214: instance_22
+    400216: instance_23
+    400218: instance_24
+    400220: instance_25
+    400222: instance_26
+    400224: instance_27
+    400226: instance_28
+    400228: instance_29
+    400230: instance_3
+    400232: instance_30
+    400234: instance_31
+    400236: instance_32
+    400238: instance_33
+    400240: instance_34
+    400242: instance_35
+    400244: instance_4
+    400246: instance_5
+    400248: instance_6
+    400250: instance_7
+    400252: instance_8
+    400254: instance_9
+    400256: Joint
+    400258: Joint 1
+    400260: Ring
+    400262: Ring_body
+    400264: Ring_Joint
+    400266: Ring_only
+    400268: Top_Engine
+    2300000: group_0
+    2300002: group_1
+    2300004: Group_10
+    2300006: Group_10 1
+    2300008: Group_11
+    2300010: Group_11 1
+    2300012: Group_11 10
+    2300014: Group_11 11
+    2300016: Group_11 2
+    2300018: Group_11 3
+    2300020: Group_11 4
+    2300022: Group_11 5
+    2300024: Group_11 6
+    2300026: Group_11 7
+    2300028: Group_11 8
+    2300030: Group_11 9
+    2300032: Group_13
+    2300034: Group_13 1
+    2300036: Group_13 2
+    2300038: Group_13 3
+    2300040: Group_2
+    2300042: group_2
+    2300044: group_3
+    2300046: Group_5
+    2300048: Group_5 1
+    2300050: Group_5 2
+    2300052: Group_5 3
+    2300054: Group_6
+    2300056: Group_6 1
+    2300058: Group_6 2
+    2300060: Group_6 3
+    2300062: Group_7
+    2300064: Group_7 1
+    2300066: Group_7 2
+    2300068: Group_7 3
+    2300070: Group_7 4
+    2300072: Group_7 5
+    2300074: Group_7 6
+    2300076: Group_7 7
+    2300078: Group_9
+    2300080: Group_9 1
+    2300082: ID125
+    2300084: ID131
+    2300086: ID137
+    2300088: ID155
+    2300090: ID161
+    2300092: ID167
+    2300094: ID218
+    2300096: ID218 1
+    2300098: ID224
+    2300100: ID224 1
+    2300102: ID246
+    2300104: ID246 1
+    2300106: ID252
+    2300108: ID252 1
+    3300000: group_0
+    3300002: group_1
+    3300004: Group_10
+    3300006: Group_10 1
+    3300008: Group_11
+    3300010: Group_11 1
+    3300012: Group_11 10
+    3300014: Group_11 11
+    3300016: Group_11 2
+    3300018: Group_11 3
+    3300020: Group_11 4
+    3300022: Group_11 5
+    3300024: Group_11 6
+    3300026: Group_11 7
+    3300028: Group_11 8
+    3300030: Group_11 9
+    3300032: Group_13
+    3300034: Group_13 1
+    3300036: Group_13 2
+    3300038: Group_13 3
+    3300040: Group_2
+    3300042: group_2
+    3300044: group_3
+    3300046: Group_5
+    3300048: Group_5 1
+    3300050: Group_5 2
+    3300052: Group_5 3
+    3300054: Group_6
+    3300056: Group_6 1
+    3300058: Group_6 2
+    3300060: Group_6 3
+    3300062: Group_7
+    3300064: Group_7 1
+    3300066: Group_7 2
+    3300068: Group_7 3
+    3300070: Group_7 4
+    3300072: Group_7 5
+    3300074: Group_7 6
+    3300076: Group_7 7
+    3300078: Group_9
+    3300080: Group_9 1
+    3300082: ID125
+    3300084: ID131
+    3300086: ID137
+    3300088: ID155
+    3300090: ID161
+    3300092: ID167
+    3300094: ID218
+    3300096: ID218 1
+    3300098: ID224
+    3300100: ID224 1
+    3300102: ID246
+    3300104: ID246 1
+    3300106: ID252
+    3300108: ID252 1
+    4300000: Group_7
+    4300002: Group_7
+    4300004: Group_9
+    4300006: Group_9
+    4300008: Group_13
+    4300010: Group_13
+    4300012: group_0
+    4300014: group_1
+    4300016: group_2
+    4300018: group_3
+    4300020: Group_2
+    4300022: Group_10
+    4300024: ID125
+    4300026: ID131
+    4300028: ID137
+    4300030: Group_10
+    4300032: ID155
+    4300034: ID161
+    4300036: ID167
+    4300038: Group_11
+    4300040: Group_5
+    4300042: Group_5
+    4300044: Group_6
+    4300046: ID218
+    4300048: ID224
+    4300050: Group_6
+    4300052: ID246
+    4300054: ID252
+    4300056: Group_11
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 
