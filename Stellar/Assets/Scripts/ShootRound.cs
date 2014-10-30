@@ -64,29 +64,32 @@ public class ShootRound : MonoBehaviour {
 			roundShot = false;
 		}
 		if (Input.GetButton("Fire1")) {
-			if ((capacitorCharge < 3000)&&(loaded == true)) { 
-				capacitorCharge = capacitorCharge + 1000 * Time.deltaTime;
-				myParticleSystem.emissionRate = capacitorCharge / 10;
-			} else if ((capacitorCharge >= 3000)&&(loaded == true)) {
-				Vector3 relativeForward = transform.TransformDirection(-Vector3.forward); //current model is reversed, hence the -.
-				Transform newObjectInstance = Instantiate(newObject, (transform.position + transform.rotation * offset), transform.rotation) as Transform;
-//				newObjectInstance.rigidbody.AddForce(relativeForward * capacitorCharge * velocity);
-				Physics.IgnoreCollision(newObjectInstance.collider, collider);
-				float chargePercentage = 1;
-				foreach (Rigidbody child in rootObject.GetComponentsInChildren<Rigidbody>() as Rigidbody[]) {
-					child.rigidbody.AddRelativeForce(-Vector3.up * chargePercentage, ForceMode.VelocityChange);	
-					chargePercentage = chargePercentage * 0.66f;
-				}
-				capacitorCharge = 0;
-				myParticleSystem.emissionRate = 0;
-				loaded = false;
-				roundShot = true;
-			} else {
-				myParticleSystem.emissionRate = 0;
-			}
+            Rigidbody clone;
+            clone = Instantiate(newObject, transform.position, transform.rotation) as Rigidbody;
+            clone.velocity = transform.TransformDirection(Vector3.forward * 10);
+//            if ((capacitorCharge < 3000)&&(loaded == true)) { 
+//                capacitorCharge = capacitorCharge + 1000 * Time.deltaTime;
+//                myParticleSystem.emissionRate = capacitorCharge / 10;
+//            } else if ((capacitorCharge >= 3000)&&(loaded == true)) {
+//                Vector3 relativeForward = transform.TransformDirection(-Vector3.forward); //current model is reversed, hence the -.
+//                Transform newObjectInstance = Instantiate(newObject, (transform.position + transform.rotation * offset), transform.rotation) as Transform;
+////				newObjectInstance.rigidbody.AddForce(relativeForward * capacitorCharge * velocity);
+//                Physics.IgnoreCollision(newObjectInstance.collider, collider);
+//                float chargePercentage = 1;
+//                foreach (Rigidbody child in rootObject.GetComponentsInChildren<Rigidbody>() as Rigidbody[]) {
+//                    child.rigidbody.AddRelativeForce(-Vector3.up * chargePercentage, ForceMode.VelocityChange);	
+//                    chargePercentage = chargePercentage * 0.66f;
+//                }
+//                capacitorCharge = 0;
+//                myParticleSystem.emissionRate = 0;
+//                loaded = false;
+//                roundShot = true;
+//            } else {
+//                myParticleSystem.emissionRate = 0;
+//            }
 		}
-		if (Input.GetButtonDown("Fire1")) {
-			myAudio.Play();
-		}
+        //if (Input.GetButtonDown("Fire1")) {
+        //    myAudio.Play();
+        //}
 	}
 }
