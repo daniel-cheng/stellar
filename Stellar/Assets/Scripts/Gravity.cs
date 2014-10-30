@@ -17,7 +17,7 @@ public class Gravity : MonoBehaviour {
 	void Start () {
 	}
 	
-	// Update is called once per frame
+	// FixedUpdate is called once per physics frame
 	void FixedUpdate () {
         planetDistanceSquared = Vector3.SqrMagnitude(transform.position - planet.position);
         planetDirection = -Vector3.Normalize(transform.position - planet.position);
