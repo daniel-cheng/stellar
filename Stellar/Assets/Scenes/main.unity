@@ -1404,7 +1404,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   translationalSpeed: 0
   rotationTorque: 1000
+<<<<<<< HEAD
+  thrust: 100
+=======
   thrust: 40
+>>>>>>> origin/master
   sas: 1
   sasForce: 35
   engineLifetimeBounds: {x: .0500000007, y: .800000012}
@@ -1429,7 +1433,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 666317046}
+<<<<<<< HEAD
+  magnitude: 2
+  planetDistance2: 0
+=======
   gravitationalParameter: 398600384
+>>>>>>> origin/master
 --- !u!95 &11419524
 Animator:
   serializedVersion: 3
@@ -8672,6 +8681,73 @@ SkinnedMeshRenderer:
     m_Center: {x: -.391726583, y: .087929368, z: -.16654329}
     m_Extent: {x: .391705602, y: .167845249, z: .0716428906}
   m_DirtyAABB: 0
+<<<<<<< HEAD
+--- !u!1001 &812682303
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1659701559}
+    m_Modifications:
+    - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.97070003
+      objectReference: {fileID: 0}
+    - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -81.9000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -.0142894974
+      objectReference: {fileID: 0}
+    - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .999897957
+      objectReference: {fileID: 0}
+    - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: earth
+      value: 
+      objectReference: {fileID: 666317046}
+    - target: {fileID: 11400002, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 666317046}
+    - target: {fileID: 11400002, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: magnitude
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: thrust
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+  m_RootGameObject: {fileID: 11419518}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
+=======
+>>>>>>> origin/master
 --- !u!1 &816672040
 GameObject:
   m_ObjectHideFlags: 0
@@ -14673,6 +14749,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1659701559}
   m_RootOrder: 3
+--- !u!1 &1639990838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1639990840}
+  - 132: {fileID: 1639990839}
+  m_Layer: 0
+  m_Name: PlayerUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!132 &1639990839
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639990838}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Gui Text
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &1639990840
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1639990838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .100000001, y: .899999976, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &1646824709
 GameObject:
   m_ObjectHideFlags: 0

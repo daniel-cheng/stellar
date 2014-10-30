@@ -19,3 +19,4 @@ sysinfo.txt
 *.unityproj
 *.sln
 *.csproj
+*.suo
