@@ -13487,7 +13487,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: b699b1faae4546f47ac4d7648cd3cf63, type: 2}
+  - {fileID: 2100000, guid: 84dca943ffa6a8b4b932d8aa1e25bd95, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -19161,6 +19161,10 @@ Prefab:
       propertyPath: m_Name
       value: prefabGateRing 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 84dca943ffa6a8b4b932d8aa1e25bd95, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
   m_RootGameObject: {fileID: 1271265868}
