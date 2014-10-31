@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class CameraState : MonoBehaviour {
 	//use to switch between camera states
 	private int stateIndex = 0;
 	//use to store all three camera states
-	public ArrayList cameraList;
+    public List<Camera> cameraList;
 	// Use this for initialization
 	void Start () {
 	
