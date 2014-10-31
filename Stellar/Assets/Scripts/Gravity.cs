@@ -8,21 +8,20 @@ using System.Collections;
 
 public class Gravity : MonoBehaviour {
 	public Transform planet;
-	public float magnitude = 9.8f;
-	private float PlanetDistance;
-	private float PlanetMagnitude;
-	private float gravitationalParameter = 3.9860044189f * Mathf.Pow(10.0f, 7.0f);
+    public float gravitationalParameter = 3986004418.9f;
+
+
 	private Vector3 planetDirection;
+    private float planetDistanceSquared;
 
 	// Use this for initialization
 	void Start () {
 	}
 	
-	// Update is called once per frame
+	// FixedUpdate is called once per physics frame
 	void FixedUpdate () {
+        planetDistanceSquared = Vector3.SqrMagnitude(transform.position - planet.position);
         planetDirection = -Vector3.Normalize(transform.position - planet.position);
-        Physics.gravity = planetDirection * magnitude;
-		PlanetDistance = (transform.position - planet.position).sqrMagnitude;
-		PlanetMagnitude = gravitationalParameter / (PlanetDistance);
+        Physics.gravity = planetDirection * gravitationalParameter / planetDistanceSquared;
 	}
 }
