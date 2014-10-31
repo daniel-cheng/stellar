@@ -8865,7 +8865,7 @@ AudioListener:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 856681845}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &856681848
 Behaviour:
   m_ObjectHideFlags: 0
@@ -13395,7 +13395,6 @@ GameObject:
   - 124: {fileID: 1105100999}
   - 81: {fileID: 1105100998}
   - 114: {fileID: 1105100997}
-  - 114: {fileID: 1105101002}
   m_Layer: 0
   m_Name: Camera ThirdPerson
   m_TagString: MainCamera
@@ -13410,7 +13409,7 @@ Camera:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105100995}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
@@ -13462,7 +13461,7 @@ AudioListener:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105100995}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1105100999
 Behaviour:
   m_ObjectHideFlags: 0
@@ -13491,21 +13490,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1105101002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1105100995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccfd925f425e2044a80a4653576554d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraList:
-  - {fileID: 1887041922}
-  - {fileID: 856681850}
-  - {fileID: 1105100996}
 --- !u!1 &1113005211
 GameObject:
   m_ObjectHideFlags: 0
@@ -16150,9 +16134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1887041922}
+  - {fileID: 856681850}
+  - {fileID: 1105100996}
 --- !u!114 &1659701562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16164,10 +16148,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b389a5ae00c6ba444a35b2b1d17c971d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  farCamera: {fileID: 1105100996}
+  cameras:
+  - {fileID: 1887041922}
+  - {fileID: 856681850}
+  - {fileID: 1105100996}
   planet: {fileID: 666317046}
   earthRadius: 10000
-  initialClippingBounds: {x: .00999999978, y: 1e+06}
+  initialClippingBounds:
+  - {x: .00999999978, y: 1e+06}
+  - {x: .00999999978, y: 1e+06}
+  - {x: .00999999978, y: 1e+06}
 --- !u!1 &1660491708
 GameObject:
   m_ObjectHideFlags: 0
@@ -18048,7 +18038,7 @@ Camera:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1887041916}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}

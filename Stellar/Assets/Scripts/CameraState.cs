@@ -15,13 +15,23 @@ public class CameraState : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.C))
 		{
-			cameraList[stateIndex].enabled = false;
-			if(stateIndex != 2)
-				stateIndex++;
-			else
-				stateIndex = 0;
+            foreach (Camera camera in cameraList)
+            {
+                camera.enabled = false;
+                camera.transform.GetComponent<AudioListener>().enabled = false;
+            }
+			
+            if (stateIndex != 2)
+            {
+                stateIndex++;
+            }
+            else
+            {
+                stateIndex = 0;
+            }
 		}
 		cameraList[stateIndex].enabled = true;
+        cameraList[stateIndex].transform.GetComponent<AudioListener>().enabled = true;
 	
 	}
 }
