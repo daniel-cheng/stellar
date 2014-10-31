@@ -8,7 +8,7 @@ public class Fly : MonoBehaviour {
 
 	public float translationalSpeed = 1000.0f;
 	public float rotationTorque = 1000.0f;
-	public float thrust = 1000.0f;
+	public float thrust = 100.0f;
 	public bool  sas = false;
 	public float sasForce = 100;
 	public Vector2 engineLifetimeBounds = new Vector2(0.0f, 0.8f);
