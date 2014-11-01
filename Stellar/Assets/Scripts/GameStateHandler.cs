@@ -7,11 +7,13 @@ public class GameStateHandler : MonoBehaviour {
 	public float timeSinceStart = 0.0f;
 	public int gatesPassed = 0;
 
-	public ArrayList gateList;
+	public GameObject[] gateList;
 
 	// Use this for initialization
 	void Start () {
-	
+		gateList = GameObject.FindGameObjectsWithTag ("Gate");
+
+
 	}
 	
 	// Update is called once per frame
