@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Altitude : MonoBehaviour {
-	public Camera farCamera;
+    public List<Camera> cameras;
 	public Transform planet;
 	public float earthRadius = 10000.0f;
-	public Vector2 initialClippingBounds = new Vector2(1.0f, 100000.0f);
+	public List<Vector2> initialClippingBounds;
 	
 	private float ratio;
 
@@ -16,8 +16,11 @@ public class Altitude : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		ratio = Mathf.Pow((farCamera.transform.position - planet.position).magnitude / earthRadius, 2.0f);
-		farCamera.nearClipPlane = initialClippingBounds.x * ratio;
-		farCamera.farClipPlane = initialClippingBounds.y * ratio;
+        for (int i = 0; i < cameras.Capacity; i++)
+        {
+            ratio = Mathf.Pow((cameras[i].transform.position - planet.position).magnitude / earthRadius, 2.0f);
+            cameras[i].nearClipPlane = initialClippingBounds[i].x * ratio;
+            cameras[i].farClipPlane = initialClippingBounds[i].y * ratio;
+        }
 	}
 }

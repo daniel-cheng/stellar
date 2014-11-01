@@ -13,9 +13,9 @@ public class FloatingOrigin : MonoBehaviour {
 		//camera.nearClipPlane = 0.0001f;
        
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    void OnPostRender()
+    {
         Vector3 offset = focus.position;
 		frameVelocity -= focus.rigidbody.velocity;
 		foreach (Transform topLevelObjects in transform.root){
