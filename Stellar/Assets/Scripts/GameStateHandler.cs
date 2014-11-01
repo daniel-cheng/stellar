@@ -16,4 +16,14 @@ public class GameStateHandler : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void OnTriggerEnter(Collider trainingRings)
+	{
+		if(trainingRings.gameObject.collider.tag == "Gate")
+		{
+			print ("Ring Hit");
+			trainingRings.gameObject.SetActive(false);
+			gatesPassed += 1;
+		}
+	}
 }
