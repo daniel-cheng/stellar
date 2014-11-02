@@ -10,10 +10,11 @@ public class FloatingOrigin : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-        Debug.Log(focus.rigidbody.velocity);
+		//camera.nearClipPlane = 0.0001f;
+       
 	}
 
-    void FixedUpdate()
+    void OnPostRender()
     {
         Vector3 offset = focus.position;
 		frameVelocity -= focus.rigidbody.velocity;
