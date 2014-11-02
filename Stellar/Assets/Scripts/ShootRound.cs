@@ -30,15 +30,14 @@ public class ShootRound : MonoBehaviour {
 		myCamera = rootObject.GetComponentInChildren<MouseOrbit>() as MouseOrbit;
 		myGunnerAim =  rootObject.GetComponent<GunnerAim>() as GunnerAim;
 		myParticleSystem.emissionRate = 10;
-		foreach (Collider firstCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
-			foreach (Collider secondCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
-				if (firstCollider != secondCollider) {
-					Physics.IgnoreCollision(firstCollider, secondCollider);
-//					Debug.Log (firstCollider.ToString() + " ignores collisions with " + secondCollider.ToString());
-				}
-			}
-			
-		}
+//        foreach (Collider firstCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
+//            foreach (Collider secondCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
+//                if (firstCollider != secondCollider) {
+////					Physics.IgnoreCollision(firstCollider, secondCollider);
+////					Debug.Log (firstCollider.ToString() + " ignores collisions with " + secondCollider.ToString());
+//                }
+//            }
+        //}
 		
 	}
 
@@ -54,21 +53,22 @@ public class ShootRound : MonoBehaviour {
 //			Debug.Log("Round shot");
 //			capacitorCharge = 0;
 //		}
-		if (Input.GetButtonUp("Fire1")) {
-			if (!roundShot) {
-				myAudio.Stop();
-			}
-			capacitorCharge = 0;
-			myParticleSystem.emissionRate = 0;
-			loaded = true;
-			roundShot = false;
-		}
+        //if (Input.GetButtonUp("Fire1")) {
+        //    if (!roundShot) {
+        //        myAudio.Stop();
+        //    }
+        //    capacitorCharge = 0;
+        //    myParticleSystem.emissionRate = 0;
+        //    loaded = true;
+        //    roundShot = false;
+        //}
 		if (Input.GetButton("Fire1")) {
-            Rigidbody clone;
-            clone = Instantiate(newObject, transform.position, transform.rotation) as Rigidbody;
-            clone.velocity = transform.TransformDirection(Vector3.forward * velocity);
-			Physics.IgnoreCollision(clone.collider, collider);
-			Destroy(clone.gameObject, 1f);
+            Transform clone;
+            clone = Instantiate(newObject, transform.position, transform.rotation) as Transform;
+            clone.transform.parent = transform.root;
+            clone.rigidbody.velocity = transform.TransformDirection(Vector3.forward * velocity);
+//			Physics.IgnoreCollision(clone.collider, collider);
+			Destroy(clone.gameObject, 1.0f);
 
 	
 		
