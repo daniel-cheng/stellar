@@ -1720,6 +1720,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 64: {fileID: 6400000}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400010}
   m_Layer: 0
   m_Name: prefabFighter
   m_TagString: Untagged
@@ -3245,7 +3246,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .00999999978
-  far clip plane: 1e+06
+  far clip plane: 1e+09
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -3277,7 +3278,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .00999999978
-  far clip plane: 1e+06
+  far clip plane: 1e+09
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -4935,10 +4936,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translationalSpeed: 0
-  rotationTorque: 1000
+  rotationTorque: 5000
   thrust: 250
   sas: 1
-  sasForce: 35
+  sasForce: 50
   engineLifetimeBounds: {x: .0500000007, y: .800000012}
   engineSizeBounds: {x: 5, y: 7.5}
   exhaustLifetimeBounds: {x: .5, y: 2}
@@ -5013,6 +5014,20 @@ MonoBehaviour:
   ySpeed: 120
   yMinLimit: -360
   yMaxLimit: 360
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadf905f6e253324cb52e600c8bf9607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 1000
+  newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
+  rootObject: {fileID: 0}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

@@ -64,7 +64,7 @@ public class ShootRound : MonoBehaviour {
         //}
 		if (Input.GetButton("Fire1")) {
             Transform clone;
-            clone = Instantiate(newObject, transform.position, transform.rotation) as Transform;
+            clone = Instantiate(newObject, transform.position + transform.forward * 100.0f, transform.rotation) as Transform;
             clone.transform.parent = transform.root;
             clone.rigidbody.velocity = transform.TransformDirection(Vector3.forward * velocity);
 //			Physics.IgnoreCollision(clone.collider, collider);
