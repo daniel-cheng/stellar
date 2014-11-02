@@ -12,7 +12,6 @@ GameObject:
   - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
   - 96: {fileID: 9600000}
-  - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: round
@@ -107,8 +106,8 @@ TrailRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Time: 25
-  m_StartWidth: 10
+  m_Time: 1
+  m_StartWidth: 5
   m_EndWidth: 2
   m_Colors:
     m_Color[0]:
@@ -128,18 +127,6 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: .100000001
   m_Autodestruct: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbecd66c32dc1e642b6f222382098978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 400000, guid: 7ce5a88a673b156479b3ef09812c659b, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

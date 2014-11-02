@@ -10,7 +10,7 @@ using System.Collections;
 public class ShootRound : MonoBehaviour {
 
 
-	public float velocity = 10;
+	public float velocity = 50;
 	public Transform newObject;
 	public Transform rootObject;
 	private Vector3 offset;
@@ -29,7 +29,7 @@ public class ShootRound : MonoBehaviour {
 		myParticleSystem = rootObject.GetComponentInChildren<ParticleSystem>() as ParticleSystem;
 		myCamera = rootObject.GetComponentInChildren<MouseOrbit>() as MouseOrbit;
 		myGunnerAim =  rootObject.GetComponent<GunnerAim>() as GunnerAim;
-		myParticleSystem.emissionRate = 0;
+		myParticleSystem.emissionRate = 10;
 		foreach (Collider firstCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
 			foreach (Collider secondCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
 				if (firstCollider != secondCollider) {
@@ -66,7 +66,10 @@ public class ShootRound : MonoBehaviour {
 		if (Input.GetButton("Fire1")) {
             Rigidbody clone;
             clone = Instantiate(newObject, transform.position, transform.rotation) as Rigidbody;
-            clone.velocity = transform.TransformDirection(Vector3.forward * 10);
+            clone.velocity = transform.TransformDirection(Vector3.forward * velocity);
+			clone.AddForce(Vector3.forward * velocity * Time.deltaTime);
+			Physics.IgnoreCollision(clone.collider, collider);
+		
 //            if ((capacitorCharge < 3000)&&(loaded == true)) { 
 //                capacitorCharge = capacitorCharge + 1000 * Time.deltaTime;
 //                myParticleSystem.emissionRate = capacitorCharge / 10;
