@@ -1491,9 +1491,10 @@ GameObject:
   - 4: {fileID: 21559135}
   - 33: {fileID: 21559137}
   - 23: {fileID: 21559136}
+  - 65: {fileID: 21559138}
   m_Layer: 0
   m_Name: ring
-  m_TagString: Untagged
+  m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1543,6 +1544,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1887523067}
   m_GameObject: {fileID: 21559134}
   m_Mesh: {fileID: 4300000, guid: 208765e2f300ed442a92148fc010db4e, type: 3}
+--- !u!65 &21559138
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 21559134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 32.5713196, y: 400, z: 400}
+  m_Center: {x: -.00048828125, y: -3.05175818e-05, z: 7.62939453e-05}
 --- !u!1 &22386674
 GameObject:
   m_ObjectHideFlags: 0
@@ -9423,8 +9436,8 @@ Transform:
   m_PrefabInternal: {fileID: 1851204259}
   m_GameObject: {fileID: 666317045}
   m_LocalRotation: {x: 0, y: 0, z: .117537394, w: .993068457}
-  m_LocalPosition: {x: 0, y: -10000, z: 0}
-  m_LocalScale: {x: 10000, y: 10000, z: 10000}
+  m_LocalPosition: {x: 11032.5195, y: -102044.203, z: 0}
+  m_LocalScale: {x: 100000, y: 100000, z: 100000}
   m_Children:
   - {fileID: 497375808}
   - {fileID: 23678503}
@@ -17867,7 +17880,7 @@ MonoBehaviour:
   - {fileID: 1754107398}
   - {fileID: 1105100996}
   planet: {fileID: 666317046}
-  earthRadius: 10000
+  earthRadius: 100000
   initialClippingBounds:
   - {x: .100000001, y: 1e+06}
   - {x: .100000001, y: 1e+06}
@@ -19797,11 +19810,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400008, guid: 21d8465dabe8b414b8ba79bdb063dd34, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 11032.5195
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 21d8465dabe8b414b8ba79bdb063dd34, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -10000
+      value: -102044.203
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 21d8465dabe8b414b8ba79bdb063dd34, type: 2}
       propertyPath: m_LocalPosition.z
@@ -19835,6 +19848,18 @@ Prefab:
       propertyPath: sun
       value: 
       objectReference: {fileID: 1639559514}
+    - target: {fileID: 400008, guid: 21d8465dabe8b414b8ba79bdb063dd34, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: 21d8465dabe8b414b8ba79bdb063dd34, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: 21d8465dabe8b414b8ba79bdb063dd34, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 100000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 21d8465dabe8b414b8ba79bdb063dd34, type: 2}
   m_RootGameObject: {fileID: 666317045}
@@ -20259,6 +20284,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7a2828bc8b35bd84f8e7bc25dc6cb44b, type: 2}
+    - target: {fileID: 100072, guid: c65f9fedd5327984e8502b55ba6264c4, type: 2}
+      propertyPath: m_TagString
+      value: Gate
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c65f9fedd5327984e8502b55ba6264c4, type: 2}
   m_RootGameObject: {fileID: 782858758}
