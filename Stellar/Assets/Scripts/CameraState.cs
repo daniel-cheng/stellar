@@ -18,18 +18,16 @@ public class CameraState : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.C))
 		{
             SetCameraState(stateIndex, false);
-            stateIndex = transitionList[stateIndex];
 			//with scenestate, camera will only need to be enabled when the camera is changing
-            SetCameraState(stateIndex, true);
+            SetCameraState(transitionList[stateIndex], true);
 		}
 	}
 
     public void SetCameraState(int cameraIndex, bool state)
     {
-        Debug.Log(cameraIndex.ToString() + " " + state.ToString());
         stateIndex = cameraIndex;
-        cameraObjectList[cameraIndex].GetComponent<AudioListener>().enabled = state;
-        foreach (Camera camera in cameraObjectList[cameraIndex].GetComponentsInChildren<Camera>())
+        cameraObjectList[stateIndex].GetComponent<AudioListener>().enabled = state;
+        foreach (Camera camera in cameraObjectList[stateIndex].GetComponentsInChildren<Camera>())
         {
             camera.enabled = state;
         }
