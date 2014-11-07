@@ -17,7 +17,7 @@ public class SceneState : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		cameraState.cameraList [3].enabled = true;
+        cameraState.SetCameraState(3, true);
 	}
 	
 	// Update is called once per frame
@@ -35,10 +35,8 @@ public class SceneState : MonoBehaviour {
 		gameObject.renderer.enabled = false;
 
 		//changing camera state to race module
-		cameraState.cameraList [3].enabled = false;
-		cameraState.cameraList [3].GetComponent<AudioListener> ().enabled = false;
-		cameraState.cameraList [0].enabled = true;
-		cameraState.cameraList [0].transform.GetComponent<AudioListener>().enabled = true;
+        cameraState.SetCameraState(3, false);
+        cameraState.SetCameraState(0, true);
 
 		//will need to adjust when trade module is completed
 		debug.text = "Beginning Game Testing!";
