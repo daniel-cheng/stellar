@@ -18,8 +18,9 @@ public class GameStateHandler : MonoBehaviour {
 	void Start () {
 		//gateList = GameObject.FindGameObjectsWithTag ("Gate");
 		gatePassedList = new List<GameObject> ();
-		debug.text = "Beginning Game Testing!";
-		outputGatesPassed.text = "Gates Passed: " + gatesPassed;
+	// 	commented these outs as they would appear in the main menu
+	//	debug.text = "Beginning Game Testing!";
+	//	outputGatesPassed.text = "Gates Passed: " + gatesPassed;
 	}
 	
 	// Update is called once per frame
