@@ -18,6 +18,8 @@ public class Init : MonoBehaviour
 	public float km = 0.0010f; 			// Mie scattering constant
 	public float g = -0.990f;				// The Mie phase asymmetry factor, must be between 0.999 to -0.999
 	
+    public float atmosphereHeight = 6530275.0f; //earth radius * 1.025
+
 	//Dont change these
 	private const float outerScaleFactor = 1.025f; // Difference between inner and ounter radius. Must be 2.5%
 	private float innerRadius;		 	// Radius of the ground sphere
@@ -42,7 +44,7 @@ public class Init : MonoBehaviour
 	
 	void Update () 
 	{
-		if ((Camera.main.transform.position - ground.position).magnitude > 10250.0f){
+		if ((Camera.main.transform.position - ground.position).magnitude > atmosphereHeight){
 			ground.renderer.material = groundFromSpaceMaterial;
 			atmosphere.renderer.material = skyFromSpaceMaterial;
 			InitMaterial(groundFromSpaceMaterial);

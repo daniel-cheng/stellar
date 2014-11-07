@@ -9750,6 +9750,7 @@ MonoBehaviour:
   kr: .00249999994
   km: .00100000005
   g: -.99000001
+  atmosphereHeight: 6530275
 --- !u!114 &666317048
 MonoBehaviour:
   m_ObjectHideFlags: 0
