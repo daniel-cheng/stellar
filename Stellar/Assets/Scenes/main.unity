@@ -9700,6 +9700,7 @@ GameObject:
   - 4: {fileID: 666317046}
   - 114: {fileID: 666317047}
   - 114: {fileID: 666317048}
+  - 114: {fileID: 666317049}
   m_Layer: 9
   m_Name: earth
   m_TagString: Untagged
@@ -9757,11 +9758,24 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 666317045}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdbd8670a072b442a068c3d2f2d80fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 1
+--- !u!114 &666317049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 666317045}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efdbd8670a072b442a068c3d2f2d80fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 3
 --- !u!1 &668110700
 GameObject:
   m_ObjectHideFlags: 0
@@ -16339,7 +16353,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
   m_PrefabInternal: {fileID: 2004716074}
   m_GameObject: {fileID: 1346886066}
-  m_LocalRotation: {x: 0, y: 0, z: -.0285760779, w: .999591708}
+  m_LocalRotation: {x: 0, y: 0, z: -.0285760742, w: .999591589}
   m_LocalPosition: {x: .000148542793, y: .00511565385, z: -83.5810623}
   m_LocalScale: {x: .000400000048, y: .00039999999, z: .000400000048}
   m_Children:
