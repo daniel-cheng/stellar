@@ -6,6 +6,7 @@ using System.Collections;
 public class FloatingOrigin : MonoBehaviour {
 	public Vector3 origin = new Vector3(0, 0, 0);
 	public Vector3 frameVelocity = new Vector3(0, 0, 0);
+    public Vector3 frameAcceleration = new Vector3(0, 0, 0);
 	public Transform focus;
 	
 	// Use this for initialization
@@ -16,6 +17,7 @@ public class FloatingOrigin : MonoBehaviour {
     void FixedUpdate()
     {
         Vector3 offset = focus.position;
+        frameAcceleration = focus.rigidbody.velocity;
 		frameVelocity -= focus.rigidbody.velocity;
 		foreach (Transform topLevelObjects in transform.root){
 			topLevelObjects.position -= offset;

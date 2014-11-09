@@ -20,6 +20,7 @@ public class Fly : MonoBehaviour {
 	public float earthRadius = 10000.0f;
 	public Transform earth;
 	public float seaLevelDensity = 1.0f;
+    public float throttleSpeed = 50.0f;
 	
 	private ArrayList engineList;
 	private ArrayList exhaustList;
@@ -68,7 +69,7 @@ public class Fly : MonoBehaviour {
 		float linearX = Input.GetAxis ("LinearX") * translationalSpeed * Time.deltaTime;
 		float linearY = Input.GetAxis ("LinearY") * translationalSpeed * Time.deltaTime;
 		float linearZ = Input.GetAxis ("LinearZ") * translationalSpeed * Time.deltaTime;
-		throttle = throttle + Input.GetAxis ("Throttle") * Time.deltaTime * 3.5f;
+        throttle = throttle + Input.GetAxis("Throttle") * Time.deltaTime * throttleSpeed;
 		throttle = Mathf.Clamp(throttle, 0.0f, 10.0f);
 		
 		Vector3 relativeForward = transform.TransformDirection (Vector3.forward);
@@ -78,10 +79,11 @@ public class Fly : MonoBehaviour {
 		rigidbody.AddTorque(transform.rotation * angularTorqueVector);
 		rigidbody.AddForce(linearX, linearY, linearZ ); //Space.World = Translate in world space - local space is default
 
+        transform.position += new Vector3(linearX, linearY, linearZ);
+
 		earthDistance = (transform.position - earth.position).magnitude;
 		earthAltitude = earthDistance - earthRadius;
 		atmosphericDensity = Mathf.Exp(-earthAltitude / scaleHeight);
-		rigidbody.drag = seaLevelDensity * atmosphericDensity;
 
 		if (sas == true && angularX == 0.0f && angularY == 0.0f && angularZ == 0.0f) {
 			rigidbody.AddTorque(-sasForce*rigidbody.angularVelocity.x, -sasForce*rigidbody.angularVelocity.y, -sasForce*rigidbody.angularVelocity.z);
