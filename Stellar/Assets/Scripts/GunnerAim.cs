@@ -5,11 +5,12 @@ public class GunnerAim : MonoBehaviour {
 	
 	public bool isEnabled = true;
 	public Transform baseObject;
+	public Transform Guns; 
 	
-	public float xSpeed = 600.0f;
-    public float ySpeed = 120.0f;
-    public float yMinLimit = -90;
-    public float yMaxLimit = 90;
+	public float xSpeed = 250.0f;
+    public float ySpeed = 250.0f;
+
+
 
 	private Vector3 oldMousePosition;
 	private Vector3 deltaMousePosition;
@@ -17,9 +18,13 @@ public class GunnerAim : MonoBehaviour {
 	private Transform topArmsObject;
 	private Transform casingObject;
 	private Transform barrelObject;
-
+	
     private float x = 0.0f;
     private float y = 0.0f;
+	private float xMinLimit = -90;
+	private float xMaxLimit = 90;
+	private float yMinLimit = -90;
+	private float yMaxLimit = 90;
 	// Use this for initialization
 	void Start () {
 		oldMousePosition = Input.mousePosition;
@@ -34,12 +39,16 @@ public class GunnerAim : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isEnabled) {
-			x += Input.GetAxis("Mouse X") * xSpeed * Time.deltaTime;
-			y -= Input.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
+			x = Input.GetAxis("Mouse X") * xSpeed * Time.deltaTime;
+			y = Input.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
+  
 					
 			y = ClampAngle(y, yMinLimit, yMaxLimit);
-			baseObject.rotation = Quaternion.Euler(0, x, 0);
-			bottomArmsObject.rotation = Quaternion.Euler(y, x, 0);
+			x = ClampAngle(x, xMinLimit, xMaxLimit); 
+			baseObject.Rotate(Vector3.up * Time.deltaTime, x);
+			Guns.Rotate(Vector3.right * Time.deltaTime, y);
+//			bottomArmsObject.rotation = Quaternion.Euler(y, x, 0);
+
 
 			//baseObject.rigidbody.AddRelativeTorque(
 //			baseObject.rigidbody.AddRelativeTorque(new Vector3(0, x, 0), ForceMode.VelocityChange);

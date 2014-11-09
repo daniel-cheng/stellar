@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class MouseOrbit : MonoBehaviour {
-	public Transform target;
+	public Transform target; 
 	public float distance = 10.0f;
 	public bool isEnabled = true;
 	public float xSpeed = 250.0f;
