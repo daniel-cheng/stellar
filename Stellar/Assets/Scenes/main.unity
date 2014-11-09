@@ -1419,6 +1419,7 @@ MonoBehaviour:
   earthRadius: 10000
   earth: {fileID: 666317046}
   seaLevelDensity: 1
+  throttleSpeed: 50
 --- !u!114 &11419523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18894,6 +18895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
   frameVelocity: {x: 0, y: 0, z: 0}
+  frameAcceleration: {x: 0, y: 0, z: 0}
   focus: {fileID: 11419519}
 --- !u!114 &1659701561
 MonoBehaviour:
