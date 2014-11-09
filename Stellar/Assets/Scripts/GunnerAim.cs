@@ -46,7 +46,7 @@ public class GunnerAim : MonoBehaviour {
 			y = ClampAngle(y, yMinLimit, yMaxLimit);
 			x = ClampAngle(x, xMinLimit, xMaxLimit); 
 			baseObject.Rotate(Vector3.up * Time.deltaTime, x);
-			Guns.Rotate(Vector3.right * Time.deltaTime, y);
+			Guns.Rotate(Vector3.left * Time.deltaTime, y);
 //			bottomArmsObject.rotation = Quaternion.Euler(y, x, 0);
 
 
