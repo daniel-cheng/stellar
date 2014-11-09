@@ -109,9 +109,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
-  m_LocalRotation: {x: 0, y: 0, z: -.0142894974, w: .999897957}
-  m_LocalPosition: {x: .000142821096, y: .00501546729, z: -81.942215}
-  m_LocalScale: {x: .0200000014, y: .0199999996, z: .0200000014}
+  m_LocalRotation: {x: 0, y: 0, z: -.0285760779, w: .999591708}
+  m_LocalPosition: {x: .000148542793, y: .00511565385, z: -83.5810623}
+  m_LocalScale: {x: .000400000048, y: .00039999999, z: .000400000048}
   m_Children:
   - {fileID: 400004}
   - {fileID: 400002}
@@ -124,7 +124,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 3
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
@@ -135,7 +135,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .00999999978
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -156,7 +156,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 3
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
@@ -166,8 +166,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1000
-  far clip plane: 1e+08
+  near clip plane: 100
+  far clip plane: 1e+07
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -188,7 +188,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
@@ -198,8 +198,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1e+08
-  far clip plane: 9999999830000
+  near clip plane: 1e+07
+  far clip plane: 999999996000
   field of view: 50
   orthographic: 0
   orthographic size: 5
