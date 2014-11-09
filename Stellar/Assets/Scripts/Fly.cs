@@ -79,6 +79,8 @@ public class Fly : MonoBehaviour {
 		rigidbody.AddTorque(transform.rotation * angularTorqueVector);
 		rigidbody.AddForce(linearX, linearY, linearZ ); //Space.World = Translate in world space - local space is default
 
+        transform.position += new Vector3(linearX, linearY, linearZ);
+
 		earthDistance = (transform.position - earth.position).magnitude;
 		earthAltitude = earthDistance - earthRadius;
 		atmosphericDensity = Mathf.Exp(-earthAltitude / scaleHeight);
