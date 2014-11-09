@@ -1385,7 +1385,7 @@ Rigidbody:
   m_GameObject: {fileID: 11419518}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: .5
+  m_Drag: 1
   m_AngularDrag: .25
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -1418,6 +1418,7 @@ MonoBehaviour:
   earthRadius: 10000
   earth: {fileID: 666317046}
   seaLevelDensity: 1
+  throttleSpeed: 50
 --- !u!114 &11419523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3762,7 +3763,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
       propertyPath: earth
@@ -3811,6 +3812,14 @@ Prefab:
     - target: {fileID: 11400006, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
       propertyPath: distance
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: throttleSpeed
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
@@ -16353,7 +16362,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
   m_PrefabInternal: {fileID: 2004716074}
   m_GameObject: {fileID: 1346886066}
-  m_LocalRotation: {x: 0, y: 0, z: -.0285760742, w: .999591589}
+  m_LocalRotation: {x: 0, y: 0, z: -.0285760779, w: .999591708}
   m_LocalPosition: {x: .000148542793, y: .00511565385, z: -83.5810623}
   m_LocalScale: {x: .000400000048, y: .00039999999, z: .000400000048}
   m_Children:
@@ -18969,6 +18978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0, z: 0}
   frameVelocity: {x: 0, y: 0, z: 0}
+  frameAcceleration: {x: 0, y: 0, z: 0}
   focus: {fileID: 11419519}
 --- !u!114 &1659701561
 MonoBehaviour:
@@ -21184,7 +21194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400074, guid: c65f9fedd5327984e8502b55ba6264c4, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: c65f9fedd5327984e8502b55ba6264c4, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -22613,7 +22623,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: 21d8465dabe8b414b8ba79bdb063dd34, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: 21d8465dabe8b414b8ba79bdb063dd34, type: 2}
       propertyPath: m_Name
