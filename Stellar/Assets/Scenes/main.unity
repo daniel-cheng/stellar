@@ -1406,10 +1406,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translationalSpeed: 0
-  rotationTorque: 5000
+  rotationTorque: 10000
   thrust: 250
   sas: 1
-  sasForce: 50
+  sasForce: 100
   engineLifetimeBounds: {x: .0500000007, y: .800000012}
   engineSizeBounds: {x: 5, y: 7.5}
   exhaustLifetimeBounds: {x: .5, y: 2}
@@ -1427,13 +1427,13 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 11419518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21e5926c9a8814544b76cb63f84aaa74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 666317046}
-  gravitationalParameter: 398600384
+  gravitationalParameter: 3.98600413e+14
 --- !u!95 &11419524
 Animator:
   serializedVersion: 3
