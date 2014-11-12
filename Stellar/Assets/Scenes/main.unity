@@ -12739,7 +12739,7 @@ Prefab:
     - target: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 11419519}
+      objectReference: {fileID: 371260592}
     - target: {fileID: 100006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
       propertyPath: m_Name
       value: Camera Main Menu
@@ -12758,7 +12758,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8100000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
       propertyPath: m_Enabled
@@ -12766,7 +12766,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
       propertyPath: isEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2000004, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
       propertyPath: m_Enabled
@@ -20486,11 +20486,11 @@ AudioSource:
   m_GameObject: {fileID: 1654315338}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 968ca3be62ef9f74cb9f3203dc4d9089, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bdae65ae99b001645adc9b6803447256, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -20543,14 +20543,14 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 915174900}
   m_GameObject: {fileID: 1654315338}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ac391667e986a84fb17589c02c8992c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 11419519}
+  target: {fileID: 371260592}
   distance: 100
-  isEnabled: 0
+  isEnabled: 1
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -360
