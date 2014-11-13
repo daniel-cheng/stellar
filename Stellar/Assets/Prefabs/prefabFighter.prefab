@@ -1820,6 +1820,7 @@ GameObject:
   - 4: {fileID: 400222}
   - 81: {fileID: 8100000}
   - 114: {fileID: 11400006}
+  - 114: {fileID: 11400012}
   m_Layer: 0
   m_Name: Camera Gunner
   m_TagString: MainCamera
@@ -2172,7 +2173,7 @@ Transform:
   - {fileID: 400028}
   - {fileID: 400026}
   m_Father: {fileID: 400198}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &400046
 Transform:
   m_ObjectHideFlags: 1
@@ -2184,7 +2185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400198}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &400048
 Transform:
   m_ObjectHideFlags: 1
@@ -2201,8 +2202,9 @@ Transform:
   - {fileID: 400036}
   - {fileID: 400034}
   - {fileID: 400032}
+  - {fileID: 400222}
   m_Father: {fileID: 400198}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &400050
 Transform:
   m_ObjectHideFlags: 1
@@ -3137,7 +3139,6 @@ Transform:
   m_LocalPosition: {x: 4.34462102e-08, y: 1.5475986, z: -.678710938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400222}
   - {fileID: 400048}
   - {fileID: 400046}
   - {fileID: 400044}
@@ -3251,7 +3252,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100210}
   m_LocalRotation: {x: 0, y: 0, z: -.0142894974, w: .999897957}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1000, y: -100, z: -3000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400008}
@@ -3341,15 +3342,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100222}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: .379913211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400220}
   - {fileID: 400218}
   - {fileID: 400216}
-  m_Father: {fileID: 400198}
-  m_RootOrder: 0
+  m_Father: {fileID: 400048}
+  m_RootOrder: 6
 --- !u!4 &400224
 Transform:
   m_ObjectHideFlags: 1
@@ -3514,7 +3515,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .00999999978
-  far clip plane: 1000
+  far clip plane: 1100
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -3546,7 +3547,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 1000
-  far clip plane: 1e+08
+  far clip plane: 1.1e+08
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -4465,7 +4466,7 @@ Rigidbody:
   m_GameObject: {fileID: 100210}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: .5
   m_AngularDrag: .25
   m_UseGravity: 0
   m_IsKinematic: 0
@@ -5235,11 +5236,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f29fd6a6937fe4a8dcea03fa42d7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  translationalSpeed: 500
-  rotationTorque: 5000
+  translationalSpeed: 0
+  rotationTorque: 10000
   thrust: 250
   sas: 1
-  sasForce: 50
+  sasForce: 100
   engineLifetimeBounds: {x: .0500000007, y: .800000012}
   engineSizeBounds: {x: 5, y: 7.5}
   exhaustLifetimeBounds: {x: .5, y: 2}
@@ -5256,7 +5257,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100210}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21e5926c9a8814544b76cb63f84aaa74, type: 3}
   m_Name: 
@@ -5285,14 +5286,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100222}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ac391667e986a84fb17589c02c8992c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 400046}
   distance: 0
-  isEnabled: 1
+  isEnabled: 0
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -360
@@ -5310,7 +5311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 400206}
   distance: 0
-  isEnabled: 1
+  isEnabled: 0
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -360
@@ -5329,6 +5330,22 @@ MonoBehaviour:
   velocity: 1000
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 0}
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0460d3f8806ed12498025f9faf941d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnabled: 0
+  baseObject: {fileID: 400198}
+  guns: {fileID: 400048}
+  xSpeed: 250
+  ySpeed: 250
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
