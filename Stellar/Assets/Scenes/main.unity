@@ -3413,6 +3413,7 @@ GameObject:
   - 4: {fileID: 84703984}
   - 81: {fileID: 84703986}
   - 114: {fileID: 84703985}
+  - 114: {fileID: 84703987}
   m_Layer: 0
   m_Name: Camera Gunner
   m_TagString: MainCamera
@@ -3449,7 +3450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1242163020}
   distance: 0
-  isEnabled: 1
+  isEnabled: 0
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -360
@@ -3462,6 +3463,22 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 84703983}
   m_Enabled: 0
+--- !u!114 &84703987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 84703983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0460d3f8806ed12498025f9faf941d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnabled: 0
+  baseObject: {fileID: 1425009896}
+  guns: {fileID: 2197844}
+  xSpeed: 250
+  ySpeed: 250
 --- !u!1 &85675140
 GameObject:
   m_ObjectHideFlags: 0
@@ -18711,7 +18728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 11419519}
   distance: 100
-  isEnabled: 1
+  isEnabled: 0
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -360
@@ -19265,7 +19282,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1425009896}
-  - 114: {fileID: 1425009897}
   m_Layer: 0
   m_Name: turret
   m_TagString: Untagged
@@ -19288,22 +19304,6 @@ Transform:
   - {fileID: 1695674905}
   m_Father: {fileID: 11419519}
   m_RootOrder: 17
---- !u!114 &1425009897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1425009895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0460d3f8806ed12498025f9faf941d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEnabled: 1
-  baseObject: {fileID: 1425009896}
-  Guns: {fileID: 2197844}
-  xSpeed: 250
-  ySpeed: 250
 --- !u!1 &1434371873
 GameObject:
   m_ObjectHideFlags: 0
@@ -19975,6 +19975,14 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 11419519}
+    - target: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: isEnabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
   m_RootGameObject: {fileID: 1346886066}
@@ -22950,7 +22958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1402108268}
   distance: 0
-  isEnabled: 1
+  isEnabled: 0
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -360

@@ -27,6 +27,11 @@ public class CameraState : MonoBehaviour {
     {
         stateIndex = cameraIndex;
         cameraObjectList[stateIndex].GetComponent<AudioListener>().enabled = state;
+        cameraObjectList[stateIndex].GetComponent<MouseOrbit>().isEnabled = state;
+        if (stateIndex == 1)
+        {
+            cameraObjectList[stateIndex].GetComponent<GunnerAim>().isEnabled = state;
+        }
         foreach (Camera camera in cameraObjectList[stateIndex].GetComponentsInChildren<Camera>())
         {
             camera.enabled = state;
