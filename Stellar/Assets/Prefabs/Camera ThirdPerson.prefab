@@ -135,7 +135,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .00999999978
-  far clip plane: 100
+  far clip plane: 1100
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -166,8 +166,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 100
-  far clip plane: 1e+07
+  near clip plane: 1000
+  far clip plane: 1.1e+08
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -198,8 +198,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1e+07
-  far clip plane: 999999996000
+  near clip plane: 1e+08
+  far clip plane: 9999999830000
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   distance: 100
-  isEnabled: 1
+  isEnabled: 0
   xSpeed: 250
   ySpeed: 120
   yMinLimit: -360

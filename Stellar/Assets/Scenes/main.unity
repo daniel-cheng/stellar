@@ -6616,7 +6616,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1777.70032
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 3750230fb68b082469fb33e2ed55fd8d, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 3750230fb68b082469fb33e2ed55fd8d, type: 3}
   m_RootGameObject: {fileID: 1988369679}
   m_IsPrefabParent: 0
@@ -11777,8 +11778,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1e+07
-  far clip plane: 999999996000
+  near clip plane: 1e+08
+  far clip plane: 9999999830000
   field of view: 40
   orthographic: 0
   orthographic size: 5
@@ -13001,8 +13002,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 100
-  far clip plane: 1e+07
+  near clip plane: 1000
+  far clip plane: 1.1e+08
   field of view: 40
   orthographic: 0
   orthographic size: 5
@@ -14739,7 +14740,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 512.117981
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 6913c148ae516234bb3eacb11b9e9375, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 6913c148ae516234bb3eacb11b9e9375, type: 3}
   m_RootGameObject: {fileID: 1532065704}
   m_IsPrefabParent: 0
@@ -18224,6 +18226,14 @@ Prefab:
       propertyPath: debug
       value: 
       objectReference: {fileID: 508774084}
+    - target: {fileID: 2000000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: far clip plane
+      value: 1100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000002, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: far clip plane
+      value: 1.1e+08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
   m_RootGameObject: {fileID: 11419518}
@@ -18439,7 +18449,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .00999999978
-  far clip plane: 1000
+  far clip plane: 1100
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -18747,7 +18757,7 @@ Camera:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1346886067}
@@ -18764,7 +18774,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1346886066}
   m_LocalRotation: {x: 0, y: 0, z: -.0285760779, w: .999591708}
   m_LocalPosition: {x: .000148542793, y: .00511565385, z: -83.5810623}
@@ -18780,7 +18790,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f,
     type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1346886066}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -18799,7 +18809,7 @@ AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 8100000, guid: bd416ba47601f27409ffde063fbd189f,
     type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1346886066}
   m_Enabled: 0
 --- !u!1 &1352522121
@@ -19628,7 +19638,7 @@ GameObject:
   - 4: {fileID: 1497420793}
   - 33: {fileID: 1497420792}
   - 23: {fileID: 1497420791}
-  - 95: {fileID: 1497420790}
+  - 64: {fileID: 1497420790}
   m_Layer: 0
   m_Name: Asteroid 1
   m_TagString: Untagged
@@ -19636,22 +19646,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1497420790
-Animator:
-  serializedVersion: 3
+--- !u!64 &1497420790
+MeshCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9500000, guid: ff4a3ed1d4750414499a324e0abfb30a,
-    type: 3}
-  m_PrefabInternal: {fileID: 2067864002}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1497420789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: ff4a3ed1d4750414499a324e0abfb30a, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: ff4a3ed1d4750414499a324e0abfb30a, type: 3}
 --- !u!23 &1497420791
 Renderer:
   m_ObjectHideFlags: 0
@@ -19993,66 +20000,6 @@ Prefab:
   m_RootGameObject: {fileID: 1024825466}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1001 &1517413949
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: .000148542793
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .00511565385
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -83.5810623
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -.0285760779
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .999591708
-      objectReference: {fileID: 0}
-    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 11419519}
-    - target: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: isEnabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2000000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-      propertyPath: far clip plane
-      value: 110
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-  m_RootGameObject: {fileID: 1346886066}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1532065704
 GameObject:
   m_ObjectHideFlags: 0
@@ -20063,7 +20010,7 @@ GameObject:
   - 4: {fileID: 1532065708}
   - 33: {fileID: 1532065707}
   - 23: {fileID: 1532065706}
-  - 95: {fileID: 1532065705}
+  - 64: {fileID: 1532065705}
   m_Layer: 0
   m_Name: Asteroid 3
   m_TagString: Untagged
@@ -20071,22 +20018,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1532065705
-Animator:
-  serializedVersion: 3
+--- !u!64 &1532065705
+MeshCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9500000, guid: 6913c148ae516234bb3eacb11b9e9375,
-    type: 3}
-  m_PrefabInternal: {fileID: 1009924436}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1532065704}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 6913c148ae516234bb3eacb11b9e9375, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 6913c148ae516234bb3eacb11b9e9375, type: 3}
 --- !u!23 &1532065706
 Renderer:
   m_ObjectHideFlags: 0
@@ -20357,7 +20301,7 @@ Camera:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100002, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1567715361}
@@ -20373,7 +20317,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400002, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1567715360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -20386,7 +20330,7 @@ Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 2000002, guid: bd416ba47601f27409ffde063fbd189f,
     type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1567715360}
   m_Enabled: 0
   serializedVersion: 2
@@ -20398,8 +20342,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 100
-  far clip plane: 1e+07
+  near clip plane: 1000
+  far clip plane: 1.1e+08
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -20565,7 +20509,7 @@ SkinnedMeshRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1620771992}
@@ -20583,7 +20527,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1620771991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -20596,7 +20540,7 @@ Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 12400000, guid: bd416ba47601f27409ffde063fbd189f,
     type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1620771991}
   m_Enabled: 1
 --- !u!92 &1620771994
@@ -20604,7 +20548,7 @@ Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 9200000, guid: bd416ba47601f27409ffde063fbd189f,
     type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1620771991}
   m_Enabled: 1
 --- !u!20 &1620771995
@@ -20612,7 +20556,7 @@ Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 2000000, guid: bd416ba47601f27409ffde063fbd189f,
     type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1620771991}
   m_Enabled: 0
   serializedVersion: 2
@@ -20625,7 +20569,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .00999999978
-  far clip plane: 110
+  far clip plane: 1100
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -22515,7 +22459,7 @@ SkinnedMeshRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100004, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1693345022}
@@ -22532,7 +22476,7 @@ Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 2000004, guid: bd416ba47601f27409ffde063fbd189f,
     type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1693345020}
   m_Enabled: 0
   serializedVersion: 2
@@ -22544,8 +22488,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 1e+07
-  far clip plane: 999999996000
+  near clip plane: 1e+08
+  far clip plane: 9999999830000
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -22564,7 +22508,7 @@ Camera:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400004, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
-  m_PrefabInternal: {fileID: 1517413949}
+  m_PrefabInternal: {fileID: 1904788292}
   m_GameObject: {fileID: 1693345020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -24995,6 +24939,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1209413559}
   m_GameObject: {fileID: 1903830026}
   m_Mesh: {fileID: 4300074, guid: 9b612204781fa23499b86de975f1ebcd, type: 3}
+--- !u!1001 &1904788292
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .000148542793
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .00511565385
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -83.5810623
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -.0285760779
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .999591708
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 11419519}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: bd416ba47601f27409ffde063fbd189f, type: 2}
+  m_RootGameObject: {fileID: 1346886066}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1905562975
 GameObject:
   m_ObjectHideFlags: 0
@@ -26326,7 +26318,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 1000
-  far clip plane: 1e+08
+  far clip plane: 1.1e+08
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -26574,7 +26566,7 @@ GameObject:
   - 4: {fileID: 1988369683}
   - 33: {fileID: 1988369682}
   - 23: {fileID: 1988369681}
-  - 95: {fileID: 1988369680}
+  - 64: {fileID: 1988369680}
   m_Layer: 0
   m_Name: Asteroid 2
   m_TagString: Untagged
@@ -26582,22 +26574,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &1988369680
-Animator:
-  serializedVersion: 3
+--- !u!64 &1988369680
+MeshCollider:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9500000, guid: 3750230fb68b082469fb33e2ed55fd8d,
-    type: 3}
-  m_PrefabInternal: {fileID: 309830529}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1988369679}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3750230fb68b082469fb33e2ed55fd8d, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 3750230fb68b082469fb33e2ed55fd8d, type: 3}
 --- !u!23 &1988369681
 Renderer:
   m_ObjectHideFlags: 0
@@ -28130,7 +28119,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: .00999999978
-  far clip plane: 100
+  far clip plane: 1100
   field of view: 40
   orthographic: 0
   orthographic size: 5
@@ -28599,7 +28588,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 444.425079
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: ff4a3ed1d4750414499a324e0abfb30a, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ff4a3ed1d4750414499a324e0abfb30a, type: 3}
   m_RootGameObject: {fileID: 1497420789}
   m_IsPrefabParent: 0
