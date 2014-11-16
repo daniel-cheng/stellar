@@ -30,21 +30,11 @@ public class MouseOrbit : MonoBehaviour {
 				if (Input.GetMouseButton(0)){
 					x += Input.GetAxis("Mouse X") * xSpeed * Time.deltaTime;
 					y -= Input.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
-					y = ClampAngle(y, yMinLimit, yMaxLimit);
+					y = Mathf.Clamp(y % 360.0f, yMinLimit, yMaxLimit);
 				}
 				zoom -= Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * 50.0f * zoom;
 				transform.localRotation = Quaternion.Euler(y, x, 0);
 				transform.position = (Quaternion.Euler(y, x, 0)) * new Vector3(0.0f, 0.0f, -distance * zoom) + target.position;
 	        }
-	}
-
-	static float ClampAngle(float angle, float min, float max) {
-	    if (angle < -360) {
-	        angle += 360;
-	    }
-	    if (angle > 360) {
-	        angle -= 360;
-	    }
-	    return Mathf.Clamp(angle, min, max);
 	}
 }

@@ -15,7 +15,7 @@ public class CameraState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.V))
 		{
             SetCameraState(stateIndex, false);
 			//with scenestate, camera will only need to be enabled when the camera is changing
