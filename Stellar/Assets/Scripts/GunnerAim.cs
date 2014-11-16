@@ -15,10 +15,10 @@ public class GunnerAim : MonoBehaviour {
 
     private float x = 0.0f;
     private float y = 0.0f;
-	private float xMinLimit = -90;
-	private float xMaxLimit = 90;
-	private float yMinLimit = -90;
-	private float yMaxLimit = 90;
+    public float xMinLimit = -0;
+    public float xMaxLimit = 0;
+    public float yMinLimit = -0;
+    public float yMaxLimit = 0;
 	// Use this for initialization
 	void Start () {
 		oldMousePosition = Input.mousePosition;

@@ -11,7 +11,7 @@ public class FloatingOrigin : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-        Debug.Log(focus.rigidbody.velocity);
+        //Debug.Log(focus.rigidbody.velocity);
 	}
 
     void FixedUpdate()
@@ -22,7 +22,7 @@ public class FloatingOrigin : MonoBehaviour {
 		foreach (Transform topLevelObjects in transform.root){
 			topLevelObjects.position -= offset;
 		}
-        Debug.Log(focus.rigidbody.velocity);
+        //Debug.Log(focus.rigidbody.velocity);
 		origin += offset;
 	}
 }

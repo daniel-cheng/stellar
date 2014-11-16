@@ -22,8 +22,8 @@ public class MouseAim : MonoBehaviour {
 	{
 		if (isEnabled) 
 		{
-			Debug.Log("nput.mousePosition.x: " + Input.mousePosition.x);
-			Debug.Log("nput.mousePosition.y: " + Input.mousePosition.y);
+			//Debug.Log("nput.mousePosition.x: " + Input.mousePosition.x);
+			//Debug.Log("nput.mousePosition.y: " + Input.mousePosition.y);
 
 			deltaX = Input.mousePosition.x - Screen.width/2;
 			deltaY = Input.mousePosition.y - Screen.height/2;
@@ -34,8 +34,10 @@ public class MouseAim : MonoBehaviour {
 			angleX = Mathf.Rad2Deg * Mathf.Asin (deltaX);
 			angleY = Mathf.Rad2Deg * Mathf.Asin (deltaY);
 
-
-			transform.eulerAngles = new Vector3(-angleY, angleX, 0.0f);
+            if (!float.IsNaN(angleX) && !float.IsNaN(angleY))
+            {
+                transform.eulerAngles = new Vector3(-angleY, angleX, 0.0f);
+            }
 		}
 	}
 }

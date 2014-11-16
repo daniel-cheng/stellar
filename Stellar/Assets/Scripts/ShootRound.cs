@@ -29,7 +29,7 @@ public class ShootRound : MonoBehaviour {
 		myParticleSystem = rootObject.GetComponentInChildren<ParticleSystem>() as ParticleSystem;
 		myCamera = rootObject.GetComponentInChildren<MouseOrbit>() as MouseOrbit;
 		myGunnerAim =  rootObject.GetComponent<GunnerAim>() as GunnerAim;
-		myParticleSystem.emissionRate = 10;
+		//myParticleSystem.emissionRate = 10;
 //        foreach (Collider firstCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
 //            foreach (Collider secondCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
 //                if (firstCollider != secondCollider) {
