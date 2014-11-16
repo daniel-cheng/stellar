@@ -6,7 +6,7 @@ public class CameraState : MonoBehaviour {
 	
 	//use to store all camera states
     public List<GameObject> cameraObjectList;
-    public List<int> transitionList = new List<int>() {1, 2, 0, 3};
+    public List<int> transitionList = new List<int>() {1, 2, 0, 3, 4};
     private int stateIndex = 3;
 
 	// Use this for initialization
@@ -31,6 +31,10 @@ public class CameraState : MonoBehaviour {
         if (stateIndex == 1)
         {
             cameraObjectList[stateIndex].GetComponent<GunnerAim>().isEnabled = state;
+        }
+        else if (stateIndex == 0)
+        {
+            cameraObjectList[stateIndex].GetComponent<MouseAim>().isEnabled = state;
         }
         foreach (Camera camera in cameraObjectList[stateIndex].GetComponentsInChildren<Camera>())
         {
