@@ -31,8 +31,8 @@ public class MouseAim : MonoBehaviour {
 			deltaX /= (Screen.width / 2);
 			deltaY /= (Screen.height / 2);
 
-			angleX = Mathf.Rad2Deg * Mathf.Asin (deltaX);
-			angleY = Mathf.Rad2Deg * Mathf.Asin (deltaY);
+			angleX = Mathf.Rad2Deg * Mathf.Asin (deltaX) * 4.0f;
+			angleY = Mathf.Rad2Deg * Mathf.Asin (deltaY)  * 4.0f;
 
             if (!float.IsNaN(angleX) && !float.IsNaN(angleY))
             {

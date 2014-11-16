@@ -39,12 +39,8 @@ public class GunnerAim : MonoBehaviour
             x += Input.GetAxis("Mouse X") * xSpeed * Time.deltaTime;
             y += Input.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
 
-            Debug.Log(y.ToString());
-
             x = Mathf.Clamp(x % 360.0f, xMinLimit, xMaxLimit);
             y = Mathf.Clamp(y % 360.0f, 0.0f, 90.0f);
-
-            Debug.Log(y.ToString() + " " + yMinLimit.ToString() + " " + yMaxLimit.ToString());
 
             //use mouse X to rotate around Y axis, mouse Y to rotate around X axis.
             baseObject.localEulerAngles = new Vector3(0.0f, x, 0.0f);

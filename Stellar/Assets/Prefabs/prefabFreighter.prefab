@@ -638,7 +638,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400074}
   m_Layer: 0
-  m_Name: prefabFreighter
+  m_Name: PrefabFreighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

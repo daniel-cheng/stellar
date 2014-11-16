@@ -1724,7 +1724,7 @@ GameObject:
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400020}
   m_Layer: 0
-  m_Name: prefabFighter
+  m_Name: PrefabFighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
