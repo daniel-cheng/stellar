@@ -5347,9 +5347,9 @@ MonoBehaviour:
   guns: {fileID: 400048}
   xSpeed: 250
   ySpeed: 250
-  xMinLimit: -90
-  xMaxLimit: 90
-  yMinLimit: -90
+  xMinLimit: -360
+  xMaxLimit: 360
+  yMinLimit: 0
   yMaxLimit: 90
 --- !u!114 &11400014
 MonoBehaviour:
