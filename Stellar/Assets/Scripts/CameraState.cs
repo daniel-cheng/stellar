@@ -34,7 +34,7 @@ public class CameraState : MonoBehaviour {
         }
         else if (stateIndex == 0)
         {
-            cameraObjectList[stateIndex].GetComponent<MouseAim>().isEnabled = state;
+            cameraObjectList[stateIndex].GetComponentInParent<MouseAim>().isEnabled = state;
         }
         foreach (Camera camera in cameraObjectList[stateIndex].GetComponentsInChildren<Camera>())
         {
