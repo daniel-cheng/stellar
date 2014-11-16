@@ -10,7 +10,7 @@ public class Waypoint : MonoBehaviour {
 	//object that will be pointed at
 	public Transform arrow;
 	//toggles whether or not arrow is visible
-	public bool enabled;
+	public bool isEnabled;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +19,10 @@ public class Waypoint : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (isEnabled)
+        {
+            Debug.Log(waypoints[waypointIndex].ToString());
+            arrow.LookAt(waypoints[waypointIndex]);
+        };
 	}
 }
