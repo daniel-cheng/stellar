@@ -35,7 +35,7 @@ public class MouseAim : MonoBehaviour {
 			angleY = Mathf.Rad2Deg * Mathf.Asin (deltaY);
 
 
-			transform.eulerAngles = new Vector3(angleY, angleX, 0.0f);
+			transform.eulerAngles = new Vector3(-angleY, angleX, 0.0f);
 		}
 	}
 }
