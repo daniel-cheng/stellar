@@ -54,8 +54,8 @@ public class SceneState : MonoBehaviour
 						cameraState.SetCameraState (3, false);
 						cameraState.SetCameraState (0, true);
 						debug.text = "Race Module Initiated";
-						fighter.GetComponent<MouseAim> ().enabled = false;
-						fighter.GetComponent<ShootRound> ().enabled = false;
+						fighter.GetComponent<MouseAim> ().enabled = true;
+                        fighter.GetComponent<ShootRound>().enabled = true;
 						freighter.GetComponent<Fly> ().enabled = false;
 						foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
 							renderer.enabled = !renderer.enabled;
