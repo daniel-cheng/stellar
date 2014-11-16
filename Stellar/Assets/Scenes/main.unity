@@ -16693,9 +16693,10 @@ GameObject:
   - 23: {fileID: 1052933030}
   - 102: {fileID: 1052933029}
   - 65: {fileID: 1052933028}
+  - 114: {fileID: 1052933032}
   m_Layer: 0
   m_Name: MainMenuTrade
-  m_TagString: Untagged
+  m_TagString: Trade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16708,7 +16709,7 @@ BoxCollider:
   m_GameObject: {fileID: 1052933027}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 117.5, y: 51.7456055, z: 0}
   m_Center: {x: 58.75, y: -25.8728027, z: 0}
@@ -16765,6 +16766,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 371260592}
   m_RootOrder: 2
+--- !u!114 &1052933032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1052933027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd295804f6176f14d93592248b6deb3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraState: {fileID: 1659701561}
+  txt:
+  - {fileID: 982025023}
+  - {fileID: 2061935738}
+  - {fileID: 1052933027}
+  fighter: {fileID: 11419519}
+  freighter: {fileID: 782858759}
+  debug: {fileID: 508774084}
 --- !u!1 &1057501469
 GameObject:
   m_ObjectHideFlags: 0
@@ -28840,7 +28860,7 @@ GameObject:
   - 114: {fileID: 2061935743}
   m_Layer: 0
   m_Name: MainMenuRace
-  m_TagString: Untagged
+  m_TagString: Race
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28916,15 +28936,18 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2061935738}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd295804f6176f14d93592248b6deb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraState: {fileID: 1659701561}
-  titleTxt: {fileID: 982025023}
-  tradeTxt: {fileID: 1052933027}
-  raceTxt: {fileID: 2061935738}
+  txt:
+  - {fileID: 982025023}
+  - {fileID: 2061935738}
+  - {fileID: 1052933027}
+  fighter: {fileID: 11419519}
+  freighter: {fileID: 782858759}
   debug: {fileID: 508774084}
 --- !u!1001 &2067864002
 Prefab:
