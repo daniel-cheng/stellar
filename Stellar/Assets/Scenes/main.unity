@@ -1328,7 +1328,7 @@ GameObject:
   - 114: {fileID: 11419527}
   - 114: {fileID: 11419528}
   m_Layer: 0
-  m_Name: PrefabFighter
+  m_Name: prefabFighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1470,6 +1470,13 @@ MonoBehaviour:
   gatesPassed: 0
   outputGatesPassed: {fileID: 657991150}
   debug: {fileID: 508774084}
+  distanceTravelled: 0
+  cargoCarried: 0
+  cargoDelivered: 0
+  tradingPostList:
+  - {fileID: 1564109898}
+  - {fileID: 47855696}
+  tradingPostDestinationIndex: 0
 --- !u!114 &11419526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12519,7 +12526,7 @@ GameObject:
   - 114: {fileID: 782858761}
   - 54: {fileID: 782858760}
   m_Layer: 0
-  m_Name: PrefabFreighter
+  m_Name: prefabFreighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19286,6 +19293,10 @@ Prefab:
       propertyPath: waypoints.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: tradingPostList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
       propertyPath: m_LocalPosition.x
       value: 1000
@@ -19398,6 +19409,14 @@ Prefab:
       propertyPath: m_Name
       value: WaypointArrow
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: tradingPostList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1564109898}
+    - target: {fileID: 11400004, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: tradingPostList.Array.data[1]
+      value: 
+      objectReference: {fileID: 47855696}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
   m_RootGameObject: {fileID: 11419518}

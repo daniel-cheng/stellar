@@ -12,7 +12,7 @@ GameObject:
   - 54: {fileID: 5400000}
   - 64: {fileID: 6400000}
   m_Layer: 0
-  m_Name: PrefabGateRing
+  m_Name: prefabGateRing
   m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

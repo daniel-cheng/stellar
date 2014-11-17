@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-//using System.Linq;
 
 public class GameStateHandler : MonoBehaviour {
-	//public GameObject[] gatePassedList = new GameObject[5]; //need some way to change size when need be
 	public List<GameObject> gatePassedList;
 
 	public float timeSinceStart = 0.0f;
@@ -14,10 +12,19 @@ public class GameStateHandler : MonoBehaviour {
 	public GUIText outputGatesPassed;
 	public GUIText debug;
 
+    public float distanceTravelled = 0.0f;
+    public float cargoCarried = 0.0f;
+    public float cargoDelivered = 0.0f;
+    public List<Transform> tradingPostList;
+    public int tradingPostDestinationIndex;
+
+    private Vector2 cargoMassBounds = new Vector2(1000.0f, 100000.0f);
+
 	// Use this for initialization
 	void Start () {
-		//gateList = GameObject.FindGameObjectsWithTag ("Gate");
 		gatePassedList = new List<GameObject> ();
+        cargoCarried = Random.Range(cargoMassBounds.x, cargoMassBounds.y);
+
 	// 	commented these outs as they would appear in the main menu
 	//	debug.text = "Beginning Game Testing!";
 	//	outputGatesPassed.text = "Gates Passed: " + gatesPassed;
@@ -25,20 +32,32 @@ public class GameStateHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        timeSinceStart += Time.deltaTime;
+        distanceTravelled += rigidbody.velocity.magnitude * Time.deltaTime;
 	}
 
-	void OnTriggerEnter(Collider trainingRings)
+    void OnTriggerEnter(Collider other)
 	{
-		if(trainingRings.gameObject.tag == "Gate" &&
-		   !gatePassedList.Contains(trainingRings.gameObject))
+        if (other.gameObject.tag == "Gate" && !gatePassedList.Contains(other.gameObject))
 		{
 			debug.text = "Ring Hit";
-			gatePassedList.Add(trainingRings.gameObject);
+            gatePassedList.Add(other.gameObject);
 			//trainingRings.gameObject.SetActive(false);
 			gatesPassed += 1;
 			outputGatesPassed.text = "Gates Passed: " + gatesPassed;
 			
 		}
+        else if (other.transform == tradingPostList[tradingPostDestinationIndex])
+        {
+            cargoDelivered += cargoCarried;
+            cargoCarried = Random.Range(cargoMassBounds.x, cargoMassBounds.y);
+
+            int randomIndex = tradingPostDestinationIndex;
+            while (randomIndex == tradingPostDestinationIndex)
+            {
+                randomIndex = (int)Random.Range(0.0f, tradingPostList.Capacity);
+            }
+            tradingPostDestinationIndex = randomIndex;
+        }
 	}
 }
