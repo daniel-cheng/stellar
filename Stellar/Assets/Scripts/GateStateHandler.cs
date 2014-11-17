@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GateStateHandler : MonoBehaviour {
 	public float distanceTravelled = 0.0f;
 	public float cargoCarried = 0.0f;
 	public float cargoDelivered = 0.0f;
-	public Transform tradingPostList;
-	public Transform tradingPostDestinationList;
+	public List<Transform> tradingPostList;
+	public int tradingPostDestinationIndex;
 
 	private Vector2 cargoMassBounds = new Vector2(1000.0f, 100000.0f);
 
@@ -23,10 +24,15 @@ public class GateStateHandler : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other == tradingPostList){
+		if (other == tradingPostList[tradingPostDestinationIndex]){
 			cargoDelivered += cargoCarried;
 			cargoCarried = 0;
+
+			int randomIndex = tradingPostDestinationIndex;
+			while (randomIndex == tradingPostDestinationIndex) {
+				randomIndex =  (int)Random.Range(0.0f, tradingPostList.Capacity);
+			}
+			tradingPostDestinationIndex = randomIndex;
 		}
 	}
 }
-
