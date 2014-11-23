@@ -97,4 +97,21 @@ public class ShootRound : MonoBehaviour {
         //    myAudio.Play();
         //}
 	}
+
+    void OnSceneTransition(int oldState, int newState)
+    {
+        if (oldState == 0 && newState == 1)
+        {
+            enabled = true;
+        }
+        else
+        {
+            enabled = false;
+        }
+    }
+
+    void OnEnable()
+    {
+        SceneState.OnSceneTransition += OnSceneTransition;
+    }
 }
