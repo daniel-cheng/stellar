@@ -15,6 +15,8 @@ public class MouseAim : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        SceneState.OnStateChange += OnStateChange;
+        CameraState.OnStateChange += OnStateChange;
 	}
 	
 	// Update is called once per frame
@@ -50,4 +52,23 @@ public class MouseAim : MonoBehaviour {
 			transform.LookAt (position);*/
 		}
 	}
+
+    void OnStateChange()
+    {
+        if (SceneState.sceneIndex == 1)
+        {
+            if (CameraState.stateIndex == 1)
+            {
+                enabled = false;
+            }
+            else
+            {
+                enabled = true;
+            }
+        }
+        else
+        {
+            enabled = false;
+        }
+    }
 }

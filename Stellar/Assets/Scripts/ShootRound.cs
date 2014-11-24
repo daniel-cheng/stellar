@@ -9,9 +9,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ShootRound : MonoBehaviour {
-    public List<string> sceneEnabledList;
-    public List<int> cameraEnabledList;
-
 	public float velocity = 20;
 	public Transform newObject;
 	public Transform rootObject;
@@ -32,6 +29,7 @@ public class ShootRound : MonoBehaviour {
 		myCamera = rootObject.GetComponentInChildren<MouseOrbit>() as MouseOrbit;
 		myGunnerAim =  rootObject.GetComponent<GunnerAim>() as GunnerAim;
         SceneState.OnStateChange += OnStateChange;
+        CameraState.OnStateChange += OnStateChange;
 		//myParticleSystem.emissionRate = 10;
 //        foreach (Collider firstCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
 //            foreach (Collider secondCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
@@ -101,14 +99,16 @@ public class ShootRound : MonoBehaviour {
         //}
 	}
 
-    void OnStateChange(string name, string state)
+    void OnStateChange()
     {
-        if (name == "scene")
+        if (SceneState.sceneIndex == 1)
         {
-
-            enabled = true;
+            if (CameraState.stateIndex == 1)
+            {
+                enabled = true;
+            }
         }
-        else if (name == "camera")
+        else
         {
             enabled = false;
         }

@@ -5,10 +5,10 @@ public class SceneState : MonoBehaviour
 {
 	//public AudioClip mainMenuMusic; //not sure how to use this
 	public List<string> sceneList = new List<string>{"main", "race", "trade"}; //for future use?
-	public int sceneIndex = 0;
+	public static int sceneIndex = 0;
 
-    public delegate void SceneTransition(string name, string state);
-    public static event SceneTransition OnStateChange;
+    public delegate void StateChange();
+    public static event StateChange OnStateChange;
 	
 	//references 
 	public CameraState cameraState;
@@ -36,9 +36,10 @@ public class SceneState : MonoBehaviour
 			title.renderer.enabled = false;		
 		}
 			if (gameObject.tag == "Race") {
+                sceneIndex = 1;
                 if (OnStateChange != null)
                 {
-                    OnStateChange("scene", "trade");
+                    OnStateChange();
                 }
 				cameraState.SetCameraState (3, false);
 				cameraState.SetCameraState (0, true);
@@ -70,9 +71,10 @@ public class SceneState : MonoBehaviour
 	            renderer.enabled = !renderer.enabled;
             }
 		} else if (gameObject.tag == "Trade") {
+            sceneIndex = 2;
             if (OnStateChange != null)
             {
-                OnStateChange("scene", "trade");
+                OnStateChange();
             }
 			cameraState.SetCameraState (3, false);
 			cameraState.SetCameraState (4, true);

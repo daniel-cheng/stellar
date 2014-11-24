@@ -7,7 +7,10 @@ public class CameraState : MonoBehaviour {
 	//use to store all camera states
     public List<GameObject> cameraObjectList;
     public List<int> transitionList = new List<int>() {1, 2, 0, 3, 4};
-    private int stateIndex = 3;
+    public static int stateIndex = 3;
+
+    public delegate void StateChange();
+    public static event StateChange OnStateChange;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +29,10 @@ public class CameraState : MonoBehaviour {
     public void SetCameraState(int cameraIndex, bool state)
     {
         stateIndex = cameraIndex;
+        if (OnStateChange != null)
+        {
+            OnStateChange();
+        }
         cameraObjectList[stateIndex].GetComponent<AudioListener>().enabled = state;
         cameraObjectList[stateIndex].GetComponent<MouseOrbit>().isEnabled = state;
         if (stateIndex == 1)
