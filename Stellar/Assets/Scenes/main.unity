@@ -1470,6 +1470,7 @@ MonoBehaviour:
   gatesPassed: 0
   outputGatesPassed: {fileID: 657991150}
   debug: {fileID: 508774084}
+  UIhandler: {fileID: 0}
   distanceTravelled: 0
   cargoCarried: 0
   cargoDelivered: 0
@@ -17140,6 +17141,7 @@ MonoBehaviour:
   fighter: {fileID: 11419519}
   freighter: {fileID: 782858759}
   debug: {fileID: 508774084}
+  UIhandler: {fileID: 0}
 --- !u!1 &1057501469
 GameObject:
   m_ObjectHideFlags: 0
@@ -23027,6 +23029,7 @@ GameObject:
   - 4: {fileID: 1659701559}
   - 114: {fileID: 1659701560}
   - 114: {fileID: 1659701561}
+  - 114: {fileID: 1659701562}
   m_Layer: 0
   m_Name: Floating Origin
   m_TagString: Untagged
@@ -23087,6 +23090,18 @@ MonoBehaviour:
   - {fileID: 1654315338}
   - {fileID: 632110219}
   transitionList: 0100000002000000000000000300000004000000
+--- !u!114 &1659701562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659701558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f103093448d2347b02f9d7eb1a382f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: {fileID: 508774084}
 --- !u!1 &1660232055
 GameObject:
   m_ObjectHideFlags: 0
@@ -29488,6 +29503,7 @@ MonoBehaviour:
   fighter: {fileID: 11419519}
   freighter: {fileID: 782858759}
   debug: {fileID: 508774084}
+  UIhandler: {fileID: 0}
 --- !u!1001 &2067864002
 Prefab:
   m_ObjectHideFlags: 0

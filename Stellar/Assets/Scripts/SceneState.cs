@@ -13,6 +13,7 @@ public class SceneState : MonoBehaviour
 		public Transform fighter;
 		public Transform freighter;
 		public GUIText debug;
+		public UIHandler UIhandler;
 	
 		// Use this for initialization
 		void Start ()
@@ -53,7 +54,7 @@ public class SceneState : MonoBehaviour
 				if (gameObject.tag == "Race") {
 						cameraState.SetCameraState (3, false);
 						cameraState.SetCameraState (0, true);
-						debug.text = "Race Module Initiated";
+						UIhandler.SetText("Race Module Initiated");
 						fighter.GetComponent<MouseAim> ().enabled = true;
                         fighter.GetComponent<ShootRound>().enabled = true;
 						freighter.GetComponent<Fly> ().enabled = false;
@@ -63,7 +64,7 @@ public class SceneState : MonoBehaviour
 				} else if (gameObject.tag == "Trade") {
 						cameraState.SetCameraState (3, false);
 						cameraState.SetCameraState (4, true);
-						debug.text = "Trade Module Initiated";
+						UIhandler.SetText("Trade Module Initiated");
 						fighter.renderer.enabled = false;
 						fighter.GetComponent<MouseAim> ().enabled = false;
 						fighter.GetComponent<ShootRound> ().enabled = false;
@@ -78,6 +79,6 @@ public class SceneState : MonoBehaviour
 		}
 
 		//will need to adjust when trade module is completed
-		//debug.text = "Beginning Game Testing!";
+	   //UIhandler.SetText("Beginning Game Testing!");
 		
 }
