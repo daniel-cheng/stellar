@@ -6,9 +6,11 @@
 // add bomb dropping and colony planting
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ShootRound : MonoBehaviour {
-
+    public List<string> sceneEnabledList;
+    public List<int> cameraEnabledList;
 
 	public float velocity = 20;
 	public Transform newObject;
@@ -29,6 +31,7 @@ public class ShootRound : MonoBehaviour {
 		myParticleSystem = rootObject.GetComponentInChildren<ParticleSystem>() as ParticleSystem;
 		myCamera = rootObject.GetComponentInChildren<MouseOrbit>() as MouseOrbit;
 		myGunnerAim =  rootObject.GetComponent<GunnerAim>() as GunnerAim;
+        SceneState.OnStateChange += OnStateChange;
 		//myParticleSystem.emissionRate = 10;
 //        foreach (Collider firstCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
 //            foreach (Collider secondCollider in rootObject.GetComponentsInChildren<Collider>() as Collider[]) {
@@ -98,20 +101,16 @@ public class ShootRound : MonoBehaviour {
         //}
 	}
 
-    void OnSceneTransition(int oldState, int newState)
+    void OnStateChange(string name, string state)
     {
-        if (oldState == 0 && newState == 1)
+        if (name == "scene")
         {
+
             enabled = true;
         }
-        else
+        else if (name == "camera")
         {
             enabled = false;
         }
-    }
-
-    void OnEnable()
-    {
-        SceneState.OnSceneTransition += OnSceneTransition;
     }
 }

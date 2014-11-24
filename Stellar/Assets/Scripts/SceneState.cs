@@ -7,26 +7,17 @@ public class SceneState : MonoBehaviour
 	public List<string> sceneList = new List<string>{"main", "race", "trade"}; //for future use?
 	public int sceneIndex = 0;
 
-    public delegate void SceneTransition(int oldState, int newState);
-    public static event SceneTransition OnSceneTransition;
+    public delegate void SceneTransition(string name, string state);
+    public static event SceneTransition OnStateChange;
 	
-<<<<<<< HEAD
-		//references 
-		public CameraState cameraState;
-		public List<GameObject> txt;
-		public Transform fighter;
-		public Transform freighter;
-		public GUIText debug;
-		public UIHandler UIhandler;
-=======
 	//references 
 	public CameraState cameraState;
 	public List<GameObject> txt;
 	public Transform fighter;
 	public Transform freighter;
 	public GUIText debug;
->>>>>>> origin/master
-	
+	public UIHandler uiHandler;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -36,25 +27,7 @@ public class SceneState : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-//				if (Input.GetMouseButtonUp (0)) {
-//						Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);						
-//						RaycastHit hit = new RaycastHit();
-//
-//						if (Physics.Raycast (r, out hit)) {
-//								Debug.Log ("Clicked!");
-//								if (hit.transform.gameObject.tag == "Race") {
-//										cameraState.SetCameraState (3, false);
-//										cameraState.SetCameraState (0, true);
-//										debug.text = "Race Module Initiated";
-//								} else if (hit.transform.gameObject.tag == "Trade") {
-//										debug.text = "Trade Module Initiated";
-//								}
-//			
-//								foreach (GameObject title in txt) {
-//										title.renderer.enabled = false;		
-//								}
-//						}
-//				}
+
 	}
 
 	void OnMouseUp ()
@@ -62,37 +35,31 @@ public class SceneState : MonoBehaviour
 		foreach (GameObject title in txt) {
 			title.renderer.enabled = false;		
 		}
-
-                
-		if (gameObject.tag == "Race") {
-            if (OnSceneTransition != null)
-            {
-                OnSceneTransition(0, 1);
-            }
-
-<<<<<<< HEAD
-				if (gameObject.tag == "Race") {
-						cameraState.SetCameraState (3, false);
-						cameraState.SetCameraState (0, true);
-						UIhandler.SetText("Race Module Initiated");
-						fighter.GetComponent<MouseAim> ().enabled = true;
-                        fighter.GetComponent<ShootRound>().enabled = true;
-						freighter.GetComponent<Fly> ().enabled = false;
-						foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
-							renderer.enabled = !renderer.enabled;
-						}
-				} else if (gameObject.tag == "Trade") {
-						cameraState.SetCameraState (3, false);
-						cameraState.SetCameraState (4, true);
-						UIhandler.SetText("Trade Module Initiated");
-						fighter.renderer.enabled = false;
-						fighter.GetComponent<MouseAim> ().enabled = false;
-						fighter.GetComponent<ShootRound> ().enabled = false;
-						fighter.GetComponent<Fly> ().enabled = false;
-						foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>()) {
-							renderer.enabled = !renderer.enabled;
-						}
-=======
+			if (gameObject.tag == "Race") {
+                if (OnStateChange != null)
+                {
+                    OnStateChange("scene", "trade");
+                }
+				cameraState.SetCameraState (3, false);
+				cameraState.SetCameraState (0, true);
+				uiHandler.SetText("Race Module Initiated");
+				fighter.GetComponent<MouseAim> ().enabled = true;
+                fighter.GetComponent<ShootRound>().enabled = true;
+				freighter.GetComponent<Fly> ().enabled = false;
+				foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
+					renderer.enabled = !renderer.enabled;
+				}
+			} else if (gameObject.tag == "Trade") {
+					cameraState.SetCameraState (3, false);
+				cameraState.SetCameraState (4, true);
+                uiHandler.SetText("Trade Module Initiated");
+				fighter.renderer.enabled = false;
+				fighter.GetComponent<MouseAim> ().enabled = false;
+				fighter.GetComponent<ShootRound> ().enabled = false;
+				fighter.GetComponent<Fly> ().enabled = false;
+				foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>()) {
+					renderer.enabled = !renderer.enabled;
+				}
             cameraState.SetCameraState (3, false);
             cameraState.SetCameraState (0, true);
             debug.text = "Race Module Initiated";
@@ -103,9 +70,9 @@ public class SceneState : MonoBehaviour
 	            renderer.enabled = !renderer.enabled;
             }
 		} else if (gameObject.tag == "Trade") {
-            if (OnSceneTransition != null)
+            if (OnStateChange != null)
             {
-                OnSceneTransition(0, 2);
+                OnStateChange("scene", "trade");
             }
 			cameraState.SetCameraState (3, false);
 			cameraState.SetCameraState (4, true);
@@ -116,19 +83,9 @@ public class SceneState : MonoBehaviour
 			foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>()) {
 				renderer.enabled = !renderer.enabled;
 			}
->>>>>>> origin/master
 						
 		}
 
 				
 	}
-
-<<<<<<< HEAD
-		//will need to adjust when trade module is completed
-	   //UIhandler.SetText("Beginning Game Testing!");
-=======
-	//will need to adjust when trade module is completed
-	//debug.text = "Beginning Game Testing!";
->>>>>>> origin/master
-		
 }

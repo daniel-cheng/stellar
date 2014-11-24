@@ -11,7 +11,7 @@ public class GameStateHandler : MonoBehaviour {
 	//gui texts for debugging purposes for now
 	public GUIText outputGatesPassed;
 	public GUIText debug;
-	public UIHandler UIhandler;
+	public UIHandler uiHandler;
 
     public float distanceTravelled = 0.0f;
     public float cargoCarried = 0.0f;
@@ -41,7 +41,7 @@ public class GameStateHandler : MonoBehaviour {
 	{
         if (other.gameObject.tag == "Gate" && !gatePassedList.Contains(other.gameObject))
 		{
-			UIhandler.SetText("Ring Hit");
+			uiHandler.SetText("Ring Hit");
             gatePassedList.Add(other.gameObject);
 			//trainingRings.gameObject.SetActive(false);
 			gatesPassed += 1;

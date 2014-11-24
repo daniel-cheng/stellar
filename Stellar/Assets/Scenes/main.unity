@@ -1470,7 +1470,7 @@ MonoBehaviour:
   gatesPassed: 0
   outputGatesPassed: {fileID: 657991150}
   debug: {fileID: 508774084}
-  UIhandler: {fileID: 0}
+  uiHandler: {fileID: 1659701562}
   distanceTravelled: 0
   cargoCarried: 0
   cargoDelivered: 0
@@ -1490,6 +1490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadf905f6e253324cb52e600c8bf9607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneEnabledList: []
+  cameraEnabledList: 
   velocity: 10
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 2197844}
@@ -17133,6 +17135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd295804f6176f14d93592248b6deb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneList:
+  - main
+  - race
+  - trade
+  sceneIndex: 0
   cameraState: {fileID: 1659701561}
   txt:
   - {fileID: 982025023}
@@ -17141,7 +17148,7 @@ MonoBehaviour:
   fighter: {fileID: 11419519}
   freighter: {fileID: 782858759}
   debug: {fileID: 508774084}
-  UIhandler: {fileID: 0}
+  uiHandler: {fileID: 1659701562}
 --- !u!1 &1057501469
 GameObject:
   m_ObjectHideFlags: 0
@@ -19423,6 +19430,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: uiHandler
+      value: 
+      objectReference: {fileID: 1659701562}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
   m_RootGameObject: {fileID: 11419518}
@@ -29495,6 +29506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd295804f6176f14d93592248b6deb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneList:
+  - main
+  - race
+  - trade
+  sceneIndex: 0
   cameraState: {fileID: 1659701561}
   txt:
   - {fileID: 982025023}
@@ -29503,7 +29519,7 @@ MonoBehaviour:
   fighter: {fileID: 11419519}
   freighter: {fileID: 782858759}
   debug: {fileID: 508774084}
-  UIhandler: {fileID: 0}
+  uiHandler: {fileID: 1659701562}
 --- !u!1001 &2067864002
 Prefab:
   m_ObjectHideFlags: 0
