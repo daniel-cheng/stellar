@@ -3,10 +3,14 @@ using System.Collections.Generic;
 
 public class SceneState : MonoBehaviour
 {
-		//public AudioClip mainMenuMusic; //not sure how to use this
-		//public List<string> sceneList = new List<string>{"main", "race", "trade"}; //for future use?
-		//public int sceneIndex = 0;
+	//public AudioClip mainMenuMusic; //not sure how to use this
+	public List<string> sceneList = new List<string>{"main", "race", "trade"}; //for future use?
+	public int sceneIndex = 0;
+
+    public delegate void SceneTransition(int oldState, int newState);
+    public static event SceneTransition OnSceneTransition;
 	
+<<<<<<< HEAD
 		//references 
 		public CameraState cameraState;
 		public List<GameObject> txt;
@@ -14,16 +18,24 @@ public class SceneState : MonoBehaviour
 		public Transform freighter;
 		public GUIText debug;
 		public UIHandler UIhandler;
+=======
+	//references 
+	public CameraState cameraState;
+	public List<GameObject> txt;
+	public Transform fighter;
+	public Transform freighter;
+	public GUIText debug;
+>>>>>>> origin/master
 	
-		// Use this for initialization
-		void Start ()
-		{
-				cameraState.SetCameraState (3, true);
-		}
+	// Use this for initialization
+	void Start ()
+	{
+		cameraState.SetCameraState (3, true);
+	}
 	
-		// Update is called once per frame
-		void Update ()
-		{
+	// Update is called once per frame
+	void Update ()
+	{
 //				if (Input.GetMouseButtonUp (0)) {
 //						Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);						
 //						RaycastHit hit = new RaycastHit();
@@ -43,14 +55,22 @@ public class SceneState : MonoBehaviour
 //								}
 //						}
 //				}
+	}
+
+	void OnMouseUp ()
+	{
+		foreach (GameObject title in txt) {
+			title.renderer.enabled = false;		
 		}
 
-		void OnMouseUp ()
-		{
-				foreach (GameObject title in txt) {
-					title.renderer.enabled = false;		
-				}
+                
+		if (gameObject.tag == "Race") {
+            if (OnSceneTransition != null)
+            {
+                OnSceneTransition(0, 1);
+            }
 
+<<<<<<< HEAD
 				if (gameObject.tag == "Race") {
 						cameraState.SetCameraState (3, false);
 						cameraState.SetCameraState (0, true);
@@ -72,13 +92,43 @@ public class SceneState : MonoBehaviour
 						foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>()) {
 							renderer.enabled = !renderer.enabled;
 						}
+=======
+            cameraState.SetCameraState (3, false);
+            cameraState.SetCameraState (0, true);
+            debug.text = "Race Module Initiated";
+            fighter.GetComponent<MouseAim> ().enabled = true;
+            
+            freighter.GetComponent<Fly> ().enabled = false;
+            foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
+	            renderer.enabled = !renderer.enabled;
+            }
+		} else if (gameObject.tag == "Trade") {
+            if (OnSceneTransition != null)
+            {
+                OnSceneTransition(0, 2);
+            }
+			cameraState.SetCameraState (3, false);
+			cameraState.SetCameraState (4, true);
+			debug.text = "Trade Module Initiated";
+			fighter.renderer.enabled = false;
+			fighter.GetComponent<MouseAim> ().enabled = false;
+			fighter.GetComponent<Fly> ().enabled = false;
+			foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>()) {
+				renderer.enabled = !renderer.enabled;
+			}
+>>>>>>> origin/master
 						
-				}
-
-				
 		}
 
+				
+	}
+
+<<<<<<< HEAD
 		//will need to adjust when trade module is completed
 	   //UIhandler.SetText("Beginning Game Testing!");
+=======
+	//will need to adjust when trade module is completed
+	//debug.text = "Beginning Game Testing!";
+>>>>>>> origin/master
 		
 }
