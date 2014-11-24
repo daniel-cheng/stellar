@@ -33,8 +33,8 @@ public class MouseOrbit : MonoBehaviour {
 					y = Mathf.Clamp(y % 360.0f, yMinLimit, yMaxLimit);
 				}
 				zoom -= Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * 50.0f * zoom;
-				transform.localRotation = Quaternion.Euler(y, x, 0);
 				transform.position = (Quaternion.Euler(y, x, 0)) * new Vector3(0.0f, 0.0f, -distance * zoom) + target.position;
+                transform.LookAt(target);
 	        }
 	}
 }

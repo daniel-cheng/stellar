@@ -9,8 +9,6 @@ public class GameStateHandler : MonoBehaviour {
 	public int gatesPassed = 0;
 
 	//gui texts for debugging purposes for now
-	public GUIText outputGatesPassed;
-	public GUIText debug;
 	public UIHandler uiHandler;
 
     public float distanceTravelled = 0.0f;
@@ -25,28 +23,25 @@ public class GameStateHandler : MonoBehaviour {
 	void Start () {
 		gatePassedList = new List<GameObject> ();
         cargoCarried = Random.Range(cargoMassBounds.x, cargoMassBounds.y);
-
-	// 	commented these outs as they would appear in the main menu
-	//	debug.text = "Beginning Game Testing!";
-	//	outputGatesPassed.text = "Gates Passed: " + gatesPassed;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         timeSinceStart += Time.deltaTime;
         distanceTravelled += rigidbody.velocity.magnitude * Time.deltaTime;
+
+        uiHandler.SetLowerLeftText("Time: " + timeSinceStart.ToString("F2") + " Velocity: " + rigidbody.velocity.magnitude.ToString("F2"));
 	}
 
     void OnTriggerEnter(Collider other)
 	{
         if (other.gameObject.tag == "Gate" && !gatePassedList.Contains(other.gameObject))
 		{
-			uiHandler.SetText("Ring Hit");
             gatePassedList.Add(other.gameObject);
-			//trainingRings.gameObject.SetActive(false);
 			gatesPassed += 1;
-			outputGatesPassed.text = "Gates Passed: " + gatesPassed;
-			
+
+            uiHandler.SetUpperRightText("Ring Hit");
+            uiHandler.SetUpperLeftText("Gates Passed: " + gatesPassed.ToString());
 		}
         else if (other.transform == tradingPostList[tradingPostDestinationIndex])
         {
@@ -59,6 +54,8 @@ public class GameStateHandler : MonoBehaviour {
                 randomIndex = (int)Random.Range(0.0f, tradingPostList.Capacity);
             }
             tradingPostDestinationIndex = randomIndex;
+
+            uiHandler.SetLowerRightText("Cargo Carried: " + cargoCarried.ToString("G2") + " Delivered: " + cargoDelivered.ToString("G2"));
         }
 	}
 }

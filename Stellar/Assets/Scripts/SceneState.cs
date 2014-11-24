@@ -35,41 +35,20 @@ public class SceneState : MonoBehaviour
 		foreach (GameObject title in txt) {
 			title.renderer.enabled = false;		
 		}
-			if (gameObject.tag == "Race") {
-                sceneIndex = 1;
-                if (OnStateChange != null)
-                {
-                    OnStateChange();
-                }
-				cameraState.SetCameraState (3, false);
-				cameraState.SetCameraState (0, true);
-				uiHandler.SetText("Race Module Initiated");
-				fighter.GetComponent<MouseAim> ().enabled = true;
-                fighter.GetComponent<ShootRound>().enabled = true;
-				freighter.GetComponent<Fly> ().enabled = false;
-				foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
-					renderer.enabled = !renderer.enabled;
-				}
-			} else if (gameObject.tag == "Trade") {
-					cameraState.SetCameraState (3, false);
-				cameraState.SetCameraState (4, true);
-                uiHandler.SetText("Trade Module Initiated");
-				fighter.renderer.enabled = false;
-				fighter.GetComponent<MouseAim> ().enabled = false;
-				fighter.GetComponent<ShootRound> ().enabled = false;
-				fighter.GetComponent<Fly> ().enabled = false;
-				foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>()) {
-					renderer.enabled = !renderer.enabled;
-				}
-            cameraState.SetCameraState (3, false);
-            cameraState.SetCameraState (0, true);
-            debug.text = "Race Module Initiated";
-            fighter.GetComponent<MouseAim> ().enabled = true;
-            
-            freighter.GetComponent<Fly> ().enabled = false;
-            foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
-	            renderer.enabled = !renderer.enabled;
+		if (gameObject.tag == "Race") {
+            sceneIndex = 1;
+            if (OnStateChange != null)
+            {
+                OnStateChange();
             }
+			cameraState.SetCameraState (3, false);
+			cameraState.SetCameraState (0, true);
+			fighter.GetComponent<MouseAim> ().enabled = true;
+            fighter.GetComponent<ShootRound>().enabled = true;
+			freighter.GetComponent<Fly> ().enabled = false;
+			foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
+				renderer.enabled = !renderer.enabled;
+			}
 		} else if (gameObject.tag == "Trade") {
             sceneIndex = 2;
             if (OnStateChange != null)
@@ -78,16 +57,14 @@ public class SceneState : MonoBehaviour
             }
 			cameraState.SetCameraState (3, false);
 			cameraState.SetCameraState (4, true);
-			debug.text = "Trade Module Initiated";
 			fighter.renderer.enabled = false;
 			fighter.GetComponent<MouseAim> ().enabled = false;
+			fighter.GetComponent<ShootRound> ().enabled = false;
 			fighter.GetComponent<Fly> ().enabled = false;
-			foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>()) {
-				renderer.enabled = !renderer.enabled;
-			}
-						
-		}
-
-				
-	}
+            foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>())
+            {
+                renderer.enabled = !renderer.enabled;
+            }
+        }						
+	}	
 }

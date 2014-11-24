@@ -6,10 +6,11 @@ using System.Collections;
 
 public class Fly : MonoBehaviour {
 
+    public bool isEnabled;
 	public float translationalSpeed = 1000.0f;
 	public float rotationTorque = 1000.0f;
 	public float thrust = 100.0f;
-	public bool  sas = false;
+	public bool  sas;
 	public float sasForce = 100;
 	public Vector2 engineLifetimeBounds = new Vector2(0.0f, 0.8f);
 	public Vector2 engineSizeBounds = new Vector2(1.2f, 1.85f);
@@ -54,77 +55,127 @@ public class Fly : MonoBehaviour {
 		}
 		animator = GetComponent<Animator>();
 		gearDown = false;
+
+        SceneState.OnStateChange += OnStateChange;
+        CameraState.OnStateChange += OnStateChange;
 	}
 	//rotational : x ws y qe z ad
 	//translational : x hn y ik z jl
 	
-	void  Update (){  
+	void  Update () {  
 	
 		// Get the horizontal and vertical axis.
 		// By default they are mapped to the arrow keys.
 		// The value is in the range -1 to 1
-		float angularX = Input.GetAxis ("AngularX") * rotationTorque * Time.deltaTime;
-		float angularY = Input.GetAxis ("AngularY") * rotationTorque * Time.deltaTime;
-		float angularZ = -1 * Input.GetAxis ("AngularZ") * rotationTorque * Time.deltaTime;
-		float linearX = Input.GetAxis ("LinearX") * translationalSpeed * Time.deltaTime;
-		float linearY = Input.GetAxis ("LinearY") * translationalSpeed * Time.deltaTime;
-		float linearZ = Input.GetAxis ("LinearZ") * translationalSpeed * Time.deltaTime;
-        throttle = throttle + Input.GetAxis("Throttle") * Time.deltaTime * throttleSpeed;
-		throttle = Mathf.Clamp(throttle, 0.0f, 10.0f);
-		
-		Vector3 relativeForward = transform.TransformDirection (Vector3.forward);
-		Vector3 angularTorqueVector = new Vector3(angularX, angularY, angularZ);
-		
-		rigidbody.AddForce (relativeForward * throttle * thrust / 10);
-		rigidbody.AddTorque(transform.rotation * angularTorqueVector);
-		rigidbody.AddForce(linearX, linearY, linearZ ); //Space.World = Translate in world space - local space is default
+        if (isEnabled)
+        {
+            float angularX = Input.GetAxis("AngularX") * rotationTorque * Time.deltaTime;
+            float angularY = Input.GetAxis("AngularY") * rotationTorque * Time.deltaTime;
+            float angularZ = -1 * Input.GetAxis("AngularZ") * rotationTorque * Time.deltaTime;
+            float linearX = Input.GetAxis("LinearX") * translationalSpeed * Time.deltaTime;
+            float linearY = Input.GetAxis("LinearY") * translationalSpeed * Time.deltaTime;
+            float linearZ = Input.GetAxis("LinearZ") * translationalSpeed * Time.deltaTime;
+            throttle = throttle + Input.GetAxis("Throttle") * Time.deltaTime * throttleSpeed;
+            throttle = Mathf.Clamp(throttle, 0.0f, 10.0f);
 
-        transform.position += new Vector3(linearX, linearY, linearZ);
+            Vector3 relativeForward = transform.TransformDirection(Vector3.forward);
+            Vector3 angularTorqueVector = new Vector3(angularX, angularY, angularZ);
 
-		earthDistance = (transform.position - earth.position).magnitude;
-		earthAltitude = earthDistance - earthRadius;
-		atmosphericDensity = Mathf.Exp(-earthAltitude / scaleHeight);
+            rigidbody.AddForce(relativeForward * throttle * thrust / 10);
+            rigidbody.AddTorque(transform.rotation * angularTorqueVector);
+            rigidbody.AddForce(linearX, linearY, linearZ); //Space.World = Translate in world space - local space is default
 
-		if (sas == true && angularX == 0.0f && angularY == 0.0f && angularZ == 0.0f) {
-			rigidbody.AddTorque(-sasForce*rigidbody.angularVelocity.x, -sasForce*rigidbody.angularVelocity.y, -sasForce*rigidbody.angularVelocity.z);
-		}
-		foreach(ParticleSystem child in engineList) {
-			if (throttle != 0.0){
-				child.particleSystem.enableEmission = true;
-				child.particleSystem.startLifetime = Mathf.Lerp(engineLifetimeBounds.x, engineLifetimeBounds.y, throttle / 10.0f);
-				child.particleSystem.startSize = Mathf.Lerp(engineSizeBounds.x, engineSizeBounds.y, throttle / 10.0f);
-			} else {
-				child.particleSystem.enableEmission = false;
-			}
-		}
-		foreach(ParticleSystem child in exhaustList) {
-			if (throttle != 0.0){
-				child.particleSystem.enableEmission = true;
-				child.particleSystem.startLifetime = Mathf.Lerp(exhaustLifetimeBounds.x, exhaustLifetimeBounds.y, throttle / 10.0f);
-				child.particleSystem.startSize = Mathf.Lerp(exhaustSizeBounds.x, exhaustSizeBounds.y, throttle / 10.0f);
-				child.particleSystem.emissionRate = Mathf.Lerp(exhaustEmissionBounds.x, exhaustEmissionBounds.y, atmosphericDensity); 
-			} else {
-				child.particleSystem.enableEmission = false;
-			}
-		}
-		foreach(AudioSource child in audioSourceList) {
-			child.audio.volume = throttle / 10.0f * atmosphericDensity;
-		}
-		if (Input.GetKeyDown(KeyCode.T)) {
-			sas = !sas;
-		}
-		if (Input.GetKeyDown(KeyCode.F)) {
-			sas = !sas;
-		}
-		if (Input.GetKeyUp(KeyCode.F)) {
-			sas = !sas;
-		}
-		if (Input.GetKeyUp(KeyCode.G)) {
-			gearDown = !gearDown;
-			if (animator){
-				animator.SetBool ("GearDown", gearDown);
-			}
-		}
+            transform.position += new Vector3(linearX, linearY, linearZ);
 
+            earthDistance = (transform.position - earth.position).magnitude;
+            earthAltitude = earthDistance - earthRadius;
+            atmosphericDensity = Mathf.Exp(-earthAltitude / scaleHeight);
+
+            if (sas == true && angularX == 0.0f && angularY == 0.0f && angularZ == 0.0f)
+            {
+                rigidbody.AddTorque(-sasForce * rigidbody.angularVelocity.x, -sasForce * rigidbody.angularVelocity.y, -sasForce * rigidbody.angularVelocity.z);
+            }
+            foreach (ParticleSystem child in engineList)
+            {
+                if (throttle != 0.0)
+                {
+                    child.particleSystem.enableEmission = true;
+                    child.particleSystem.startLifetime = Mathf.Lerp(engineLifetimeBounds.x, engineLifetimeBounds.y, throttle / 10.0f);
+                    child.particleSystem.startSize = Mathf.Lerp(engineSizeBounds.x, engineSizeBounds.y, throttle / 10.0f);
+                }
+                else
+                {
+                    child.particleSystem.enableEmission = false;
+                }
+            }
+            foreach (ParticleSystem child in exhaustList)
+            {
+                if (throttle != 0.0)
+                {
+                    child.particleSystem.enableEmission = true;
+                    child.particleSystem.startLifetime = Mathf.Lerp(exhaustLifetimeBounds.x, exhaustLifetimeBounds.y, throttle / 10.0f);
+                    child.particleSystem.startSize = Mathf.Lerp(exhaustSizeBounds.x, exhaustSizeBounds.y, throttle / 10.0f);
+                    child.particleSystem.emissionRate = Mathf.Lerp(exhaustEmissionBounds.x, exhaustEmissionBounds.y, atmosphericDensity);
+                }
+                else
+                {
+                    child.particleSystem.enableEmission = false;
+                }
+            }
+            foreach (AudioSource child in audioSourceList)
+            {
+                child.audio.volume = throttle / 10.0f * atmosphericDensity;
+            }
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                sas = !sas;
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                sas = !sas;
+            }
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                sas = !sas;
+            }
+            if (Input.GetKeyUp(KeyCode.G))
+            {
+                gearDown = !gearDown;
+                if (animator)
+                {
+                    animator.SetBool("GearDown", gearDown);
+                }
+            }
+        }
 	}
+
+    void OnStateChange()
+    {
+        if (SceneState.sceneIndex == 1)
+        {
+            if (transform.name == "prefabFighter")
+            {
+                isEnabled = true;
+            }
+            else
+            {
+                isEnabled = false;
+            }
+        }
+        else if (SceneState.sceneIndex == 2)
+        {
+            if (transform.name == "prefabFreighter")
+            {
+                isEnabled = true;
+            }
+            else
+            {
+                isEnabled = false;
+            }
+        }
+        else
+        {
+            isEnabled = false;
+        }
+    }
 }

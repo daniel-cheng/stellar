@@ -1907,7 +1907,7 @@ GameObject:
   - 4: {fileID: 400232}
   - 114: {fileID: 11400016}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: WaypointArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5367,8 +5367,14 @@ MonoBehaviour:
   gatePassedList: []
   timeSinceStart: 0
   gatesPassed: 0
-  outputGatesPassed: {fileID: 0}
-  debug: {fileID: 0}
+  uiHandler: {fileID: 0}
+  distanceTravelled: 0
+  cargoCarried: 0
+  cargoDelivered: 0
+  tradingPostList:
+  - {fileID: 0}
+  - {fileID: 0}
+  tradingPostDestinationIndex: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5418,7 +5424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 10
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
-  rootObject: {fileID: 400210}
+  rootObject: {fileID: 400048}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5445,7 +5451,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100210}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee6c4b19c8a03ac43929c87a79daabf4, type: 3}
   m_Name: 
@@ -5500,10 +5506,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966c264665badfc43930fbf611a52cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   waypointIndex: 0
-  arrow: {fileID: 0}
-  isEnabled: 0
+  arrow: {fileID: 400232}
+  isEnabled: 1
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

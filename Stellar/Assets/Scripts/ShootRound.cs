@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ShootRound : MonoBehaviour {
+    public bool isEnabled;
 	public float velocity = 20;
 	public Transform newObject;
 	public Transform rootObject;
@@ -63,16 +64,18 @@ public class ShootRound : MonoBehaviour {
         //    loaded = true;
         //    roundShot = false;
         //}
-		if (Input.GetButton("Fire1")) {
-            Transform clone;
-            clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
-            clone.transform.parent = transform.root;
-            clone.rigidbody.velocity = rootObject.TransformDirection(Vector3.forward * velocity);
-//			Physics.IgnoreCollision(clone.collider, collider);
-			Destroy(clone.gameObject, 1.0f);
-
-	
-		
+        if (isEnabled) 
+        {
+            if (Input.GetButton("Fire1"))
+            {
+                Transform clone;
+                clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
+                clone.transform.parent = transform.root;
+                clone.rigidbody.velocity = rootObject.TransformDirection(Vector3.forward * velocity);
+                //			Physics.IgnoreCollision(clone.collider, collider);
+                Destroy(clone.gameObject, 3.0f);
+            }
+        }
 //            if ((capacitorCharge < 3000)&&(loaded == true)) { 
 //                capacitorCharge = capacitorCharge + 1000 * Time.deltaTime;
 //                myParticleSystem.emissionRate = capacitorCharge / 10;
@@ -93,7 +96,7 @@ public class ShootRound : MonoBehaviour {
 //            } else {
 //                myParticleSystem.emissionRate = 0;
 //            }
-		}
+
         //if (Input.GetButtonDown("Fire1")) {
         //    myAudio.Play();
         //}
@@ -105,12 +108,12 @@ public class ShootRound : MonoBehaviour {
         {
             if (CameraState.stateIndex == 1)
             {
-                enabled = true;
+                isEnabled = true;
             }
         }
         else
         {
-            enabled = false;
+            isEnabled = false;
         }
     }
 }

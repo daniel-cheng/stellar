@@ -622,9 +622,10 @@ GameObject:
   - 4: {fileID: 400072}
   - 33: {fileID: 3300072}
   - 23: {fileID: 2300072}
+  - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: ring
-  m_TagString: Untagged
+  m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -637,6 +638,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400074}
+  - 136: {fileID: 13600000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
+  - 54: {fileID: 5400000}
   m_Layer: 0
   m_Name: prefabFreighter
   m_TagString: Untagged
@@ -1130,8 +1135,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100074}
-  m_LocalRotation: {x: -.0870484188, y: .462646097, z: -.163123608, w: .867047787}
-  m_LocalPosition: {x: -481.96759, y: 873.581665, z: 6998.4873}
+  m_LocalRotation: {x: -.0026493445, y: .5069803, z: -.014363694, w: .86183393}
+  m_LocalPosition: {x: -266.095154, y: 869.455933, z: 6991.80273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400072}
@@ -2136,6 +2141,85 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100072}
   m_Mesh: {fileID: 4300000, guid: 208765e2f300ed442a92148fc010db4e, type: 3}
+--- !u!54 &5400000
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100074}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: .5
+  m_AngularDrag: .25
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6500000
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 32.5713196, y: 400, z: 400}
+  m_Center: {x: -.00048828125, y: -3.05175818e-05, z: 7.62939453e-05}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f29fd6a6937fe4a8dcea03fa42d7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationalSpeed: 0
+  rotationTorque: 5000
+  thrust: 250
+  sas: 1
+  sasForce: 100
+  engineLifetimeBounds: {x: .0500000007, y: .800000012}
+  engineSizeBounds: {x: 5, y: 7.5}
+  exhaustLifetimeBounds: {x: .5, y: 2}
+  exhaustSizeBounds: {x: 3, y: 10}
+  exhaustEmissionBounds: {x: 0, y: 50}
+  scaleHeight: 16.6000004
+  earthRadius: 10000
+  earth: {fileID: 0}
+  seaLevelDensity: 1
+  throttleSpeed: 50
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100074}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e5926c9a8814544b76cb63f84aaa74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet: {fileID: 0}
+  gravitationalParameter: 3.98600413e+14
+--- !u!136 &13600000
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 247.360001
+  m_Height: 2000
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
