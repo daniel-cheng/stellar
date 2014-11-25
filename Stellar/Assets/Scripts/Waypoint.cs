@@ -50,6 +50,10 @@ public class Waypoint : MonoBehaviour {
 
     void OnTriggerStateChange()
     {
+		waypointIndex += 1;
+		if (waypointIndex >= waypoints.Capacity) {
+			waypointIndex = 0;
+		};
 
     }
 
