@@ -1527,6 +1527,8 @@ MonoBehaviour:
   waypointIndex: 0
   arrow: {fileID: 1014521107}
   isEnabled: 1
+  tradingPosts: []
+  gates: []
 --- !u!1001 &16508612
 Prefab:
   m_ObjectHideFlags: 0
@@ -3818,7 +3820,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
       propertyPath: m_Name
@@ -8659,7 +8661,7 @@ Transform:
   - {fileID: 625402208}
   - {fileID: 1119617343}
   m_Father: {fileID: 2030216472}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!54 &411567991
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10298,6 +10300,8 @@ MonoBehaviour:
   waypointIndex: 0
   arrow: {fileID: 0}
   isEnabled: 1
+  tradingPosts: []
+  gates: []
 --- !u!23 &628056436
 Renderer:
   m_ObjectHideFlags: 0
@@ -12076,7 +12080,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.99999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.99999988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
@@ -12818,11 +12830,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
       propertyPath: m_Name
       value: prefabGateRing 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.00000024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
@@ -15374,6 +15390,8 @@ MonoBehaviour:
   waypointIndex: 0
   arrow: {fileID: 1014521107}
   isEnabled: 1
+  tradingPosts: []
+  gates: []
 --- !u!1001 &1023787065
 Prefab:
   m_ObjectHideFlags: 0
@@ -15579,12 +15597,12 @@ Transform:
   m_GameObject: {fileID: 1033847253}
   m_LocalRotation: {x: .679384291, y: .0544870608, z: -.0666814372, w: .72871244}
   m_LocalPosition: {x: 1000, y: 500.19931, z: -6550}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.99999988, y: 1.99999988, z: 2}
   m_Children:
   - {fileID: 1750816223}
   - {fileID: 1753674595}
   m_Father: {fileID: 2030216472}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!54 &1033847256
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18732,7 +18750,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c73b0ddb56b5b10469d79b53e33ae451, type: 2}
       propertyPath: m_Name
@@ -19235,7 +19253,7 @@ Transform:
   - {fileID: 1229160942}
   - {fileID: 787844656}
   m_Father: {fileID: 2030216472}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!54 &1271265871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20630,12 +20648,12 @@ Transform:
   m_GameObject: {fileID: 1508693822}
   m_LocalRotation: {x: .632149398, y: -.080874458, z: .0330995582, w: .769903243}
   m_LocalPosition: {x: 969.431396, y: 193.840576, z: -3600.16504}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2, y: 2, z: 2.00000024}
   m_Children:
   - {fileID: 478942000}
   - {fileID: 900396674}
   m_Father: {fileID: 2030216472}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!54 &1508693825
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29214,10 +29232,10 @@ Transform:
   m_LocalPosition: {x: -.21761322, y: -231.0914, z: 8447.7373}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 411567989}
   - {fileID: 1271265869}
   - {fileID: 1033847254}
   - {fileID: 1508693823}
+  - {fileID: 411567989}
   - {fileID: 831236884}
   - {fileID: 1099894928}
   - {fileID: 1660232056}
