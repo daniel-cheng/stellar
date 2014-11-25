@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GameStateHandler : MonoBehaviour {
+    public delegate void StateChange();
+    public static event StateChange OnTriggerStateChange;
+
 	public List<GameObject> gatePassedList;
 
 	public float timeSinceStart = 0.0f;
@@ -42,6 +45,10 @@ public class GameStateHandler : MonoBehaviour {
 
             uiHandler.SetUpperRightText("Ring Hit");
             uiHandler.SetUpperLeftText("Gates Passed: " + gatesPassed.ToString());
+            if (OnTriggerStateChange != null)
+            {
+                OnTriggerStateChange();
+            }
 		}
         else if (other.transform == tradingPostList[tradingPostDestinationIndex])
         {
@@ -56,6 +63,10 @@ public class GameStateHandler : MonoBehaviour {
             tradingPostDestinationIndex = randomIndex;
 
             uiHandler.SetLowerRightText("Cargo Carried: " + cargoCarried.ToString("G2") + " Delivered: " + cargoDelivered.ToString("G2"));
+            if (OnTriggerStateChange != null)
+            {
+                OnTriggerStateChange();
+            }
         }
 	}
 }
