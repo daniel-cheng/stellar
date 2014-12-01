@@ -30,10 +30,11 @@ public class GameStateHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timeSinceStart += Time.deltaTime;
-        distanceTravelled += rigidbody.velocity.magnitude * Time.deltaTime;
-
-        uiHandler.SetLowerLeftText("Time: " + timeSinceStart.ToString("F2") + " Velocity: " + rigidbody.velocity.magnitude.ToString("F2"));
+		if (SceneState.sceneIndex != 0) {
+						timeSinceStart += Time.deltaTime;
+						distanceTravelled += rigidbody.velocity.magnitude * Time.deltaTime;
+						uiHandler.SetLowerLeftText ("Time: " + timeSinceStart.ToString ("F2") + " Velocity: " + rigidbody.velocity.magnitude.ToString ("F2"));
+				}
 	}
 
     void OnTriggerEnter(Collider other)

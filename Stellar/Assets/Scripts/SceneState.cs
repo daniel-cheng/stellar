@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class SceneState : MonoBehaviour
 {
-	//public AudioClip mainMenuMusic; //not sure how to use this
+	//public AudioClip raceMusic; //not sure how to use this
 	public List<string> sceneList = new List<string>{"main", "race", "trade"}; //for future use?
 	public static int sceneIndex = 0;
 
@@ -17,6 +17,7 @@ public class SceneState : MonoBehaviour
 	public Transform freighter;
 	public GUIText debug;
 	public UIHandler uiHandler;
+	public GameObject raceMusic;
 
 	// Use this for initialization
 	void Start ()
@@ -43,6 +44,7 @@ public class SceneState : MonoBehaviour
             }
 			cameraState.SetCameraState (3, false);
 			cameraState.SetCameraState (0, true);
+			raceMusic.GetComponent<AudioSource>().enabled = true;
 			fighter.GetComponent<MouseAim> ().enabled = true;
             fighter.GetComponent<ShootRound>().enabled = true;
 			freighter.GetComponent<Fly> ().enabled = false;
@@ -57,7 +59,6 @@ public class SceneState : MonoBehaviour
             }
 			cameraState.SetCameraState (3, false);
 			cameraState.SetCameraState (4, true);
-			fighter.renderer.enabled = false;
 			fighter.GetComponent<MouseAim> ().enabled = false;
 			fighter.GetComponent<ShootRound> ().enabled = false;
 			fighter.GetComponent<Fly> ().enabled = false;

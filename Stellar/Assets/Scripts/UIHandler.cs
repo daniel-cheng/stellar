@@ -44,7 +44,7 @@ public class UIHandler : MonoBehaviour {
         {
             SetUpperRightText("Race Module Initiated");
         }
-        else if (SceneState.sceneIndex == 1)
+        else if (SceneState.sceneIndex == 2)
         {
             SetUpperRightText("Trade Module Initiated");
         }
