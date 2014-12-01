@@ -1,20 +1,20 @@
 fileFormatVersion: 2
-guid: 4f4b5bfe3cd1d614084b72e8440afd7c
+guid: 51c1ce0e50e3b3b459c5477ca98001bc
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: chevrons
+    100000: gate
     100002: //RootNode
     100004: ring
-    400000: chevrons
+    400000: gate
     400002: //RootNode
     400004: ring
-    2300000: chevrons
+    2300000: gate
     2300002: ring
-    3300000: chevrons
+    3300000: gate
     3300002: ring
     4300000: ring
-    4300002: chevrons
+    4300002: gate
     9500000: //RootNode
   materials:
     importMaterials: 1

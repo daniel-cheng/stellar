@@ -43,7 +43,6 @@ public class Waypoint : MonoBehaviour {
 	void Update () {
         if (isEnabled)
         {
-            Debug.Log(waypoints[waypointIndex].ToString());
             arrow.LookAt(waypoints[waypointIndex]);
         };
 	}
