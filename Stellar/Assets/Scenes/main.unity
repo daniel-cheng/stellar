@@ -1330,6 +1330,9 @@ GameObject:
   - 114: {fileID: 11419526}
   - 114: {fileID: 11419527}
   - 114: {fileID: 11419528}
+  - 114: {fileID: 11419532}
+  - 114: {fileID: 11419530}
+  - 114: {fileID: 11419531}
   m_Layer: 0
   m_Name: prefabFighter
   m_TagString: Untagged
@@ -1532,6 +1535,118 @@ MonoBehaviour:
   isEnabled: 1
   tradingPosts: []
   gates: []
+--- !u!114 &11419530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11419518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d039134acf55a14fbb781a9c088c4ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionTime: 1.5
+  randomizeExplosionTime: 0
+  radius: 20
+  power: 9
+  probeCount: 100
+  explodeDuration: 5
+--- !u!114 &11419531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11419518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f4258339dbc7d40a62d752887441c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  centerEmission: 20000
+  centerEmissionDuration: .200000003
+  radius: 14
+  startEmission: 3000
+  emission: 3000
+  maxParticles: 100000
+  colorOverLifetime:
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  alphaOverLifetime:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  particleSizeMultiplyer: 4
+  teleportationIterations: 4
+  teleportationThreshold: 1.5
+--- !u!114 &11419532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11419518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026a2deff3dab194893abb8f75720da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumetricExplosion: {fileID: 100000, guid: 5d028565f79e270408884b995abc06ef, type: 2}
+  count: 2
+  scale: 14
+  randomness: .600000024
+  duration: 1.5
 --- !u!1001 &16508612
 Prefab:
   m_ObjectHideFlags: 0

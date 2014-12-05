@@ -2179,6 +2179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f29fd6a6937fe4a8dcea03fa42d7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnabled: 0
   translationalSpeed: 0
   rotationTorque: 5000
   thrust: 250
