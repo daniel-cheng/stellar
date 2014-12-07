@@ -21,9 +21,15 @@ public class GameStateHandler : MonoBehaviour {
     public int tradingPostDestinationIndex;
 
     private Vector2 cargoMassBounds = new Vector2(1000.0f, 100000.0f);
+	private GameObject[] numOfGates;
+	private int countLength = 0;
+	private int lap = 0;
 
 	// Use this for initialization
 	void Start () {
+		numOfGates = GameObject.FindGameObjectsWithTag("Gate");
+		countLength = numOfGates.Length;
+    	uiHandler.SetUpperRightText("Number of rings: " + (countLength - 1));
 		gatePassedList = new List<GameObject> ();
         cargoCarried = Random.Range(cargoMassBounds.x, cargoMassBounds.y);
 	}
@@ -44,8 +50,20 @@ public class GameStateHandler : MonoBehaviour {
             gatePassedList.Add(other.gameObject);
 			gatesPassed += 1;
 
-            uiHandler.SetUpperRightText("Ring Hit");
-            uiHandler.SetUpperLeftText("Gates Passed: " + gatesPassed.ToString());
+			if(gatesPassed > countLength-2)
+			{
+
+				lap++;
+				if(lap > 1)
+				{
+					Application.LoadLevel(0);
+				}
+				gatesPassed = 0;
+				gatePassedList.Clear();
+			}
+
+            uiHandler.SetUpperLeftText("Gates Passed: " + gatesPassed.ToString() + "\nLaps Passed: "
+			                           + lap);
             if (OnTriggerStateChange != null)
             {
                 OnTriggerStateChange();
