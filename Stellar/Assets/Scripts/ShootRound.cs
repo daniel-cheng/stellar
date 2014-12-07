@@ -21,6 +21,7 @@ public class ShootRound : MonoBehaviour {
 	private GunnerAim myGunnerAim;
 	private bool loaded = true;
 	private bool roundShot = false;
+	private float cooldown = 0.0f;
 
 
 	void  Start (){
@@ -68,12 +69,17 @@ public class ShootRound : MonoBehaviour {
         {
             if (Input.GetButton("Fire1"))
             {
-                Transform clone;
-                clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
-                clone.transform.parent = transform.root;
-                clone.rigidbody.velocity = rootObject.TransformDirection(Vector3.forward * velocity);
-                //			Physics.IgnoreCollision(clone.collider, collider);
-                Destroy(clone.gameObject, 3.0f);
+				if(cooldown <= 0.0f)
+				{
+	                Transform clone;
+	                clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
+	                clone.transform.parent = transform.root;
+	                clone.rigidbody.velocity = rootObject.TransformDirection(Vector3.forward * velocity*10);
+	                //			Physics.IgnoreCollision(clone.collider, collider);
+	                Destroy(clone.gameObject, 3.0f);
+					cooldown = 0.5f;
+				}
+				cooldown -= Time.deltaTime;
             }
         }
 //            if ((capacitorCharge < 3000)&&(loaded == true)) { 
