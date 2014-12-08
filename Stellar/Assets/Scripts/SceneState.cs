@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class SceneState : MonoBehaviour
@@ -18,10 +19,11 @@ public class SceneState : MonoBehaviour
 	public GUIText debug;
 	public UIHandler uiHandler;
 	public GameObject raceMusic;
+    public SceneFadeInOut sceneFader;
 
-	// Use this for initialization
-	void Start ()
-	{
+    void Awake()
+    {
+        sceneIndex = 0;
 		cameraState.SetCameraState (3, true);
 	}
 	
@@ -30,7 +32,38 @@ public class SceneState : MonoBehaviour
 	{
 
 	}
+    public void SetSceneState(int stateIndex, bool state)
+    {
+        sceneIndex = stateIndex;
+        if (OnStateChange != null)
+        {
+            OnStateChange();
+        }
+        if (stateIndex == 0)
+        {
+            sceneFader.EndScene();
 
+            fighter.GetComponent<MouseAim>().enabled = false;
+            fighter.GetComponent<ShootRound>().enabled = false;
+            StartCoroutine(SwitchCamera());
+
+        }
+    }
+
+    IEnumerator SwitchCamera()
+    {
+        yield return new WaitForSeconds(2.5f);
+        raceMusic.GetComponent<AudioSource>().enabled = false;
+        sceneFader.StartScene();
+        cameraState.SetCameraState(0, false);
+        cameraState.SetCameraState(3, true);
+
+        foreach (GameObject title in txt)
+        {
+            title.renderer.enabled = true;
+        }
+    }
+    
 	void OnMouseUp ()
 	{
 		foreach (GameObject title in txt) {
@@ -48,9 +81,9 @@ public class SceneState : MonoBehaviour
 			fighter.GetComponent<MouseAim> ().enabled = true;
             fighter.GetComponent<ShootRound>().enabled = true;
 			//freighter.GetComponent<Fly> ().enabled = false;
-			foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
-				renderer.enabled = !renderer.enabled;
-			}
+			//foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
+			//	renderer.enabled = !renderer.enabled;
+			//}
 		} else if (gameObject.tag == "Trade") {
             sceneIndex = 2;
             if (OnStateChange != null)
@@ -62,10 +95,10 @@ public class SceneState : MonoBehaviour
 			fighter.GetComponent<MouseAim> ().enabled = false;
 			fighter.GetComponent<ShootRound> ().enabled = false;
 			fighter.GetComponent<Fly> ().enabled = false;
-            foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>())
-            {
-                renderer.enabled = !renderer.enabled;
-            }
+            //foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>())
+            //{
+            //    renderer.enabled = !renderer.enabled;
+            //}
         }						
 	}	
 }
