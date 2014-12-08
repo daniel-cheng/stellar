@@ -47,7 +47,7 @@ public class SceneState : MonoBehaviour
 			raceMusic.GetComponent<AudioSource>().enabled = true;
 			fighter.GetComponent<MouseAim> ().enabled = true;
             fighter.GetComponent<ShootRound>().enabled = true;
-			freighter.GetComponent<Fly> ().enabled = false;
+			//freighter.GetComponent<Fly> ().enabled = false;
 			foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
 				renderer.enabled = !renderer.enabled;
 			}
