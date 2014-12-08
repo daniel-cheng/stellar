@@ -22,11 +22,11 @@ public class Fly : MonoBehaviour {
 	public Transform earth;
 	public float seaLevelDensity = 1.0f;
     public float throttleSpeed = 50.0f;
+    public float throttle;
 	
 	private ArrayList engineList;
 	private ArrayList exhaustList;
 	private ArrayList audioSourceList;
-	private float throttle;
 	private Animator animator;
 	private bool gearDown;
 	private float earthDistance;
@@ -176,6 +176,7 @@ public class Fly : MonoBehaviour {
         else
         {
             isEnabled = false;
+            throttle = 0.0f;
         }
     }
 }

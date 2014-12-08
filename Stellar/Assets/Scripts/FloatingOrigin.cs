@@ -11,7 +11,16 @@ public class FloatingOrigin : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+        Vector3 offset = focus.position;
+        frameAcceleration = focus.rigidbody.velocity;
+        frameVelocity -= focus.rigidbody.velocity;
+        foreach (Transform topLevelObjects in transform.root)
+        {
+            topLevelObjects.position -= offset;
+        }
         //Debug.Log(focus.rigidbody.velocity);
+        origin += offset;
+
 	}
 
     void FixedUpdate()

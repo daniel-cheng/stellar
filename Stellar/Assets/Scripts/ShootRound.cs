@@ -14,13 +14,13 @@ public class ShootRound : MonoBehaviour {
 	public Transform newObject;
 	public Transform rootObject;
 	private Vector3 offset;
-	private float capacitorCharge = 0;
+	//private float capacitorCharge = 0;
 	private AudioSource myAudio;
 	private ParticleSystem myParticleSystem;
 	private MouseOrbit myCamera;
 	private GunnerAim myGunnerAim;
-	private bool loaded = true;
-	private bool roundShot = false;
+	//private bool loaded = true;
+	//private bool roundShot = false;
 	private float cooldown = 0.0f;
 
 

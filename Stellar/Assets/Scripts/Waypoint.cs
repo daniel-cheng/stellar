@@ -41,7 +41,7 @@ public class Waypoint : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isEnabled)
+        if (isEnabled && waypointIndex > waypoints.Count)
         {
             arrow.LookAt(waypoints[waypointIndex]);
         };
@@ -66,6 +66,10 @@ public class Waypoint : MonoBehaviour {
         else if (SceneState.sceneIndex == 2)
         {
             waypoints = gates;
+        }
+        else
+        {
+            waypointIndex = 0;
         }
     }
 }
