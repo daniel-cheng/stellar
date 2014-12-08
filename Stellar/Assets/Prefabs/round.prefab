@@ -13,7 +13,6 @@ GameObject:
   - 54: {fileID: 5400000}
   - 96: {fileID: 9600000}
   - 65: {fileID: 6500000}
-  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: round
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -.324000418, y: .00421611965, z: -.0448242426}
+  m_LocalPosition: {x: -433.060791, y: -789.928223, z: -1666.49939}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,23 +127,6 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: .100000001
   m_Autodestruct: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d039134acf55a14fbb781a9c088c4ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionTime: 0
-  randomizeExplosionTime: 0
-  radius: 15
-  power: 1
-  probeCount: 150
-  explodeDuration: .5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
