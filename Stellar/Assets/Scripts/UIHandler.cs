@@ -25,7 +25,7 @@ public class UIHandler : MonoBehaviour {
 
     public void SetUpperLeftText(string text)
     {
-        upperLeft.text = text;
+        //upperLeft.text = text;
     }
 
     public void SetLowerRightText(string text)
@@ -42,11 +42,18 @@ public class UIHandler : MonoBehaviour {
     {
         if (SceneState.sceneIndex == 1)
         {
-            SetUpperRightText("Race Module Initiated");
+            //SetUpperRightText("Race Module Initiated");
         }
         else if (SceneState.sceneIndex == 2)
         {
-            SetUpperRightText("Trade Module Initiated");
+            //SetUpperRightText("Trade Module Initiated");
+        }
+        else if (SceneState.sceneIndex == 0)
+        {
+            SetUpperRightText("");
+            SetUpperLeftText("");
+            SetLowerRightText("");
+            SetLowerLeftText("");
         }
     }
 }

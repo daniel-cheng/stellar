@@ -6,7 +6,10 @@ public class GameStateHandler : MonoBehaviour {
     public delegate void StateChange();
     public static event StateChange OnTriggerStateChange;
 
+    public SceneState sceneState;
 	public List<GameObject> gatePassedList;
+    public Vector3 storedPosition;
+    public Quaternion storedRotation;
 
 	public float timeSinceStart = 0.0f;
 	public int gatesPassed = 0;
@@ -27,9 +30,11 @@ public class GameStateHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        storedPosition = transform.position;
+        storedRotation = transform.rotation;
 		numOfGates = GameObject.FindGameObjectsWithTag("Gate");
 		countLength = numOfGates.Length;
-    	uiHandler.SetUpperRightText("Number of rings: " + (countLength - 1));
+    	//uiHandler.SetUpperRightText("Number of rings: " + (countLength - 1));
 		gatePassedList = new List<GameObject> ();
         cargoCarried = Random.Range(cargoMassBounds.x, cargoMassBounds.y);
 	}
@@ -50,13 +55,16 @@ public class GameStateHandler : MonoBehaviour {
             gatePassedList.Add(other.gameObject);
 			gatesPassed += 1;
 
+            sceneState.SetSceneState(0, true);
+
 			if(gatesPassed > countLength-2)
 			{
 
 				lap++;
-				if(lap > 1)
+				if(lap > 0)
 				{
-					Application.LoadLevel(0);
+                    sceneState.SetSceneState(0, true);
+                    Initialize();
 				}
 				gatesPassed = 0;
 				gatePassedList.Clear();
@@ -88,4 +96,22 @@ public class GameStateHandler : MonoBehaviour {
             }
         }
 	}
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(5.0f);
+    }
+
+    void Initialize()
+    {
+        timeSinceStart = 0.0f;
+	    gatesPassed = 0;
+        distanceTravelled = 0.0f;
+        cargoCarried = 0.0f;
+        cargoDelivered = 0.0f;
+        lap = 0;
+        countLength = 0;
+        transform.position = storedPosition;
+        transform.rotation = storedRotation;
+    }
 }
