@@ -53,7 +53,7 @@ public class UIHandler : MonoBehaviour {
             SetUpperRightText("");
             SetUpperLeftText("");
             SetLowerRightText("");
-            SetLowerLeftText("");
+            //SetLowerLeftText("");
         }
     }
 }
