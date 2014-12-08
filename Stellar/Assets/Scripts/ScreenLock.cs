@@ -32,6 +32,7 @@ public class ScreenLock : MonoBehaviour {
         }
         else
         {
+            Screen.lockCursor = false;
             isEnabled = false;
         }
     }

@@ -45,6 +45,7 @@ public class SceneState : MonoBehaviour
 
             fighter.GetComponent<MouseAim>().enabled = false;
             fighter.GetComponent<ShootRound>().enabled = false;
+            uiHandler.SetLowerRightText("Yay you won!!!");
             StartCoroutine(SwitchCamera());
 
         }

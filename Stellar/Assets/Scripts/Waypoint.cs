@@ -41,10 +41,10 @@ public class Waypoint : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isEnabled && waypointIndex > waypoints.Count)
+        if (isEnabled && waypointIndex < waypoints.Count)
         {
             arrow.LookAt(waypoints[waypointIndex]);
-        };
+        }
 	}
 
     void OnTriggerStateChange()
