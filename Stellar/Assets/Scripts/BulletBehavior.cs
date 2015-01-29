@@ -12,6 +12,8 @@ public class BulletBehavior : MonoBehaviour {
 		//if (objectHit.GetComponent<HealthHandler>() != null) // Checks if the GameOject has a HealthHandler (to be implemented)
 		{
 			//objectHit.GetComponent<HealthHandler>().ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
-		}
+            
+        }
+        Destroy(this.gameObject);
 	}
 }
