@@ -9,9 +9,9 @@ public class BulletBehavior : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{
 		GameObject objectHit = collision.gameObject; // Gets the GameObject of the collider the bullet collided with
-		if (objectHit.GetComponent<HealthHandler>() != null) // Checks if the GameOject has a HealthHandler (to be implemented)
+		//if (objectHit.GetComponent<HealthHandler>() != null) // Checks if the GameOject has a HealthHandler (to be implemented)
 		{
-			objectHit.GetComponent<HealthHandler>().ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
+			//objectHit.GetComponent<HealthHandler>().ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
 		}
 	}
 }
