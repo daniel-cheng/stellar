@@ -1536,6 +1536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneState: {fileID: 2061935743}
+  statSystem: {fileID: 0}
   gatePassedList: []
   storedPosition: {x: 0, y: 0, z: 0}
   storedRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -11224,6 +11225,7 @@ Transform:
   - {fileID: 508774085}
   - {fileID: 1399377874}
   - {fileID: 1050679444}
+  - {fileID: 1651336788}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &427548564
@@ -27350,6 +27352,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1007368354}
   m_RootOrder: 0
+--- !u!1 &1651336786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1651336788}
+  - 132: {fileID: 1651336787}
+  m_Layer: 0
+  m_Name: BottomLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!132 &1651336787
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651336786}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: 
+  m_Anchor: 6
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: b0587bc9966575d44a74c338267f093a, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &1651336788
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651336786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .100000001, y: .0500000007, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 426503767}
+  m_RootOrder: 4
 --- !u!1 &1654315338
 GameObject:
   m_ObjectHideFlags: 0
@@ -28733,6 +28786,7 @@ MonoBehaviour:
   upperLeft: {fileID: 657991150}
   lowerRight: {fileID: 1399377873}
   lowerLeft: {fileID: 1050679443}
+  bottomLeft: {fileID: 1651336787}
 --- !u!114 &1659701563
 MonoBehaviour:
   m_ObjectHideFlags: 0

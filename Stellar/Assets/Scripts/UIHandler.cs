@@ -7,6 +7,7 @@ public class UIHandler : MonoBehaviour {
     public GUIText upperLeft;
     public GUIText lowerRight;
     public GUIText lowerLeft;
+	public GUIText bottomLeft;
 	
 	// Use this for initialization
 	void Start () {
@@ -38,6 +39,11 @@ public class UIHandler : MonoBehaviour {
         lowerLeft.text = text;
     }
 
+	public void SetBottomLeftText(string text)
+	{
+		bottomLeft.text = text;
+	}
+
     void OnStateChange()
     {
         if (SceneState.sceneIndex == 1)
@@ -53,6 +59,7 @@ public class UIHandler : MonoBehaviour {
             SetUpperRightText("");
             SetUpperLeftText("");
             SetLowerRightText("");
+			SetBottomLeftText("");
             //SetLowerLeftText("");
         }
     }
