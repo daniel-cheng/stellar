@@ -7,6 +7,7 @@ public class GameStateHandler : MonoBehaviour {
     public static event StateChange OnTriggerStateChange;
 
     public SceneState sceneState;
+	public StatSystem statSystem;
 	public List<GameObject> gatePassedList;
     public Vector3 storedPosition;
     public Quaternion storedRotation;
@@ -45,6 +46,7 @@ public class GameStateHandler : MonoBehaviour {
 						timeSinceStart += Time.deltaTime;
 						distanceTravelled += rigidbody.velocity.magnitude * Time.deltaTime;
 						uiHandler.SetLowerLeftText ("Time: " + timeSinceStart.ToString ("F2") + " Velocity: " + rigidbody.velocity.magnitude.ToString ("F2"));
+						uiHandler.SetBottomLeftText("Health: " + statSystem.health.ToString("F2"));
 				}
 	}
 
