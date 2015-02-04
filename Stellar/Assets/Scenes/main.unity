@@ -1394,6 +1394,7 @@ GameObject:
   - 114: {fileID: 11419526}
   - 114: {fileID: 11419527}
   - 114: {fileID: 11419528}
+  - 114: {fileID: 11419529}
   m_Layer: 0
   m_Name: prefabFighter
   m_TagString: Untagged
@@ -1536,7 +1537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneState: {fileID: 2061935743}
-  statSystem: {fileID: 0}
+  statSystem: {fileID: 11419529}
   gatePassedList: []
   storedPosition: {x: 0, y: 0, z: 0}
   storedRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1597,6 +1598,18 @@ MonoBehaviour:
   isEnabled: 1
   tradingPosts: []
   gates: []
+--- !u!114 &11419529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11419518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ab0534a87eb1d4d880758fe999dc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1001 &16508612
 Prefab:
   m_ObjectHideFlags: 0
@@ -24447,6 +24460,10 @@ Prefab:
       propertyPath: sceneState
       value: 
       objectReference: {fileID: 2061935743}
+    - target: {fileID: 11400004, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: statSystem
+      value: 
+      objectReference: {fileID: 11419529}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
   m_RootGameObject: {fileID: 11419518}
@@ -27361,6 +27378,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1651336788}
   - 132: {fileID: 1651336787}
+  - 114: {fileID: 1651336790}
+  - 114: {fileID: 1651336789}
   m_Layer: 0
   m_Name: BottomLeft
   m_TagString: Untagged
@@ -27403,6 +27422,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 426503767}
   m_RootOrder: 4
+--- !u!114 &1651336789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651336786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ab0534a87eb1d4d880758fe999dc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+--- !u!114 &1651336790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1651336786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ab0534a87eb1d4d880758fe999dc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1 &1654315338
 GameObject:
   m_ObjectHideFlags: 0
