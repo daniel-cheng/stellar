@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class SceneState : MonoBehaviour
 {
 	//public AudioClip raceMusic; //not sure how to use this
-	public List<string> sceneList = new List<string>{"main", "race", "trade"}; //for future use?
+	public List<string> sceneList = new List<string>{"main", "race", "trade", "combat"}; //for future use?
 	public static int sceneIndex = 0;
 
     public delegate void StateChange();

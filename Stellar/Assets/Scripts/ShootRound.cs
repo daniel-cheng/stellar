@@ -69,17 +69,7 @@ public class ShootRound : MonoBehaviour {
         {
             if (Input.GetButton("Fire1"))
             {
-				if(cooldown <= 0.0f)
-				{
-	                Transform clone;
-	                clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
-	                clone.transform.parent = transform.root;
-	                clone.rigidbody.velocity = rootObject.TransformDirection(Vector3.forward * velocity*10);
-	                //			Physics.IgnoreCollision(clone.collider, collider);
-	                Destroy(clone.gameObject, 3.0f);
-					cooldown = 0.5f;
-				}
-				cooldown -= Time.deltaTime;
+                Shoot();
             }
         }
 //            if ((capacitorCharge < 3000)&&(loaded == true)) { 
@@ -107,6 +97,21 @@ public class ShootRound : MonoBehaviour {
         //    myAudio.Play();
         //}
 	}
+
+    public void Shoot()
+    {
+        if (cooldown <= 0.0f)
+        {
+            Transform clone;
+            clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
+            clone.transform.parent = transform.root;
+            clone.rigidbody.velocity = rootObject.TransformDirection(Vector3.forward * velocity * 10);
+            //			Physics.IgnoreCollision(clone.collider, collider);
+           // Destroy(clone.gameObject, 3.0f);
+            cooldown = 0.0f;
+        }
+        cooldown -= Time.deltaTime;
+    }
 
     void OnStateChange()
     {
