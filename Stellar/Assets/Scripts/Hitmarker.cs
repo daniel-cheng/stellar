@@ -7,14 +7,41 @@ public class Hitmarker : MonoBehaviour{
 
     public Transform arrow;
 
-    public bool enabled;
-    
-    void Start(){
+    public bool isEnabled;
 
+    void Start()
+    {
+        SceneState.OnStateChange += OnStateChange;
+        CameraState.OnStateChange += OnStateChange;
+        GameStateHandler.OnTriggerStateChange += OnTriggerStateChange;
+
+        Transform turretParent = GameObject.Find("Turret").transform;
+        foreach (Transform turret in turretParent)
+        {
+            if (turret.parent == turretParent)
+            {
+                tradingList.Add(turret);
+            }
+        }
+        
     }
 
-    void Update() {
-        //use lookAt()??
+ 
+    void Update()
+    {
+        //I need to look for the closest one here, right? 
+        if (isEnabled)
+        {
+            Transform closestTurret = turretList[0];
+            for (int x = 1; x < turretList.Length; x++)
+            {
+                //need help here. not sure how to measure distance
+                if (/*object?*/.Distance(/*the freighter?*/, turretList[x]) < /*object?*/.Distance(/*the freighter?*/, closestTurret)){
+                    closestTurret = turretList[x];
+                }
+            }
+            arrow.LookAt(closestTurret);
+        }
     }
 }
 
