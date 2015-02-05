@@ -16,6 +16,7 @@ public class SceneState : MonoBehaviour
 	public List<GameObject> txt;
 	public Transform fighter;
 	public Transform freighter;
+    public List<Autogunner> turrets;
 	public GUIText debug;
 	public UIHandler uiHandler;
 	public GameObject raceMusic;
@@ -100,6 +101,23 @@ public class SceneState : MonoBehaviour
             //{
             //    renderer.enabled = !renderer.enabled;
             //}
-        }						
+        }
+        else if (gameObject.tag == "Combat")
+        {
+            sceneIndex = 1;
+            if (OnStateChange != null)
+            {
+                OnStateChange();
+            }
+            cameraState.SetCameraState(3, false);
+            cameraState.SetCameraState(0, true);
+            raceMusic.GetComponent<AudioSource>().enabled = true;
+            fighter.GetComponent<MouseAim>().enabled = true;
+            fighter.GetComponent<ShootRound>().enabled = true;
+            foreach (Autogunner turret in turrets)
+            {
+                turret.isEnabled = !turret.isEnabled;
+            }
+        }			
 	}	
 }
