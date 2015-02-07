@@ -36,7 +36,7 @@ public class Hitmarker : MonoBehaviour{
             for (int x = 1; x < turretList.Length; x++)
             {
                 //need help here. not sure how to measure distance
-                if (/*object?*/.Distance(/*the freighter?*/, turretList[x]) < /*object?*/.Distance(/*the freighter?*/, closestTurret)){
+                if (Vector3.Distance(/*the freighter?*/, turretList[x]) < Vector3.Distance(/*the freighter?*/, closestTurret)){
                     closestTurret = turretList[x];
                 }
             }
