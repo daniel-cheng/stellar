@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+/*
 public class Hitmarker : MonoBehaviour{
 
     public List<Transform> turretList;
@@ -36,7 +36,7 @@ public class Hitmarker : MonoBehaviour{
             for (int x = 1; x < turretList.Length; x++)
             {
                 //need help here. not sure how to measure distance
-                if (Vector3.Distance(/*the freighter?*/, turretList[x]) < Vector3.Distance(/*the freighter?*/, closestTurret)){
+                if (Vector3.Distance(     , turretList[x]) < Vector3.Distance(      , closestTurret)){
                     closestTurret = turretList[x];
                 }
             }
@@ -46,3 +46,4 @@ public class Hitmarker : MonoBehaviour{
 }
 
 
+*/
