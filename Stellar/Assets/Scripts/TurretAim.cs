@@ -17,6 +17,6 @@ public class TurretAim : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		turret.transform.LookAt(fighter.position + fighter.rigidbody.velocity);
+		turret.transform.LookAt(fighter.position);
 		}
 }
