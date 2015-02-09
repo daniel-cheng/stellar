@@ -7788,6 +7788,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: railgunObject
+      value: 
+      objectReference: {fileID: 1438654686}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: fighter
+      value: 
+      objectReference: {fileID: 11419519}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
   m_RootGameObject: {fileID: 1438654685}
@@ -9228,6 +9236,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: railgunObject
+      value: 
+      objectReference: {fileID: 293969376}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: fighter
+      value: 
+      objectReference: {fileID: 11419519}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
   m_RootGameObject: {fileID: 293969375}
@@ -12961,6 +12977,14 @@ Prefab:
       propertyPath: m_Name
       value: railgun2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: railgunObject
+      value: 
+      objectReference: {fileID: 628051860}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: fighter
+      value: 
+      objectReference: {fileID: 11419519}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
   m_RootGameObject: {fileID: 628051859}
@@ -15107,6 +15131,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: railgunObject
+      value: 
+      objectReference: {fileID: 790045055}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: fighter
+      value: 
+      objectReference: {fileID: 11419519}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
   m_RootGameObject: {fileID: 790045054}
@@ -22907,7 +22939,10 @@ MonoBehaviour:
   velocity: 10000
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 1132045566}
+  railgunObject: {fileID: 790045055}
+  fighter: {fileID: 11419519}
   offset: 100
+  maxRange: 5000
 --- !u!1 &1149523306
 GameObject:
   m_ObjectHideFlags: 0
@@ -23482,7 +23517,10 @@ MonoBehaviour:
   velocity: 10000
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 1216698506}
+  railgunObject: {fileID: 293969376}
+  fighter: {fileID: 11419519}
   offset: 100
+  maxRange: 5000
 --- !u!1 &1221517051
 GameObject:
   m_ObjectHideFlags: 0
@@ -25243,7 +25281,10 @@ MonoBehaviour:
   velocity: 10000
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 1394906111}
+  railgunObject: {fileID: 628051860}
+  fighter: {fileID: 11419519}
   offset: 100
+  maxRange: 5000
 --- !u!23 &1394906113
 Renderer:
   m_ObjectHideFlags: 0
@@ -30927,7 +30968,10 @@ MonoBehaviour:
   velocity: 10000
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 1812058706}
+  railgunObject: {fileID: 1438654686}
+  fighter: {fileID: 11419519}
   offset: 100
+  maxRange: 5000
 --- !u!1 &1813591488
 GameObject:
   m_ObjectHideFlags: 0
@@ -32417,7 +32461,10 @@ MonoBehaviour:
   velocity: 10000
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 1843754266}
+  railgunObject: {fileID: 99769399}
+  fighter: {fileID: 11419519}
   offset: 100
+  maxRange: 5000
 --- !u!1 &1843918972
 GameObject:
   m_ObjectHideFlags: 0
@@ -33369,6 +33416,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: railgunObject
+      value: 
+      objectReference: {fileID: 99769399}
+    - target: {fileID: 11400002, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
+      propertyPath: fighter
+      value: 
+      objectReference: {fileID: 11419519}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
   m_RootGameObject: {fileID: 99769398}
