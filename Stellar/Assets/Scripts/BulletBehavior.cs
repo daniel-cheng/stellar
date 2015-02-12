@@ -14,6 +14,6 @@ public class BulletBehavior : MonoBehaviour {
             objectHit.GetComponent<StatSystem>().ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
             
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
 	}
 }
