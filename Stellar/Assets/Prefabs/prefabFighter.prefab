@@ -1723,6 +1723,8 @@ GameObject:
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400020}
+  - 114: {fileID: 11400018}
+  - 114: {fileID: 11400016}
   m_Layer: 0
   m_Name: prefabFighter
   m_TagString: Untagged
@@ -3512,7 +3514,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.68433461e-06, y: -1.334728, z: 22.4277344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400234}
@@ -3525,7 +3527,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100234}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -.968626916, y: 6.98327446, z: -1.02563477}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400232}
@@ -5568,6 +5570,7 @@ MonoBehaviour:
   earth: {fileID: 0}
   seaLevelDensity: 1
   throttleSpeed: 50
+  throttle: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5592,7 +5595,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596a9a26592594f4eaf11aca6a9c076c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneState: {fileID: 0}
+  statSystem: {fileID: 11400018}
   gatePassedList: []
+  storedPosition: {x: 0, y: 0, z: 0}
+  storedRotation: {x: 0, y: 0, z: 0, w: 0}
   timeSinceStart: 0
   gatesPassed: 0
   uiHandler: {fileID: 0}
@@ -5651,7 +5658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 0
-  velocity: 10
+  velocity: 100
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 400048}
 --- !u!114 &11400012
@@ -5686,6 +5693,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9842c5b910592a8428dbdbbc34de0fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: 0
+  trigger: 1
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ab0534a87eb1d4d880758fe999dc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5697,16 +5729,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966c264665badfc43930fbf611a52cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
   waypointIndex: 0
   arrow: {fileID: 400232}
   isEnabled: 1
   tradingPosts: []
   gates: []
+  turrets: []
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1

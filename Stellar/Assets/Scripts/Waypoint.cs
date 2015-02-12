@@ -14,12 +14,14 @@ public class Waypoint : MonoBehaviour {
 
     public List<Transform> tradingPosts;
     public List<Transform> gates;
+    public List<Transform> turrets;
+    
 
 	// Use this for initialization
 	void Start () {
         SceneState.OnStateChange += OnStateChange;
         CameraState.OnStateChange += OnStateChange;
-        GameStateHandler.OnTriggerStateChange += OnTriggerStateChange;
+        EventNotifier.OnTriggerStateChange += OnTriggerStateChange;
 
         Transform tradingPostsParent = GameObject.Find("Trading Posts").transform;
         foreach (Transform tradingPost in tradingPostsParent)
@@ -37,6 +39,14 @@ public class Waypoint : MonoBehaviour {
                 gates.Add(gate);
             }
         }
+        Transform turretsParent = GameObject.Find("turrets").transform;
+        foreach (Transform turret in turretsParent)
+        {
+            if (turret.parent == turretsParent)
+            {
+                turrets.Add(turret);
+            }
+        }
 	}
 	
 	// Update is called once per frame
@@ -47,7 +57,7 @@ public class Waypoint : MonoBehaviour {
         }
 	}
 
-    void OnTriggerStateChange()
+    void OnTriggerStateChange(Collider other)
     {
 		waypointIndex += 1;
         if (waypointIndex >= waypoints.Count)
@@ -66,6 +76,10 @@ public class Waypoint : MonoBehaviour {
         else if (SceneState.sceneIndex == 2)
         {
             waypoints = gates;
+        }
+        else if (SceneState.sceneIndex == 3)
+        {
+            waypoints = turrets;
         }
         else
         {

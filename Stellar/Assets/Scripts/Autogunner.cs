@@ -13,12 +13,12 @@ public class Autogunner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isEnabled && (Vector3.Distance(fighter.position, railgunObject.position) <= maxRange))
+		if (isEnabled)
         {
             Transform clone = Instantiate(newObject, rootObject.position + rootObject.up * offset, rootObject.rotation) as Transform;
             clone.transform.parent = transform.root;
             clone.rigidbody.velocity = clone.up * velocity;
-            //			Physics.IgnoreCollision(clone.collider, collider);
+            Physics.IgnoreCollision(clone.collider, collider);
             Destroy(clone.gameObject, 5.0f);
         }
 	}

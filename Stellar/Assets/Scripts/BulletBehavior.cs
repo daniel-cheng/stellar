@@ -6,14 +6,14 @@ using System.Collections;
 public class BulletBehavior : MonoBehaviour {
 	private float bulletDamage = 8.0f; // Sets damage to arbitrary value
 
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider collider)
 	{
-		GameObject objectHit = collision.gameObject; // Gets the GameObject of the collider the bullet collided with
-		//if (objectHit.GetComponent<HealthHandler>() != null) // Checks if the GameOject has a HealthHandler (to be implemented)
+        GameObject objectHit = collider.gameObject; // Gets the GameObject of the collider the bullet collided with
+		if (objectHit.GetComponent<StatSystem>() != null) // Checks if the GameOject has a HealthHandler (to be implemented)
 		{
-			//objectHit.GetComponent<HealthHandler>().ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
+            objectHit.GetComponent<StatSystem>().ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
             
         }
-        Destroy(this.gameObject);
+        Destroy(gameObject);
 	}
 }

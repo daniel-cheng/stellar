@@ -5,8 +5,13 @@ public class StatSystem : MonoBehaviour {
 
 	public float health;
 
-	void ModifyHealth(float damage)
+	public void ModifyHealth(float damage)
 	{
+        
 		health -= damage;
+        if (health < 0)
+        {
+            //Destroy(gameObject);
+        }
 	}
 }

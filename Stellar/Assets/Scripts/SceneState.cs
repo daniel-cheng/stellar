@@ -26,6 +26,7 @@ public class SceneState : MonoBehaviour
     {
         sceneIndex = 0;
 		cameraState.SetCameraState (3, true);
+        EventNotifier.OnMenuStateChange += OnMenuStateChange;
 	}
 	
 	// Update is called once per frame
@@ -68,10 +69,20 @@ public class SceneState : MonoBehaviour
     
 	void OnMouseUp ()
 	{
-		foreach (GameObject title in txt) {
+        ChangeScene(gameObject.tag);
+    }
+
+    void OnMenuStateChange(string scene)
+    {
+        ChangeScene(scene);
+    }
+
+    void ChangeScene (string scene)
+	{
+        foreach (GameObject title in txt) {
 			title.renderer.enabled = false;		
 		}
-		if (gameObject.tag == "Race") {
+		if (scene == "Race") {
             sceneIndex = 1;
             if (OnStateChange != null)
             {
@@ -86,7 +97,7 @@ public class SceneState : MonoBehaviour
 			//foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
 			//	renderer.enabled = !renderer.enabled;
 			//}
-		} else if (gameObject.tag == "Trade") {
+		} else if (scene == "Trade") {
             sceneIndex = 2;
             if (OnStateChange != null)
             {
@@ -102,7 +113,7 @@ public class SceneState : MonoBehaviour
             //    renderer.enabled = !renderer.enabled;
             //}
         }
-        else if (gameObject.tag == "Combat")
+        else if (scene == "Combat")
         {
             sceneIndex = 1;
             if (OnStateChange != null)
@@ -118,6 +129,6 @@ public class SceneState : MonoBehaviour
             {
                 turret.isEnabled = !turret.isEnabled;
             }
-        }			
+        }		
 	}	
 }

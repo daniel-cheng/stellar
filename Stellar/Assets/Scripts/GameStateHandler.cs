@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GameStateHandler : MonoBehaviour {
-    public delegate void StateChange();
-    public static event StateChange OnTriggerStateChange;
+
 
     public SceneState sceneState;
 	public StatSystem statSystem;
@@ -17,6 +16,7 @@ public class GameStateHandler : MonoBehaviour {
 
 	//gui texts for debugging purposes for now
 	public UIHandler uiHandler;
+    public Transform player;
 
     public float distanceTravelled = 0.0f;
     public float cargoCarried = 0.0f;
@@ -31,26 +31,32 @@ public class GameStateHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        storedPosition = transform.position;
-        storedRotation = transform.rotation;
+        storedPosition = player.position;
+        storedRotation = player.rotation;
 		numOfGates = GameObject.FindGameObjectsWithTag("Gate");
 		countLength = numOfGates.Length;
     	//uiHandler.SetUpperRightText("Number of rings: " + (countLength - 1));
 		gatePassedList = new List<GameObject> ();
         cargoCarried = Random.Range(cargoMassBounds.x, cargoMassBounds.y);
+        EventNotifier.OnTriggerStateChange += OnTriggerStateChange;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (SceneState.sceneIndex != 0) {
-						timeSinceStart += Time.deltaTime;
-						distanceTravelled += rigidbody.velocity.magnitude * Time.deltaTime;
-						uiHandler.SetLowerLeftText ("Time: " + timeSinceStart.ToString ("F2") + " Velocity: " + rigidbody.velocity.magnitude.ToString ("F2"));
-						uiHandler.SetBottomLeftText("Health: " + statSystem.health.ToString("F2"));
-				}
+			timeSinceStart += Time.deltaTime;
+			distanceTravelled += player.rigidbody.velocity.magnitude * Time.deltaTime;
+			uiHandler.SetLowerLeftText ("Time: " + timeSinceStart.ToString ("F2") + " Velocity: " + player.rigidbody.velocity.magnitude.ToString ("F2"));
+			uiHandler.SetBottomLeftText("Health: " + statSystem.health.ToString("F2"));
+		}
 	}
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStateChange(Collider other)
+    {
+        OnObjectEnter(other);
+    }
+
+    void OnObjectEnter (Collider other)
 	{
         if (other.gameObject.tag == "Gate" && !gatePassedList.Contains(other.gameObject))
 		{
@@ -71,10 +77,10 @@ public class GameStateHandler : MonoBehaviour {
 
             uiHandler.SetUpperLeftText("Gates Passed: " + gatesPassed.ToString() + "\nLaps Passed: "
 			                           + lap);
-            if (OnTriggerStateChange != null)
-            {
-                OnTriggerStateChange();
-            }
+            //if (OnTriggerStateChange != null)
+            //{
+            //    OnTriggerStateChange();
+            //}
 		}
         else if (other.transform == tradingPostList[tradingPostDestinationIndex])
         {
@@ -89,10 +95,10 @@ public class GameStateHandler : MonoBehaviour {
             tradingPostDestinationIndex = randomIndex;
 
             uiHandler.SetLowerRightText("Cargo Carried: " + cargoCarried.ToString("G2") + " Delivered: " + cargoDelivered.ToString("G2"));
-            if (OnTriggerStateChange != null)
-            {
-                OnTriggerStateChange();
-            }
+            //if (OnTriggerStateChange != null)
+            //{
+            //    OnTriggerStateChange();
+            //}
         }
 	}
 
@@ -110,7 +116,7 @@ public class GameStateHandler : MonoBehaviour {
         cargoDelivered = 0.0f;
         lap = 0;
         countLength = 0;
-        transform.position = storedPosition;
-        transform.rotation = storedRotation;
+        player.position = storedPosition;
+        player.rotation = storedRotation;
     }
 }

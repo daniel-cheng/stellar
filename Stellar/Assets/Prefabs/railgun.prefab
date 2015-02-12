@@ -95,8 +95,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: -1, y: -4.37113883e-08, z: 4.37113883e-08, w: 1.91068547e-15}
-  m_LocalPosition: {x: .323312581, y: -.444434166, z: .154895663}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .328000009, y: .152999997, z: .136000007}
+  m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 400004}
   m_Father: {fileID: 0}
@@ -326,11 +326,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb9cae0fa57e7a448a5bdaf78b9c17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 0
+  isEnabled: 1
   velocity: 10000
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 400006}
+  railgunObject: {fileID: 400000}
+  fighter: {fileID: 0}
   offset: 100
+  maxRange: 5000
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
