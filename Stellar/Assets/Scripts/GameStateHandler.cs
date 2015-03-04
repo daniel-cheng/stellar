@@ -13,6 +13,7 @@ public class GameStateHandler : MonoBehaviour {
 
 	public float timeSinceStart = 0.0f;
 	public int gatesPassed = 0;
+    public int enemyCount = 0;
 
 	//gui texts for debugging purposes for now
 	public UIHandler uiHandler;
@@ -25,20 +26,20 @@ public class GameStateHandler : MonoBehaviour {
     public int tradingPostDestinationIndex;
 
     private Vector2 cargoMassBounds = new Vector2(1000.0f, 100000.0f);
-	private GameObject[] numOfGates;
-	private int countLength = 0;
+	public int gatesCount = 0;
 	private int lap = 0;
 
 	// Use this for initialization
 	void Start () {
         storedPosition = player.position;
         storedRotation = player.rotation;
-		numOfGates = GameObject.FindGameObjectsWithTag("Gate");
-		countLength = numOfGates.Length;
-    	//uiHandler.SetUpperRightText("Number of rings: " + (countLength - 1));
+        gatesCount = GameObject.FindGameObjectsWithTag("Gate").Length;
+        enemyCount = GameObject.FindGameObjectsWithTag("Turret").Length;
+    	//uiHandler.SetUpperRightText("Number of rings: " + (gatesCount - 1));
 		gatePassedList = new List<GameObject> ();
         cargoCarried = Random.Range(cargoMassBounds.x, cargoMassBounds.y);
         EventNotifier.OnTriggerStateChange += OnTriggerStateChange;
+        EventNotifier.OnDestroyStateChange += OnDestroyStateChange;
 	}
 	
 	// Update is called once per frame
@@ -48,12 +49,29 @@ public class GameStateHandler : MonoBehaviour {
 			distanceTravelled += player.rigidbody.velocity.magnitude * Time.deltaTime;
 			uiHandler.SetLowerLeftText ("Time: " + timeSinceStart.ToString ("F2") + " Velocity: " + player.rigidbody.velocity.magnitude.ToString ("F2"));
 			uiHandler.SetBottomLeftText("Health: " + statSystem.health.ToString("F2"));
+            uiHandler.SetUpperLeftText("Turrets Remaining: " + enemyCount.ToString());
 		}
 	}
 
     void OnTriggerStateChange(Collider other)
     {
         OnObjectEnter(other);
+    }
+
+    void OnDestroyStateChange()
+    {
+        OnObjectDestoryed();
+    }
+
+    void OnObjectDestoryed()
+    {
+        enemyCount--;
+        uiHandler.SetUpperLeftText("Turrets Remaining: " + enemyCount.ToString());
+        if (enemyCount <= 0)
+        {
+            sceneState.SetSceneState(0, true);
+            Initialize();
+        }
     }
 
     void OnObjectEnter (Collider other)
@@ -63,7 +81,7 @@ public class GameStateHandler : MonoBehaviour {
             gatePassedList.Add(other.gameObject);
 			gatesPassed += 1;
 
-			if(gatesPassed > countLength-2)
+			if(gatesPassed >= gatesCount)
 			{
 				lap++;
 				if(lap > 1)
@@ -115,7 +133,8 @@ public class GameStateHandler : MonoBehaviour {
         cargoCarried = 0.0f;
         cargoDelivered = 0.0f;
         lap = 0;
-        countLength = 0;
+        gatesCount = GameObject.FindGameObjectsWithTag("Gate").Length;
+        enemyCount = GameObject.FindGameObjectsWithTag("Turret").Length;
         player.position = storedPosition;
         player.rotation = storedRotation;
     }

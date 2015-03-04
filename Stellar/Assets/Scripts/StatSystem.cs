@@ -11,7 +11,7 @@ public class StatSystem : MonoBehaviour {
 		health -= damage;
         if (health < 0)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
 	}
 }

@@ -59,6 +59,8 @@ public class SceneState : MonoBehaviour
         raceMusic.GetComponent<AudioSource>().enabled = false;
         sceneFader.StartScene();
         cameraState.SetCameraState(0, false);
+        cameraState.SetCameraState(1, false);
+        cameraState.SetCameraState(2, false);
         cameraState.SetCameraState(3, true);
 
         foreach (GameObject title in txt)
