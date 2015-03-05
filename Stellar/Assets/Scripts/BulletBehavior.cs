@@ -4,6 +4,7 @@ using System.Collections;
 // This code has not been tested yet, and may contain bugs
 
 public class BulletBehavior : MonoBehaviour {
+    public Transform explosion;
 	private float bulletDamage = 8.0f; // Sets damage to arbitrary value
 
 	void OnTriggerEnter(Collider collider)
@@ -12,8 +13,8 @@ public class BulletBehavior : MonoBehaviour {
 		if (objectHit.GetComponent<StatSystem>() != null) // Checks if the GameOject has a HealthHandler (to be implemented)
 		{
             objectHit.GetComponent<StatSystem>().ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
-            
+            Instantiate(explosion, transform.position, Quaternion.identity);
         }
-        //Destroy(gameObject);
+        Destroy(gameObject);
 	}
 }

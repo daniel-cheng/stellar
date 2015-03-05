@@ -4,6 +4,7 @@ using System.Collections;
 public class StatSystem : MonoBehaviour {
 
 	public float health;
+    public GameObject root;
 
 	public void ModifyHealth(float damage)
 	{
@@ -11,7 +12,7 @@ public class StatSystem : MonoBehaviour {
 		health -= damage;
         if (health < 0)
         {
-            Destroy(gameObject);
+            Destroy(root);
         }
 	}
 }
