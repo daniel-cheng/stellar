@@ -97,8 +97,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -1, y: -4.37113883e-08, z: 4.37113883e-08, w: 1.91068547e-15}
-  m_LocalPosition: {x: .328000009, y: .152999997, z: .136000007}
+  m_LocalRotation: {x: -3.01377355e-07, y: 1, z: 3.39537706e-07, w: -4.37112853e-08}
+  m_LocalPosition: {x: .328000009, y: -.414999992, z: .136000007}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children:
   - {fileID: 400004}
@@ -349,7 +349,7 @@ MonoBehaviour:
   fighter: {fileID: 0}
   offset: 100
   maxRange: 5000
-  rateOfFire: .200000003
+  rateOfFire: .0500000007
   reloadTimer: 0
 --- !u!114 &11400004
 MonoBehaviour:
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ab0534a87eb1d4d880758fe999dc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 75
   root: {fileID: 100000}
 --- !u!1001 &100100000
 Prefab:

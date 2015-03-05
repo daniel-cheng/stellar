@@ -21,12 +21,13 @@ public class ShootRound : MonoBehaviour {
 	private GunnerAim myGunnerAim;
 	//private bool loaded = true;
 	//private bool roundShot = false;
-	private float cooldown = 0.0f;
+	public float reloadTime = 0.0f;
+    public float rateOfFire = 0.2f;
 
 
 	void  Start (){
 		//offset = new Vector3(0, 0f, 0f);
-		myAudio = rootObject.GetComponentInChildren<AudioSource>() as AudioSource;
+		myAudio = GetComponent<AudioSource>() as AudioSource;
 		myParticleSystem = rootObject.GetComponentInChildren<ParticleSystem>() as ParticleSystem;
 		myCamera = rootObject.GetComponentInChildren<MouseOrbit>() as MouseOrbit;
 		myGunnerAim =  rootObject.GetComponent<GunnerAim>() as GunnerAim;
@@ -96,21 +97,22 @@ public class ShootRound : MonoBehaviour {
         //if (Input.GetButtonDown("Fire1")) {
         //    myAudio.Play();
         //}
+        reloadTime += Time.deltaTime;
 	}
 
     public void Shoot()
     {
-        if (cooldown <= 0.0f)
+        if (reloadTime > rateOfFire)
         {
+            myAudio.PlayOneShot(myAudio.clip);
             Transform clone;
             clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
             clone.transform.parent = transform.root;
             clone.rigidbody.velocity = rootObject.TransformDirection(Vector3.forward * velocity * 10);
             //			Physics.IgnoreCollision(clone.collider, collider);
-           // Destroy(clone.gameObject, 3.0f);
-            cooldown = 0.0f;
+            Destroy(clone.gameObject, 4.0f);
+            reloadTime = 0.0f;
         }
-        cooldown -= Time.deltaTime;
     }
 
     void OnStateChange()

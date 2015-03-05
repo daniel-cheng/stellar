@@ -15,15 +15,15 @@ public class Autogunner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isEnabled && reloadTimer < rateOfFire && (Vector3.Distance(fighter.position, railgunObject.position) <= maxRange))
+        if (isEnabled && reloadTimer > rateOfFire && (Vector3.Distance(fighter.position, railgunObject.position) <= maxRange))
         {
             Transform clone = Instantiate(newObject, rootObject.position + rootObject.up * offset, rootObject.rotation) as Transform;
             clone.transform.parent = transform.root;
             clone.rigidbody.velocity = clone.up * velocity;
-            Physics.IgnoreCollision(clone.collider, railgunObject.collider);
-            Destroy(clone.gameObject, 5.0f);
+            Physics.IgnoreCollision(clone.collider, rootObject.collider);
+            Destroy(clone.gameObject, 4.0f);
             reloadTimer = 0.0f;
         }
-        reloadTimer = Time.deltaTime;
+        reloadTimer += Time.deltaTime;
 	}
 }

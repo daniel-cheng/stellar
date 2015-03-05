@@ -13,8 +13,9 @@ public class BulletBehavior : MonoBehaviour {
 		if (objectHit.GetComponent<StatSystem>() != null) // Checks if the GameOject has a HealthHandler (to be implemented)
 		{
             objectHit.GetComponent<StatSystem>().ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            Transform newExplosion = Instantiate(explosion, transform.position, Quaternion.identity) as Transform;
+            Destroy(newExplosion.gameObject, 4.0f);
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
 	}
 }

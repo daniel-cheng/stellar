@@ -84,7 +84,7 @@ public class GameStateHandler : MonoBehaviour {
 			if(gatesPassed >= gatesCount)
 			{
 				lap++;
-				if(lap > 1)
+				if(lap > 0)
 				{
                     sceneState.SetSceneState(0, true);
                     Initialize();

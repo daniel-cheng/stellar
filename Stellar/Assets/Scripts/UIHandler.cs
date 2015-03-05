@@ -26,7 +26,7 @@ public class UIHandler : MonoBehaviour {
 
     public void SetUpperLeftText(string text)
     {
-        upperLeft.text = text;
+        //upperLeft.text = text;
     }
 
     public void SetLowerRightText(string text)
