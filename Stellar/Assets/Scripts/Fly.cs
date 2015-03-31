@@ -50,7 +50,7 @@ public class Fly : MonoBehaviour {
 		foreach (AudioSource child in audioSourceComponents){
 			if (child.transform.parent == transform){
 				audioSourceList.Add(child);
-				child.audio.volume = 0;
+				child.GetComponent<AudioSource>().volume = 0;
 			}
 		}
 		animator = GetComponent<Animator>();
@@ -81,9 +81,9 @@ public class Fly : MonoBehaviour {
             Vector3 relativeForward = transform.TransformDirection(Vector3.forward);
             Vector3 angularTorqueVector = new Vector3(angularX, angularY, angularZ);
 
-            rigidbody.AddForce(relativeForward * throttle * thrust / 10);
-            rigidbody.AddTorque(transform.rotation * angularTorqueVector);
-            rigidbody.AddForce(linearX, linearY, linearZ); //Space.World = Translate in world space - local space is default
+            GetComponent<Rigidbody>().AddForce(relativeForward * throttle * thrust / 10);
+            GetComponent<Rigidbody>().AddTorque(transform.rotation * angularTorqueVector);
+            GetComponent<Rigidbody>().AddForce(linearX, linearY, linearZ); //Space.World = Translate in world space - local space is default
 
             transform.position += new Vector3(linearX, linearY, linearZ);
 
@@ -93,38 +93,38 @@ public class Fly : MonoBehaviour {
 
             if (sas == true && angularX == 0.0f && angularY == 0.0f && angularZ == 0.0f)
             {
-                rigidbody.AddTorque(-sasForce * rigidbody.angularVelocity.x, -sasForce * rigidbody.angularVelocity.y, -sasForce * rigidbody.angularVelocity.z);
+                GetComponent<Rigidbody>().AddTorque(-sasForce * GetComponent<Rigidbody>().angularVelocity.x, -sasForce * GetComponent<Rigidbody>().angularVelocity.y, -sasForce * GetComponent<Rigidbody>().angularVelocity.z);
             }
             foreach (ParticleSystem child in engineList)
             {
                 if (throttle != 0.0)
                 {
-                    child.particleSystem.enableEmission = true;
-                    child.particleSystem.startLifetime = Mathf.Lerp(engineLifetimeBounds.x, engineLifetimeBounds.y, throttle / 10.0f);
-                    child.particleSystem.startSize = Mathf.Lerp(engineSizeBounds.x, engineSizeBounds.y, throttle / 10.0f);
+                    child.GetComponent<ParticleSystem>().enableEmission = true;
+                    child.GetComponent<ParticleSystem>().startLifetime = Mathf.Lerp(engineLifetimeBounds.x, engineLifetimeBounds.y, throttle / 10.0f);
+                    child.GetComponent<ParticleSystem>().startSize = Mathf.Lerp(engineSizeBounds.x, engineSizeBounds.y, throttle / 10.0f);
                 }
                 else
                 {
-                    child.particleSystem.enableEmission = false;
+                    child.GetComponent<ParticleSystem>().enableEmission = false;
                 }
             }
             foreach (ParticleSystem child in exhaustList)
             {
                 if (throttle != 0.0)
                 {
-                    child.particleSystem.enableEmission = true;
-                    child.particleSystem.startLifetime = Mathf.Lerp(exhaustLifetimeBounds.x, exhaustLifetimeBounds.y, throttle / 10.0f);
-                    child.particleSystem.startSize = Mathf.Lerp(exhaustSizeBounds.x, exhaustSizeBounds.y, throttle / 10.0f);
-                    child.particleSystem.emissionRate = Mathf.Lerp(exhaustEmissionBounds.x, exhaustEmissionBounds.y, atmosphericDensity);
+                    child.GetComponent<ParticleSystem>().enableEmission = true;
+                    child.GetComponent<ParticleSystem>().startLifetime = Mathf.Lerp(exhaustLifetimeBounds.x, exhaustLifetimeBounds.y, throttle / 10.0f);
+                    child.GetComponent<ParticleSystem>().startSize = Mathf.Lerp(exhaustSizeBounds.x, exhaustSizeBounds.y, throttle / 10.0f);
+                    child.GetComponent<ParticleSystem>().emissionRate = Mathf.Lerp(exhaustEmissionBounds.x, exhaustEmissionBounds.y, atmosphericDensity);
                 }
                 else
                 {
-                    child.particleSystem.enableEmission = false;
+                    child.GetComponent<ParticleSystem>().enableEmission = false;
                 }
             }
             foreach (AudioSource child in audioSourceList)
             {
-                child.audio.volume = throttle / 10.0f * atmosphericDensity;
+                child.GetComponent<AudioSource>().volume = throttle / 10.0f * atmosphericDensity;
             }
             if (Input.GetKeyDown(KeyCode.T))
             {

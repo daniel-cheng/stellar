@@ -22,6 +22,6 @@ public class Gravity : MonoBehaviour {
 	void FixedUpdate () {
         planetDistanceSquared = Vector3.SqrMagnitude(transform.position - planet.position);
         planetDirection = -Vector3.Normalize(transform.position - planet.position);
-		rigidbody.AddForce ((planetDirection * gravitationalParameter / planetDistanceSquared));
+		GetComponent<Rigidbody>().AddForce ((planetDirection * gravitationalParameter / planetDistanceSquared));
 	}
 }

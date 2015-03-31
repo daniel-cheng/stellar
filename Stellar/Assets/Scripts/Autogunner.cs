@@ -19,8 +19,8 @@ public class Autogunner : MonoBehaviour {
         {
             Transform clone = Instantiate(newObject, rootObject.position + rootObject.up * offset, rootObject.rotation) as Transform;
             clone.transform.parent = transform.root;
-            clone.rigidbody.velocity = clone.up * velocity;
-            Physics.IgnoreCollision(clone.collider, rootObject.collider);
+            clone.GetComponent<Rigidbody>().velocity = clone.up * velocity;
+            Physics.IgnoreCollision(clone.GetComponent<Collider>(), rootObject.GetComponent<Collider>());
             Destroy(clone.gameObject, 4.0f);
             reloadTimer = 0.0f;
         }

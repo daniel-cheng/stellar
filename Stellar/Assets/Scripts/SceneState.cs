@@ -65,7 +65,7 @@ public class SceneState : MonoBehaviour
 
         foreach (GameObject title in txt)
         {
-            title.renderer.enabled = true;
+            title.GetComponent<Renderer>().enabled = true;
         }
     }
     
@@ -82,7 +82,7 @@ public class SceneState : MonoBehaviour
     void ChangeScene (string scene)
 	{
         foreach (GameObject title in txt) {
-			title.renderer.enabled = false;		
+			title.GetComponent<Renderer>().enabled = false;		
 		}
 		if (scene == "Race") {
             sceneIndex = 1;

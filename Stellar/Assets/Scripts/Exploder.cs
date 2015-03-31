@@ -39,15 +39,15 @@ public class Exploder : MonoBehaviour {
 
 	protected bool wasTrigger;
 	public virtual void disableCollider() {
-		if (collider) {
-			wasTrigger = collider.isTrigger;
-			collider.isTrigger = true;
+		if (GetComponent<Collider>()) {
+			wasTrigger = GetComponent<Collider>().isTrigger;
+			GetComponent<Collider>().isTrigger = true;
 		}
 	}
 
 	public virtual void enableCollider() {
-		if (collider) {
-			collider.isTrigger = wasTrigger;
+		if (GetComponent<Collider>()) {
+			GetComponent<Collider>().isTrigger = wasTrigger;
 		}
 	}
 

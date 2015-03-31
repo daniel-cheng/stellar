@@ -108,7 +108,7 @@ public class ShootRound : MonoBehaviour {
             Transform clone;
             clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
             clone.transform.parent = transform.root;
-            clone.rigidbody.velocity = rootObject.TransformDirection(Vector3.forward * velocity * 10);
+            clone.GetComponent<Rigidbody>().velocity = rootObject.TransformDirection(Vector3.forward * velocity * 10);
             //			Physics.IgnoreCollision(clone.collider, collider);
             Destroy(clone.gameObject, 4.0f);
             reloadTime = 0.0f;

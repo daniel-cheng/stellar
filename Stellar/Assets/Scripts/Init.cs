@@ -45,13 +45,13 @@ public class Init : MonoBehaviour
 	void Update () 
 	{
 		if ((Camera.main.transform.position - ground.position).magnitude > atmosphereHeight){
-			ground.renderer.material = groundFromSpaceMaterial;
-			atmosphere.renderer.material = skyFromSpaceMaterial;
+			ground.GetComponent<Renderer>().material = groundFromSpaceMaterial;
+			atmosphere.GetComponent<Renderer>().material = skyFromSpaceMaterial;
 			InitMaterial(groundFromSpaceMaterial);
 			InitMaterial(skyFromSpaceMaterial);
 		} else {
-			ground.renderer.material = groundFromAtmosphereMaterial;
-			atmosphere.renderer.material = skyFromAtmosphereMaterial;
+			ground.GetComponent<Renderer>().material = groundFromAtmosphereMaterial;
+			atmosphere.GetComponent<Renderer>().material = skyFromAtmosphereMaterial;
 			InitMaterial(groundFromAtmosphereMaterial);
 			InitMaterial(skyFromAtmosphereMaterial);
 		}

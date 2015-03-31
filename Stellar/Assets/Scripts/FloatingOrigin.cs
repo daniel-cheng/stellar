@@ -12,8 +12,8 @@ public class FloatingOrigin : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Vector3 offset = focus.position;
-        frameAcceleration = focus.rigidbody.velocity;
-        frameVelocity -= focus.rigidbody.velocity;
+        frameAcceleration = focus.GetComponent<Rigidbody>().velocity;
+        frameVelocity -= focus.GetComponent<Rigidbody>().velocity;
         foreach (Transform topLevelObjects in transform.root)
         {
             topLevelObjects.position -= offset;
@@ -26,8 +26,8 @@ public class FloatingOrigin : MonoBehaviour {
     void FixedUpdate()
     {
         Vector3 offset = focus.position;
-        frameAcceleration = focus.rigidbody.velocity;
-		frameVelocity -= focus.rigidbody.velocity;
+        frameAcceleration = focus.GetComponent<Rigidbody>().velocity;
+		frameVelocity -= focus.GetComponent<Rigidbody>().velocity;
 		foreach (Transform topLevelObjects in transform.root){
 			topLevelObjects.position -= offset;
 		}

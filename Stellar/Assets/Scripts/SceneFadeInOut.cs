@@ -16,7 +16,7 @@ public class SceneFadeInOut : MonoBehaviour
     void Awake()
     {
         // Set the texture so that it is the the size of the screen and covers it.
-        guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
+        GetComponent<GUITexture>().pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
         StartScene();
     }
 
@@ -40,35 +40,35 @@ public class SceneFadeInOut : MonoBehaviour
     void FadeToClear()
     {
         // Lerp the colour of the texture between itself and transparent.
-        guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, timer);
-        if (guiTexture.color.a <= 0.01f)
+        GetComponent<GUITexture>().color = Color.Lerp(GetComponent<GUITexture>().color, Color.clear, timer);
+        if (GetComponent<GUITexture>().color.a <= 0.01f)
         {
             // ... set the colour to clear and disable the GUITexture.
-            guiTexture.color = Color.clear;
-            guiTexture.enabled = false;
+            GetComponent<GUITexture>().color = Color.clear;
+            GetComponent<GUITexture>().enabled = false;
 
             // The scene is no longer starting.
             sceneStarting = false;
             fadeClear = false;
         }
-        raceMusic.volume = 1 - guiTexture.color.a;
-        menuMusic.volume = 1 - guiTexture.color.a;
+        raceMusic.volume = 1 - GetComponent<GUITexture>().color.a;
+        menuMusic.volume = 1 - GetComponent<GUITexture>().color.a;
     }
 
 
     void FadeToBlack()
     {
         // Lerp the colour of the texture between itself and black.
-        guiTexture.color = Color.Lerp(guiTexture.color, Color.black, timer);
-        if (guiTexture.color.a >= 0.99f)
+        GetComponent<GUITexture>().color = Color.Lerp(GetComponent<GUITexture>().color, Color.black, timer);
+        if (GetComponent<GUITexture>().color.a >= 0.99f)
         {
-            guiTexture.color = Color.black;
-            guiTexture.enabled = true;
+            GetComponent<GUITexture>().color = Color.black;
+            GetComponent<GUITexture>().enabled = true;
             // ... reload the level.
             fadeBlack = false;
         }
-        raceMusic.volume = 1 - guiTexture.color.a;
-        menuMusic.volume = guiTexture.color.a;
+        raceMusic.volume = 1 - GetComponent<GUITexture>().color.a;
+        menuMusic.volume = GetComponent<GUITexture>().color.a;
     }
 
 
@@ -77,7 +77,7 @@ public class SceneFadeInOut : MonoBehaviour
         timer = 0.0f;
         // Fade the texture to clear.
         fadeClear = true;
-        guiTexture.color = Color.black;
+        GetComponent<GUITexture>().color = Color.black;
 
         // If the texture is almost clear...
 
@@ -89,7 +89,7 @@ public class SceneFadeInOut : MonoBehaviour
         timer = 0.0f;
         // Make sure the texture is enabled.
         fadeBlack = true;
-        guiTexture.enabled = true;
+        GetComponent<GUITexture>().enabled = true;
      
     }
 }

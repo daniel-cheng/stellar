@@ -28,7 +28,7 @@ public class VolumetricComponent : ExploderComponent {
 		directions = new Vector3[maxParticles];
 		hitCount = new int[maxParticles];
 
-		if (particleSystem == null) {
+		if (GetComponent<ParticleSystem>() == null) {
 			gameObject.AddComponent<ParticleSystem>();
 		}
 		this.exploder = exploder;
@@ -43,15 +43,15 @@ public class VolumetricComponent : ExploderComponent {
 	}
 
 	private void initParticleSystem() {
-		particleSystem.maxParticles = maxParticles;
-		particleSystem.emissionRate = 0;
-		particleSystem.startSpeed = 0;
-		particleSystem.startSize = 1.0f;
-		particleSystem.simulationSpace = ParticleSystemSimulationSpace.World;
-		particleSystem.startLifetime = duration;
+		GetComponent<ParticleSystem>().maxParticles = maxParticles;
+		GetComponent<ParticleSystem>().emissionRate = 0;
+		GetComponent<ParticleSystem>().startSpeed = 0;
+		GetComponent<ParticleSystem>().startSize = 1.0f;
+		GetComponent<ParticleSystem>().simulationSpace = ParticleSystemSimulationSpace.World;
+		GetComponent<ParticleSystem>().startLifetime = duration;
 
-		particleSystem.Emit(startEmission);
-		curCount = particleSystem.GetParticles(particles);
+		GetComponent<ParticleSystem>().Emit(startEmission);
+		curCount = GetComponent<ParticleSystem>().GetParticles(particles);
 
 		for (int i = 0; i < curCount; i++) {
 			directions[i] = Random.onUnitSphere;
@@ -59,16 +59,16 @@ public class VolumetricComponent : ExploderComponent {
 			particles[i].color = colorOverLifetime.Evaluate(0);
 		}
 
-		particleSystem.SetParticles(particles, curCount);
+		GetComponent<ParticleSystem>().SetParticles(particles, curCount);
 	}
 
 	protected void emitNewParticles() {
 		if ((Time.time - exploder.explosionTime) / duration < centerEmissionDuration) {
-			particleSystem.Emit(Mathf.Min((int) (centerEmission * Time.deltaTime), maxParticles - curCount));
+			GetComponent<ParticleSystem>().Emit(Mathf.Min((int) (centerEmission * Time.deltaTime), maxParticles - curCount));
 		} else {
-			particleSystem.Emit(Mathf.Min((int) (emission * Time.deltaTime), maxParticles - curCount));
+			GetComponent<ParticleSystem>().Emit(Mathf.Min((int) (emission * Time.deltaTime), maxParticles - curCount));
 		}
-		int nextCount = particleSystem.GetParticles(particles);
+		int nextCount = GetComponent<ParticleSystem>().GetParticles(particles);
 
 		if ((Time.time - exploder.explosionTime) / duration < centerEmissionDuration) {
 			for (int i = curCount; i < nextCount; i++) {
@@ -129,7 +129,7 @@ public class VolumetricComponent : ExploderComponent {
 			makeStep();
 			resetColors();
 
-			particleSystem.SetParticles(particles, curCount);
+			GetComponent<ParticleSystem>().SetParticles(particles, curCount);
 			
 			yield return new WaitForEndOfFrame();
 		}

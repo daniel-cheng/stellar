@@ -46,8 +46,8 @@ public class GameStateHandler : MonoBehaviour {
 	void Update () {
 		if (SceneState.sceneIndex != 0) {
 			timeSinceStart += Time.deltaTime;
-			distanceTravelled += player.rigidbody.velocity.magnitude * Time.deltaTime;
-			uiHandler.SetLowerLeftText ("Time: " + timeSinceStart.ToString ("F2") + " Velocity: " + player.rigidbody.velocity.magnitude.ToString ("F2"));
+			distanceTravelled += player.GetComponent<Rigidbody>().velocity.magnitude * Time.deltaTime;
+			uiHandler.SetLowerLeftText ("Time: " + timeSinceStart.ToString ("F2") + " Velocity: " + player.GetComponent<Rigidbody>().velocity.magnitude.ToString ("F2"));
 			uiHandler.SetBottomLeftText("Health: " + statSystem.health.ToString("F2"));
             uiHandler.SetUpperLeftText("Turrets Remaining: " + enemyCount.ToString());
 		}

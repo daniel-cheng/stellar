@@ -62,7 +62,7 @@ public class Hitscan : MonoBehaviour {
 				Instantiate(explosion, relativeForward * distanceToImpact, Quaternion.identity);
 				
 				foreach (Rigidbody child in rootObject.GetComponentsInChildren<Rigidbody>() as Rigidbody[]) {
-					child.rigidbody.AddRelativeForce(-Vector3.up, ForceMode.VelocityChange);	
+					child.GetComponent<Rigidbody>().AddRelativeForce(-Vector3.up, ForceMode.VelocityChange);	
 				}
 				capacitorCharge = 0;
 				myParticleSystem.emissionRate = 0;

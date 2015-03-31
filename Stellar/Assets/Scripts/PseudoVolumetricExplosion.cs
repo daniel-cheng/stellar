@@ -35,7 +35,7 @@ public class PseudoVolumetricExplosion : MonoBehaviour {
 		r *= correction;
 		g *= correction;
 		b *= correction;
-		renderer.material.SetVector("_ChannelFactor", new Vector4(r,g,b,0));
+		GetComponent<Renderer>().material.SetVector("_ChannelFactor", new Vector4(r,g,b,0));
 
 		float scaleFactor = scale.Evaluate(timeFromBegin / timeScale);
 		transform.localScale = endScale * scaleFactor;
@@ -43,7 +43,7 @@ public class PseudoVolumetricExplosion : MonoBehaviour {
 		float beginRange = minRange.Evaluate(timeFromBegin / timeScale);
 		float endRange = maxRange.Evaluate(timeFromBegin / timeScale);
 		float clipVal = clip.Evaluate(timeFromBegin / timeScale);
-		renderer.material.SetVector("_Range", new Vector4(beginRange, endRange, 0, 0));
-		renderer.material.SetFloat("_ClipRange", clipVal);
+		GetComponent<Renderer>().material.SetVector("_Range", new Vector4(beginRange, endRange, 0, 0));
+		GetComponent<Renderer>().material.SetFloat("_ClipRange", clipVal);
 	}
 }

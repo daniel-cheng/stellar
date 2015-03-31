@@ -14,7 +14,7 @@ public class ScreenLock : MonoBehaviour {
             if (Input.GetKeyDown("escape") || Input.GetKeyDown(KeyCode.P))
             {
                 Screen.lockCursor = false;
-                Screen.showCursor = true;
+                Cursor.visible = true;
             }
             if (Input.GetMouseButtonDown(0))
             {
