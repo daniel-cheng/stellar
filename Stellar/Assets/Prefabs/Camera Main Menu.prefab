@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 20: {fileID: 2000000}
+  - 92: {fileID: 9268974}
   m_Layer: 0
   m_Name: Far
   m_TagString: MainCamera
@@ -25,6 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 20: {fileID: 2000002}
+  - 92: {fileID: 9224634}
   m_Layer: 0
   m_Name: Mid
   m_TagString: MainCamera
@@ -98,9 +100,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: .0286501814, y: .000409438479, z: -.0142836263, w: .9994874}
-  m_LocalPosition: {x: -1033.82629, y: 1028.56995, z: 3802.16895}
-  m_LocalScale: {x: .0199999996, y: .0199999977, z: .0200000014}
+  m_LocalRotation: {x: .0286502186, y: .00040885096, z: -.0142836152, w: .9994874}
+  m_LocalPosition: {x: 392.741333, y: -208.498535, z: -1722.3208}
+  m_LocalScale: {x: .0200000033, y: .0200000014, z: .0200000033}
   m_Children:
   - {fileID: 400000}
   - {fileID: 400002}
@@ -229,10 +231,11 @@ AudioSource:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bdae65ae99b001645adc9b6803447256, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .800000012
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -280,12 +283,36 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!92 &9200000
 Behaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+--- !u!92 &9224634
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+--- !u!92 &9268974
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
   m_Enabled: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -323,4 +350,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100004}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

@@ -5291,6 +5291,7 @@ GameObject:
   - 114: {fileID: 1659701562}
   - 114: {fileID: 1659701563}
   - 114: {fileID: 1659701564}
+  - 114: {fileID: 1659701565}
   m_Layer: 0
   m_Name: Floating Origin
   m_TagString: Untagged
@@ -5410,6 +5411,17 @@ MonoBehaviour:
   - {fileID: 0}
   tradingPostDestinationIndex: 0
   gatesCount: 0
+--- !u!114 &1659701565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659701558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5ccd8d83f3e434aaed652075d20a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1680047900
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ecf78ddd7bec7a045aad818c20f20231, type: 2}

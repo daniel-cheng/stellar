@@ -13,12 +13,13 @@ public class ScreenLock : MonoBehaviour {
         if (isEnabled) {
             if (Input.GetKeyDown("escape") || Input.GetKeyDown(KeyCode.P))
             {
-                Screen.lockCursor = false;
+                Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
             if (Input.GetMouseButtonDown(0))
             {
-                Screen.lockCursor = true;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
     }
@@ -28,12 +29,14 @@ public class ScreenLock : MonoBehaviour {
         if (SceneState.sceneIndex != 0)
         {
             isEnabled = true;
-            Screen.lockCursor = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
         else
         {
-            Screen.lockCursor = false;
-            isEnabled = false;
+            isEnabled = false; 
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

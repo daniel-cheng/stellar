@@ -7,7 +7,6 @@ public class SceneFadeInOut : MonoBehaviour
     public AudioSource raceMusic;
     public AudioSource menuMusic;
 
-    private bool sceneStarting = true;      // Whether or not the scene is still fading in.
     private float timer = 0.0f;
     private bool fadeClear = false;
     private bool fadeBlack = false;
@@ -48,7 +47,6 @@ public class SceneFadeInOut : MonoBehaviour
             GetComponent<GUITexture>().enabled = false;
 
             // The scene is no longer starting.
-            sceneStarting = false;
             fadeClear = false;
         }
         raceMusic.volume = 1 - GetComponent<GUITexture>().color.a;
