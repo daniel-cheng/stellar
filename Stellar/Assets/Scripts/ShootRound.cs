@@ -23,7 +23,7 @@ public class ShootRound : MonoBehaviour {
 	//private bool roundShot = false;
 	public float reloadTime = 0.0f;
     public float rateOfFire = 0.2f;
-
+	public bool mouseDown = false;
 
 	void  Start (){
 		//offset = new Vector3(0, 0f, 0f);
@@ -71,7 +71,11 @@ public class ShootRound : MonoBehaviour {
             if (Input.GetButton("Fire1"))
             {
                 Shoot();
+				mouseDown = true;
             }
+			else{
+				mouseDown = false;
+			}
         }
 //            if ((capacitorCharge < 3000)&&(loaded == true)) { 
 //                capacitorCharge = capacitorCharge + 1000 * Time.deltaTime;
@@ -129,4 +133,19 @@ public class ShootRound : MonoBehaviour {
             isEnabled = false;
         }
     }
+	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.isWriting)
+		{
+			// We own this player: send the others our data
+			stream.SendNext(mouseDown);
+
+		}
+		else
+		{
+			// Network player, receive data
+			this.mouseDown = (bool)stream.ReceiveNext();
+
+		}
+	}
 }
