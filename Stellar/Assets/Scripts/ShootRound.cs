@@ -70,11 +70,13 @@ public class ShootRound : MonoBehaviour {
         {
             if (Input.GetButton("Fire1"))
             {
-                Shoot();
 				mouseDown = true;
             }
 			else{
 				mouseDown = false;
+			}
+			if (mouseDown == true){
+				Shoot();
 			}
         }
 //            if ((capacitorCharge < 3000)&&(loaded == true)) { 
