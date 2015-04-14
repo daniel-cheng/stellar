@@ -1725,6 +1725,7 @@ GameObject:
   - 114: {fileID: 11400018}
   - 114: {fileID: 11400016}
   - 82: {fileID: 8200024}
+  - 114: {fileID: 11440080}
   m_Layer: 0
   m_Name: prefabFighter
   m_TagString: Untagged
@@ -3355,7 +3356,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100210}
   m_LocalRotation: {x: 0, y: 0, z: -.0142894974, w: .999897957}
-  m_LocalPosition: {x: 1000, y: -100, z: -3000}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400232}
@@ -3487,7 +3488,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.44000006, y: -1.40999997, z: -2.96000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400242}
@@ -3539,7 +3540,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.44000006, y: -1.40999997, z: -2.96000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400242}
@@ -3551,7 +3552,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.44000006, y: -1.40999997, z: -2.96000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400242}
@@ -3575,7 +3576,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100242}
   m_LocalRotation: {x: 0, y: 0, z: -.0142894965, w: .999897897}
-  m_LocalPosition: {x: 0, y: 7.5, z: -60}
+  m_LocalPosition: {x: -12.8000002, y: 7.86999989, z: -31.1700001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400236}
@@ -5924,13 +5925,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100222}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ac391667e986a84fb17589c02c8992c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 400046}
-  distance: 0
+  distance: .100000001
   isEnabled: 0
   xSpeed: 250
   ySpeed: 120
@@ -5948,7 +5949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 400206}
-  distance: 0
+  distance: .100000001
   isEnabled: 0
   xSpeed: 250
   ySpeed: 120
@@ -5965,7 +5966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadf905f6e253324cb52e600c8bf9607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnabled: 1
+  isEnabled: 0
   velocity: 100
   newObject: {fileID: 400000, guid: 6135a82506a58c44da3699af8cb8ccaa, type: 2}
   rootObject: {fileID: 400048}
@@ -6017,6 +6018,7 @@ MonoBehaviour:
   menu: 0
   trigger: 1
   destroy: 0
+  network: 0
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6054,7 +6056,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100242}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ac391667e986a84fb17589c02c8992c, type: 3}
   m_Name: 
@@ -6066,6 +6068,31 @@ MonoBehaviour:
   ySpeed: 120
   yMinLimit: -360
   yMaxLimit: 360
+--- !u!114 &11440080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 1
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 400210}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  isRuntimeInstantiated: 0
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

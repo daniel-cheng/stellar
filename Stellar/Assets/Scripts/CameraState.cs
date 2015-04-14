@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 
 public class CameraState : MonoBehaviour {
-	//use to switch between camera states
-	
 	//use to store all camera states
     public List<GameObject> cameraObjectList;
     public List<int> transitionList = new List<int>() {1, 2, 0, 3, 4};
@@ -12,8 +10,12 @@ public class CameraState : MonoBehaviour {
     public delegate void StateChange();
     public static event StateChange OnStateChange;
 
+    private Transform player;
+
 	// Use this for initialization
 	void Start () {
+        player = NetworkManager.player.transform;
+        EventNotifier.OnNetworkStateChange += OnNetworkStateChange;
 	}
 	
 	// Update is called once per frame
@@ -23,6 +25,23 @@ public class CameraState : MonoBehaviour {
             SetCameraState(stateIndex, false);
 			//with scenestate, camera will only need to be enabled when the camera is changing
             SetCameraState(transitionList[stateIndex], true);
+		}
+		if (Input.GetKeyDown(KeyCode.C))
+		{
+			Debug.Log("Hello");
+			cameraObjectList[stateIndex].GetComponent<MouseOrbit>().isEnabled = true;
+			if (cameraObjectList[stateIndex].GetComponent<GunnerAim>()) {
+				cameraObjectList[stateIndex].GetComponent<GunnerAim>().isEnabled = false;
+			}
+			player.GetComponent<MouseAim>().isEnabled = false;
+		}
+		if (Input.GetKeyUp(KeyCode.C))
+		{
+			cameraObjectList[stateIndex].GetComponent<MouseOrbit>().isEnabled = false;
+			if (cameraObjectList[stateIndex].GetComponent<GunnerAim>()) {
+				cameraObjectList[stateIndex].GetComponent<GunnerAim>().isEnabled = true;
+			}
+			player.GetComponent<MouseAim>().isEnabled = true;
 		}
 	}
 
@@ -34,7 +53,6 @@ public class CameraState : MonoBehaviour {
             OnStateChange();
         }
         cameraObjectList[stateIndex].GetComponent<AudioListener>().enabled = state;
-        cameraObjectList[stateIndex].GetComponent<MouseOrbit>().isEnabled = state;
         if (stateIndex == 1)
         {
             cameraObjectList[stateIndex].GetComponent<GunnerAim>().isEnabled = state;
@@ -47,5 +65,10 @@ public class CameraState : MonoBehaviour {
         {
             camera.enabled = state;
         }
+    }
+
+    void OnNetworkStateChange()
+    {
+        player = NetworkManager.player.transform;
     }
 }

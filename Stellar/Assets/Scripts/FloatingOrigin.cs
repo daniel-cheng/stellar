@@ -11,6 +11,8 @@ public class FloatingOrigin : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+        focus = NetworkManager.player.transform;
+
         Vector3 offset = focus.position;
         frameAcceleration = focus.GetComponent<Rigidbody>().velocity;
         frameVelocity -= focus.GetComponent<Rigidbody>().velocity;
@@ -21,6 +23,7 @@ public class FloatingOrigin : MonoBehaviour {
         //Debug.Log(focus.rigidbody.velocity);
         origin += offset;
 
+        EventNotifier.OnNetworkStateChange += OnNetworkStateChange;
 	}
 
     void FixedUpdate()
@@ -34,4 +37,9 @@ public class FloatingOrigin : MonoBehaviour {
         //Debug.Log(focus.rigidbody.velocity);
 		origin += offset;
 	}
+
+    void OnNetworkStateChange()
+    {
+        focus = NetworkManager.player.transform;
+    }
 }

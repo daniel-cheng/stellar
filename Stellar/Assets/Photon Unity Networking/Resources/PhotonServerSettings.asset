@@ -11,12 +11,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
-  HostType: 0
+  HostType: 1
   Protocol: 0
   ServerAddress: 
   ServerPort: 5055
-  PreferredRegion: 0
-  AppID: 
+  PreferredRegion: 1
+  AppID: 62e3216f-5e21-4f06-bddd-563192332dd0
   PingCloudServersOnAwake: 0
-  RpcList: []
+  RpcList:
+  - Chat
+  - DestroyRpc
+  - InstantiateRpc
+  - OnAwakeRPC
+  - PickupItemInit
+  - PunPickup
+  - PunPickupSimple
+  - PunRespawn
+  - RequestForPickupTimes
   DisableAutoOpenWizard: 0

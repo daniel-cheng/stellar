@@ -7,15 +7,23 @@ public class Autogunner : MonoBehaviour {
     public Transform newObject;
     public Transform rootObject;
 	public Transform railgunObject;
-	public Transform fighter;
     public float offset = 10.0f;
 	public float maxRange = 5000.0f;
     public float rateOfFire = 0.2f;
     public float reloadTimer = 0.0f;
+
+    private Transform player;
+
+    // Use this for initialization
+    void Start()
+    {
+        player = NetworkManager.player.transform;
+        EventNotifier.OnNetworkStateChange += OnNetworkStateChange;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (isEnabled && reloadTimer > rateOfFire && (Vector3.Distance(fighter.position, railgunObject.position) <= maxRange))
+        if (isEnabled && reloadTimer > rateOfFire && (Vector3.Distance(player.position, railgunObject.position) <= maxRange))
         {
             Transform clone = Instantiate(newObject, rootObject.position + rootObject.up * offset, rootObject.rotation) as Transform;
             clone.transform.parent = transform.root;
@@ -26,4 +34,9 @@ public class Autogunner : MonoBehaviour {
         }
         reloadTimer += Time.deltaTime;
 	}
+
+    void OnNetworkStateChange()
+    {
+        player = NetworkManager.player.transform;
+    }
 }

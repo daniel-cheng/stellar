@@ -153,7 +153,7 @@ public class Fly : MonoBehaviour {
     {
         if (SceneState.sceneIndex == 1)
         {
-            if (transform.name == "prefabFighter")
+            if (transform.name.Contains("prefabFighter"))
             {
                 isEnabled = true;
             }

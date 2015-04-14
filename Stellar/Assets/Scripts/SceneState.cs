@@ -14,7 +14,6 @@ public class SceneState : MonoBehaviour
 	//references 
 	public CameraState cameraState;
 	public List<GameObject> txt;
-	public Transform fighter;
 	public Transform freighter;
     public List<Autogunner> turrets;
 	public GUIText debug;
@@ -22,11 +21,15 @@ public class SceneState : MonoBehaviour
 	public GameObject raceMusic;
     public SceneFadeInOut sceneFader;
 
-    void Awake()
+    private Transform player;
+
+    void Start()
     {
+        player = NetworkManager.player.transform;
         sceneIndex = 0;
 		cameraState.SetCameraState (3, true);
         EventNotifier.OnMenuStateChange += OnMenuStateChange;
+        EventNotifier.OnNetworkStateChange += OnNetworkStateChange;
 	}
 	
 	// Update is called once per frame
@@ -34,6 +37,7 @@ public class SceneState : MonoBehaviour
 	{
 
 	}
+
     public void SetSceneState(int stateIndex, bool state)
     {
         sceneIndex = stateIndex;
@@ -45,8 +49,8 @@ public class SceneState : MonoBehaviour
         {
             sceneFader.EndScene();
 
-            fighter.GetComponent<MouseAim>().enabled = false;
-            fighter.GetComponent<ShootRound>().enabled = false;
+            player.GetComponent<MouseAim>().enabled = false;
+            player.GetComponent<ShootRound>().enabled = false;
             uiHandler.SetLowerRightText("Yay you won!!!");
             StartCoroutine(SwitchCamera());
 
@@ -93,8 +97,8 @@ public class SceneState : MonoBehaviour
 			cameraState.SetCameraState (3, false);
 			cameraState.SetCameraState (0, true);
 			raceMusic.GetComponent<AudioSource>().enabled = true;
-			fighter.GetComponent<MouseAim> ().enabled = true;
-            fighter.GetComponent<ShootRound>().enabled = true;
+			player.GetComponent<MouseAim> ().enabled = true;
+            player.GetComponent<ShootRound>().enabled = true;
 			//freighter.GetComponent<Fly> ().enabled = false;
 			//foreach (Renderer renderer in freighter.GetComponentsInChildren<Renderer>()) {
 			//	renderer.enabled = !renderer.enabled;
@@ -107,10 +111,10 @@ public class SceneState : MonoBehaviour
             }
 			cameraState.SetCameraState (3, false);
 			cameraState.SetCameraState (4, true);
-			fighter.GetComponent<MouseAim> ().enabled = false;
-			fighter.GetComponent<ShootRound> ().enabled = false;
-			fighter.GetComponent<Fly> ().enabled = false;
-            //foreach (Renderer renderer in fighter.GetComponentsInChildren<Renderer>())
+			player.GetComponent<MouseAim> ().enabled = false;
+			player.GetComponent<ShootRound> ().enabled = false;
+			player.GetComponent<Fly> ().enabled = false;
+            //foreach (Renderer renderer in player.GetComponentsInChildren<Renderer>())
             //{
             //    renderer.enabled = !renderer.enabled;
             //}
@@ -125,12 +129,17 @@ public class SceneState : MonoBehaviour
             cameraState.SetCameraState(3, false);
             cameraState.SetCameraState(0, true);
             raceMusic.GetComponent<AudioSource>().enabled = true;
-            fighter.GetComponent<MouseAim>().enabled = true;
-            fighter.GetComponent<ShootRound>().enabled = true;
+            player.GetComponent<MouseAim>().enabled = true;
+            player.GetComponent<ShootRound>().enabled = true;
             foreach (Autogunner turret in turrets)
             {
                 turret.isEnabled = !turret.isEnabled;
             }
         }		
-	}	
+	}
+
+    void OnNetworkStateChange()
+    {
+        player = NetworkManager.player.transform;
+    }
 }

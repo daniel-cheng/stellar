@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GameStateHandler : MonoBehaviour {
-
-
     public SceneState sceneState;
 	public StatSystem statSystem;
+    public UIHandler uiHandler;
 	public List<GameObject> gatePassedList;
     public Vector3 storedPosition;
     public Quaternion storedRotation;
@@ -14,23 +13,20 @@ public class GameStateHandler : MonoBehaviour {
 	public float timeSinceStart = 0.0f;
 	public int gatesPassed = 0;
     public int enemyCount = 0;
-
-	//gui texts for debugging purposes for now
-	public UIHandler uiHandler;
-    public Transform player;
-
     public float distanceTravelled = 0.0f;
     public float cargoCarried = 0.0f;
     public float cargoDelivered = 0.0f;
     public List<Transform> tradingPostList;
     public int tradingPostDestinationIndex;
+    public int gatesCount = 0;
+    public Vector2 cargoMassBounds = new Vector2(1000.0f, 100000.0f);
 
-    private Vector2 cargoMassBounds = new Vector2(1000.0f, 100000.0f);
-	public int gatesCount = 0;
 	private int lap = 0;
+    private Transform player;
 
 	// Use this for initialization
 	void Start () {
+        player = NetworkManager.player.transform;
         storedPosition = player.position;
         storedRotation = player.rotation;
         gatesCount = GameObject.FindGameObjectsWithTag("Gate").Length;
@@ -40,6 +36,7 @@ public class GameStateHandler : MonoBehaviour {
         cargoCarried = Random.Range(cargoMassBounds.x, cargoMassBounds.y);
         EventNotifier.OnTriggerStateChange += OnTriggerStateChange;
         EventNotifier.OnDestroyStateChange += OnDestroyStateChange;
+        EventNotifier.OnNetworkStateChange += OnNetworkStateChange;
 	}
 	
 	// Update is called once per frame
@@ -137,5 +134,11 @@ public class GameStateHandler : MonoBehaviour {
         enemyCount = GameObject.FindGameObjectsWithTag("Turret").Length;
         player.position = storedPosition;
         player.rotation = storedRotation;
+    }
+
+    void OnNetworkStateChange()
+    {
+        Debug.Log("Hello1");
+        player = NetworkManager.player.transform;
     }
 }
