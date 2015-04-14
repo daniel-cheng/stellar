@@ -55,6 +55,12 @@ public class NetworkManager : MonoBehaviour {
         cameraState.cameraObjectList[1] = player.transform.Find("turret/guns/Camera Gunner").gameObject;
         cameraState.cameraObjectList[2] = player.transform.Find("Camera Third Person Fighter").gameObject;
         player.transform.parent = this.transform;
+        player.GetComponent<Animator>().enabled = true;
+        player.GetComponent<Fly>().enabled = true;
+        player.GetComponent<ShootRound>().enabled = true;
+        player.GetComponent<MouseAim>().enabled = true;
+        player.GetComponent<Waypoint>().enabled = true;
+        player.GetComponent<EventNotifier>().enabled = true;
         this.GetComponent<EventNotifier>().OnNetwork();
         Destroy(oldPlayer);
         Debug.Log("Hello41241");
