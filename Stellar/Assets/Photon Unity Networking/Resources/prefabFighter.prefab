@@ -6021,6 +6021,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 435764}
+  - {fileID: 11489610}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -6057,6 +6058,7 @@ MonoBehaviour:
   rootObject: {fileID: 463072}
   reloadTime: 0
   rateOfFire: .0299999993
+  mouseDown: 0
 --- !u!114 &11494656
 MonoBehaviour:
   m_ObjectHideFlags: 1
