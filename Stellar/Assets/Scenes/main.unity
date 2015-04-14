@@ -1518,7 +1518,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 371260592}
-  - 114: {fileID: 371260589}
   m_Layer: 0
   m_Name: Main Menu
   m_TagString: Untagged
@@ -1526,33 +1525,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &371260589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 371260588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd295804f6176f14d93592248b6deb3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneList:
-  - main
-  - race
-  - trade
-  - combat
-  cameraState: {fileID: 1659701561}
-  txt:
-  - {fileID: 982025023}
-  - {fileID: 2061935738}
-  - {fileID: 809336400}
-  freighter: {fileID: 782858759}
-  turrets: []
-  debug: {fileID: 508774084}
-  uiHandler: {fileID: 1659701562}
-  raceMusic: {fileID: 759902490}
-  sceneFader: {fileID: 759902497}
 --- !u!4 &371260592
 Transform:
   m_ObjectHideFlags: 0
@@ -1846,6 +1818,10 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 995218f1dd0dbef409bd23b5a3d480c5, type: 2}
   m_PrefabInternal: {fileID: 439946613}
+--- !u!1 &457242822 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100210, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+  m_PrefabInternal: {fileID: 466942830}
 --- !u!1 &464690649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,11 +1929,39 @@ Prefab:
       objectReference: {fileID: 1843918973}
     - target: {fileID: 11440080, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
       propertyPath: viewIdField
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11440080, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
       propertyPath: instantiationId
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400020, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400016, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200024, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
@@ -5300,6 +5304,8 @@ GameObject:
   - 114: {fileID: 1659701563}
   - 114: {fileID: 1659701564}
   - 114: {fileID: 1659701565}
+  - 114: {fileID: 1659701567}
+  - 114: {fileID: 1659701566}
   m_Layer: 0
   m_Name: Floating Origin
   m_TagString: Untagged
@@ -5401,7 +5407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596a9a26592594f4eaf11aca6a9c076c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneState: {fileID: 371260589}
+  sceneState: {fileID: 1659701567}
   statSystem: {fileID: 11419529}
   uiHandler: {fileID: 1659701562}
   gatePassedList: []
@@ -5430,8 +5436,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5ccd8d83f3e434aaed652075d20a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offline: 1
-  offlinePlayer: {fileID: 0}
+  offline: 0
+  offlinePlayer: {fileID: 457242822}
+  earth: {fileID: 1843918973}
+--- !u!114 &1659701566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659701558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9842c5b910592a8428dbdbbc34de0fb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menu: 0
+  trigger: 0
+  destroy: 0
+  network: 1
+--- !u!114 &1659701567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659701558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd295804f6176f14d93592248b6deb3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList:
+  - main
+  - race
+  - trade
+  - combat
+  cameraState: {fileID: 1659701561}
+  txt:
+  - {fileID: 982025023}
+  - {fileID: 2061935738}
+  - {fileID: 809336400}
+  freighter: {fileID: 782858759}
+  turrets: []
+  debug: {fileID: 508774084}
+  uiHandler: {fileID: 1659701562}
+  raceMusic: {fileID: 759902490}
+  sceneFader: {fileID: 759902497}
 --- !u!4 &1680047900 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ecf78ddd7bec7a045aad818c20f20231, type: 2}

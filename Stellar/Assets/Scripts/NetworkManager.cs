@@ -5,6 +5,7 @@ public class NetworkManager : MonoBehaviour {
     public static GameObject player;
     public bool offline = true;
     public GameObject offlinePlayer;
+    public Transform earth;
 
     // Use this for initialization
 
@@ -44,11 +45,18 @@ public class NetworkManager : MonoBehaviour {
 
 	void OnJoinedRoom()
 	{
+        GameObject oldPlayer = player;
 		player = PhotonNetwork.Instantiate("prefabFighter", Vector3.zero, Quaternion.identity, 0);
-        player.GetComponent<Fly>().isEnabled = true;
-        Debug.Log(player.GetComponent<Fly>().isEnabled);
+        Fly playerFly = player.GetComponent<Fly>();
+        playerFly.earth = earth;
+        playerFly.isEnabled = true;
+        CameraState cameraState = GetComponent<CameraState>();
+        cameraState.cameraObjectList[0] = player.transform.Find("Camera Cockpit").gameObject;
+        cameraState.cameraObjectList[1] = player.transform.Find("turret/guns/Camera Gunner").gameObject;
+        cameraState.cameraObjectList[2] = player.transform.Find("Camera Third Person Fighter").gameObject;
         player.transform.parent = this.transform;
         this.GetComponent<EventNotifier>().OnNetwork();
+        Destroy(oldPlayer);
         Debug.Log("Hello41241");
 	}
 }
