@@ -8,7 +8,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class ShootRound : MonoBehaviour {
+public class ShootRound : Photon.MonoBehaviour {
     public bool isEnabled;
 	public float velocity = 20;
 	public Transform newObject;
@@ -66,18 +66,21 @@ public class ShootRound : MonoBehaviour {
         //    loaded = true;
         //    roundShot = false;
         //}
-        if (isEnabled) 
+        if (isEnabled && photonView.isMine) 
         {
             if (Input.GetButton("Fire1"))
             {
-				mouseDown = true;
+                mouseDown = true;
             }
-			else{
-				mouseDown = false;
-			}
-			if (mouseDown == true){
-				Shoot();
-			}
+            else
+            {
+                mouseDown = false;
+            }
+
+        }
+        if (mouseDown == true)
+        {
+            Shoot();
         }
 //            if ((capacitorCharge < 3000)&&(loaded == true)) { 
 //                capacitorCharge = capacitorCharge + 1000 * Time.deltaTime;
@@ -123,12 +126,9 @@ public class ShootRound : MonoBehaviour {
 
     void OnStateChange()
     {
-        if (SceneState.sceneIndex == 1)
+        if (SceneState.sceneIndex != 0)
         {
-            if (CameraState.stateIndex == 1)
-            {
-                isEnabled = true;
-            }
+            isEnabled = true;
         }
         else
         {
