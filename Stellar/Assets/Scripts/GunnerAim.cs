@@ -20,6 +20,7 @@ public class GunnerAim : MonoBehaviour
     public float xMaxLimit = 0.0f;
     public float yMinLimit = -0.0f;
     public float yMaxLimit = 0.0f;
+
     // Use this for initialization
     void Start()
     {
@@ -47,5 +48,21 @@ public class GunnerAim : MonoBehaviour
             guns.localEulerAngles = new Vector3(-y, 0.0f, 0.0f);
 
         }
+
     }
+	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+	{
+		if (stream.isWriting)
+		{
+			// We own this player: send the others our data
+			stream.SendNext(angles);
+			
+		}
+		else
+		{
+			// Network player, receive data
+			this.angles = (var)stream.ReceiveNext();
+			
+		}
+	}
 }
