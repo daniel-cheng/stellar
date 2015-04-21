@@ -6020,7 +6020,7 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 435764}
+  - {fileID: 468142}
   - {fileID: 11489610}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0

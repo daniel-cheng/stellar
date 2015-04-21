@@ -138,7 +138,6 @@ public class GameStateHandler : MonoBehaviour {
 
     void OnNetworkStateChange()
     {
-        Debug.Log("Hello1");
         player = NetworkManager.player.transform;
     }
 }

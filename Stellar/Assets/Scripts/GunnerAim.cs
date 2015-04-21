@@ -50,19 +50,4 @@ public class GunnerAim : MonoBehaviour
         }
 
     }
-	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-	{
-		if (stream.isWriting)
-		{
-			// We own this player: send the others our data
-			stream.SendNext(angles);
-			
-		}
-		else
-		{
-			// Network player, receive data
-			this.angles = (var)stream.ReceiveNext();
-			
-		}
-	}
 }

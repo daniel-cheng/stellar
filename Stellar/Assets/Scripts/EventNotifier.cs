@@ -52,10 +52,8 @@ public class EventNotifier : MonoBehaviour {
 
     public void OnNetwork()
     {
-        Debug.Log("hello2");
         if (OnNetworkStateChange != null && network)
         {
-            Debug.Log("hello3");
             OnNetworkStateChange();
         }
     }

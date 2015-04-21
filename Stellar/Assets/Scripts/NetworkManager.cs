@@ -63,6 +63,5 @@ public class NetworkManager : MonoBehaviour {
         player.GetComponent<EventNotifier>().enabled = true;
         this.GetComponent<EventNotifier>().OnNetwork();
         Destroy(oldPlayer);
-        Debug.Log("Hello41241");
 	}
 }
