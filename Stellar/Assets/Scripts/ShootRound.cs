@@ -135,6 +135,7 @@ public class ShootRound : Photon.MonoBehaviour {
             isEnabled = false;
         }
     }
+
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.isWriting)

@@ -23,7 +23,9 @@ public class Fly : MonoBehaviour {
 	public float seaLevelDensity = 1.0f;
     public float throttleSpeed = 50.0f;
     public float throttle;
-	
+
+    private Quaternion targetRotation = new Quaternion();
+    private Vector3 targetPosition = new Vector3();
 	private ArrayList engineList;
 	private ArrayList exhaustList;
 	private ArrayList audioSourceList;
@@ -147,6 +149,11 @@ public class Fly : MonoBehaviour {
                 }
             }
         }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5.0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5.0f);
+        }
 	}
 
     void OnStateChange()
@@ -177,6 +184,22 @@ public class Fly : MonoBehaviour {
         {
             isEnabled = false;
             throttle = 0.0f;
+        }
+    }
+
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
+            // Network player, receive data
+            this.targetPosition = (Vector3)stream.ReceiveNext();
+            this.targetRotation = (Quaternion)stream.ReceiveNext();
         }
     }
 }
