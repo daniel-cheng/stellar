@@ -23,5 +23,12 @@ public class StatSystem : MonoBehaviour {
 
         }
 	}
+	void Start() {
 
+		uiHandler = GameObject.Find ("Floating Origin").GetComponent<UIHandler> ();
+	}
+	void Update() {
+
+		uiHandler.SetUpperRightText ("hello");
+	}
 }
