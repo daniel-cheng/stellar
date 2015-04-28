@@ -47,6 +47,7 @@ public class GameStateHandler : MonoBehaviour {
 			uiHandler.SetLowerLeftText ("Time: " + timeSinceStart.ToString ("F2") + " Velocity: " + player.GetComponent<Rigidbody>().velocity.magnitude.ToString ("F2"));
 			uiHandler.SetBottomLeftText("Health: " + statSystem.health.ToString("F2"));
             uiHandler.SetUpperLeftText("Turrets Remaining: " + enemyCount.ToString());
+			uiHandler.SetUpperRightText("Kills: "+statSystem.kills.ToString() + " Deaths: "+ statSystem.deaths.ToString ());
 		}
 	}
 
