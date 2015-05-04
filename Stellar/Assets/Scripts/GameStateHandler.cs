@@ -140,5 +140,6 @@ public class GameStateHandler : MonoBehaviour {
     void OnNetworkStateChange()
     {
         player = NetworkManager.player.transform;
+        statSystem = player.GetComponent<StatSystem>();
     }
 }

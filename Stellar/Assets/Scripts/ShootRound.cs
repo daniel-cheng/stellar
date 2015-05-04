@@ -19,6 +19,8 @@ public class ShootRound : Photon.MonoBehaviour {
 	private ParticleSystem myParticleSystem;
 	private MouseOrbit myCamera;
 	private GunnerAim myGunnerAim;
+    private StatSystem myStatSystem;
+    private Collider myCollider;
 	//private bool loaded = true;
 	//private bool roundShot = false;
 	public float reloadTime = 0.0f;
@@ -30,7 +32,9 @@ public class ShootRound : Photon.MonoBehaviour {
 		myAudio = GetComponent<AudioSource>() as AudioSource;
 		myParticleSystem = rootObject.GetComponentInChildren<ParticleSystem>() as ParticleSystem;
 		myCamera = rootObject.GetComponentInChildren<MouseOrbit>() as MouseOrbit;
-		myGunnerAim =  rootObject.GetComponent<GunnerAim>() as GunnerAim;
+		myGunnerAim = rootObject.GetComponent<GunnerAim>() as GunnerAim;
+        myStatSystem = rootObject.GetComponent<StatSystem>() as StatSystem;
+        myCollider = rootObject.GetComponent<Collider>() as Collider;
 
         transform.parent = GameObject.Find("Floating Origin").transform;
 
@@ -121,7 +125,8 @@ public class ShootRound : Photon.MonoBehaviour {
             clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
             clone.transform.parent = transform.root;
             clone.GetComponent<Rigidbody>().velocity = rootObject.TransformDirection(Vector3.forward * velocity * 10);
-            //			Physics.IgnoreCollision(clone.collider, collider);
+            clone.GetComponent<BulletBehavior>().shooter = myStatSystem;
+            //Physics.IgnoreCollision(clone.GetComponent<Collider>(), GetComponent<Collider>());
             Destroy(clone.gameObject, 4.0f);
             reloadTime = 0.0f;
         }

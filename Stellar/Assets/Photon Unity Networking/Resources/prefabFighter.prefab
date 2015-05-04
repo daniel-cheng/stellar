@@ -311,6 +311,7 @@ GameObject:
   - 65: {fileID: 6536164}
   - 65: {fileID: 6511836}
   - 65: {fileID: 6546734}
+  - 64: {fileID: 6492426}
   m_Layer: 0
   m_Name: prefabFighter
   m_TagString: Untagged
@@ -4925,6 +4926,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300122, guid: 9b612204781fa23499b86de975f1ebcd, type: 3}
+--- !u!64 &6492426
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4300122, guid: 9b612204781fa23499b86de975f1ebcd, type: 3}
 --- !u!65 &6511836
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -4932,7 +4945,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117200}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.8499999, y: 2, z: 23.6900005}
@@ -4944,7 +4957,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117200}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 25.1000004, y: 2, z: 9.39999962}
@@ -4956,7 +4969,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117200}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 10.8400002, y: 2, z: 13.6000004}
@@ -5942,6 +5955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  initalHealth: 100
   kills: 0
   deaths: 0
   killDeathRatio: 0
