@@ -28,4 +28,6 @@ MonoBehaviour:
   - PunPickupSimple
   - PunRespawn
   - RequestForPickupTimes
+  - ResetPlayer
+  - AddPlayer
   DisableAutoOpenWizard: 0

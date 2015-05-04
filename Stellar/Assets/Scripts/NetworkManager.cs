@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NetworkManager : MonoBehaviour {
+public class NetworkManager : Photon.MonoBehaviour
+{
     public static GameObject player;
     public bool offline = true;
     public GameObject offlinePlayer;
     public Transform earth;
+    public Transform floatingOrigin;
 
     // Use this for initialization
 
@@ -40,13 +42,15 @@ public class NetworkManager : MonoBehaviour {
     void OnPhotonRandomJoinFailed()
     {
         Debug.Log("Can't join random room!");
-		PhotonNetwork.CreateRoom(null);
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.maxPlayers = 0;
+        PhotonNetwork.CreateRoom(null, roomOptions, null);
     }
 
 	void OnJoinedRoom()
 	{
         GameObject oldPlayer = player;
-		player = PhotonNetwork.Instantiate("prefabFighter", Vector3.zero, Quaternion.identity, 0);
+        player = PhotonNetwork.Instantiate("prefabFighter", Vector3.zero, Quaternion.identity, 0);
         Fly playerFly = player.GetComponent<Fly>();
         playerFly.earth = earth;
         playerFly.isEnabled = true;
@@ -54,7 +58,6 @@ public class NetworkManager : MonoBehaviour {
         cameraState.cameraObjectList[0] = player.transform.Find("Camera Cockpit").gameObject;
         cameraState.cameraObjectList[1] = player.transform.Find("turret/guns/Camera Gunner").gameObject;
         cameraState.cameraObjectList[2] = player.transform.Find("Camera Third Person Fighter").gameObject;
-        player.transform.parent = this.transform;
         player.GetComponent<Animator>().enabled = true;
         player.GetComponent<Fly>().enabled = true;
         player.GetComponent<ShootRound>().enabled = true;

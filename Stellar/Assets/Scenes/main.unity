@@ -5235,6 +5235,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  kills: 0
+  deaths: 0
+  killDeathRatio: 0
   root: {fileID: 0}
 --- !u!114 &1651336790
 MonoBehaviour:
@@ -5248,6 +5251,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  kills: 0
+  deaths: 0
+  killDeathRatio: 0
   root: {fileID: 0}
 --- !u!1 &1654315338 stripped
 GameObject:
@@ -5278,6 +5284,7 @@ GameObject:
   - 114: {fileID: 1659701565}
   - 114: {fileID: 1659701567}
   - 114: {fileID: 1659701566}
+  - 114: {fileID: 1659701568}
   m_Layer: 0
   m_Name: Floating Origin
   m_TagString: Untagged
@@ -5411,6 +5418,7 @@ MonoBehaviour:
   offline: 0
   offlinePlayer: {fileID: 457242822}
   earth: {fileID: 1843918973}
+  floatingOrigin: {fileID: 1659701559}
 --- !u!114 &1659701566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5453,6 +5461,31 @@ MonoBehaviour:
   uiHandler: {fileID: 1659701562}
   raceMusic: {fileID: 759902490}
   sceneFader: {fileID: 759902497}
+--- !u!114 &1659701568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659701558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  prefixBackup: -1
+  observed: {fileID: 0}
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1659701559}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 2
+  instantiationId: 2
+  isRuntimeInstantiated: 0
 --- !u!4 &1680047900 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ecf78ddd7bec7a045aad818c20f20231, type: 2}

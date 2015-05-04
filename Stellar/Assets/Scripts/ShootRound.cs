@@ -31,6 +31,9 @@ public class ShootRound : Photon.MonoBehaviour {
 		myParticleSystem = rootObject.GetComponentInChildren<ParticleSystem>() as ParticleSystem;
 		myCamera = rootObject.GetComponentInChildren<MouseOrbit>() as MouseOrbit;
 		myGunnerAim =  rootObject.GetComponent<GunnerAim>() as GunnerAim;
+
+        transform.parent = GameObject.Find("Floating Origin").transform;
+
         SceneState.OnStateChange += OnStateChange;
         CameraState.OnStateChange += OnStateChange;
 		//myParticleSystem.emissionRate = 10;
