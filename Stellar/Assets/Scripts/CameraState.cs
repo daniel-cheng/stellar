@@ -26,23 +26,25 @@ public class CameraState : MonoBehaviour {
 			//with scenestate, camera will only need to be enabled when the camera is changing
             SetCameraState(transitionList[stateIndex], true);
 		}
-		if (Input.GetKeyDown(KeyCode.C))
-		{
-			Debug.Log("Hello");
-			cameraObjectList[stateIndex].GetComponent<MouseOrbit>().isEnabled = true;
-			if (cameraObjectList[stateIndex].GetComponent<GunnerAim>()) {
-				cameraObjectList[stateIndex].GetComponent<GunnerAim>().isEnabled = false;
-			}
-			player.GetComponent<MouseAim>().isEnabled = false;
-		}
-		if (Input.GetKeyUp(KeyCode.C))
-		{
-			cameraObjectList[stateIndex].GetComponent<MouseOrbit>().isEnabled = false;
-			if (cameraObjectList[stateIndex].GetComponent<GunnerAim>()) {
-				cameraObjectList[stateIndex].GetComponent<GunnerAim>().isEnabled = true;
-			}
-			player.GetComponent<MouseAim>().isEnabled = true;
-		}
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    Debug.Log("Hello");
+        //    cameraObjectList[stateIndex].GetComponent<MouseOrbit>().isEnabled = true;
+        //    if (cameraObjectList[stateIndex].GetComponent<GunnerAim>())
+        //    {
+        //        cameraObjectList[stateIndex].GetComponent<GunnerAim>().isEnabled = false;
+        //    }
+        //    player.GetComponent<MouseAim>().isEnabled = false;
+        //}
+        //if (Input.GetKeyUp(KeyCode.C))
+        //{
+        //    cameraObjectList[stateIndex].GetComponent<MouseOrbit>().isEnabled = false;
+        //    if (cameraObjectList[stateIndex].GetComponent<GunnerAim>())
+        //    {
+        //        cameraObjectList[stateIndex].GetComponent<GunnerAim>().isEnabled = true;
+        //    }
+        //    player.GetComponent<MouseAim>().isEnabled = true;
+        //}
 	}
 
     public void SetCameraState(int cameraIndex, bool state)

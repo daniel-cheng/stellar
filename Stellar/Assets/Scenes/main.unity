@@ -5239,6 +5239,7 @@ MonoBehaviour:
   deaths: 0
   killDeathRatio: 0
   root: {fileID: 0}
+  isPlayer: 0
 --- !u!114 &1651336790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5255,6 +5256,7 @@ MonoBehaviour:
   deaths: 0
   killDeathRatio: 0
   root: {fileID: 0}
+  isPlayer: 0
 --- !u!1 &1654315338 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 52af532a02809d444b359d1910ce7eac, type: 2}
