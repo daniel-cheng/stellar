@@ -6,7 +6,7 @@ using System.Collections;
 public class BulletBehavior : MonoBehaviour {
     public Transform explosion;
     public StatSystem shooter;
-	private float bulletDamage = 8.0f; // Sets damage to arbitrary value
+	public float bulletDamage = 16.0f; // Sets damage to arbitrary value
 
 	void OnTriggerEnter(Collider collider)
 	{
