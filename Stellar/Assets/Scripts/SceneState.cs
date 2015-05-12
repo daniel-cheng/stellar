@@ -85,6 +85,10 @@ public class SceneState : MonoBehaviour
 
     void ChangeScene (string scene)
 	{
+        if (!PhotonNetwork.connectionStateDetailed.ToString().Contains("Joined"))
+        {
+            return;
+        }
         foreach (GameObject title in txt) {
 			title.GetComponent<Renderer>().enabled = false;		
 		}

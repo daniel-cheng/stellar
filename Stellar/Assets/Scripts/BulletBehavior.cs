@@ -14,9 +14,10 @@ public class BulletBehavior : MonoBehaviour {
         StatSystem target = objectHit.GetComponent<StatSystem>();
         if (target != null && target != shooter) // Checks if the GameOject has a HealthHandler (to be implemented)
 		{
-            target.GetComponent<StatSystem>().ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
+            float targetHealth = target.ModifyHealth(bulletDamage); // HealthHandler.ModifyHealth(float damage) needs to be implemented
             Transform newExplosion = Instantiate(explosion, transform.position, Quaternion.identity) as Transform;
-            if (target.isPlayer && shooter.isPlayer)
+            Debug.Log(shooter);
+            if (target.isPlayer && shooter.isPlayer && targetHealth < 0)
             {
                 shooter.kills += 1;
             }

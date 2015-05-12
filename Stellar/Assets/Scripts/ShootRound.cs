@@ -125,7 +125,8 @@ public class ShootRound : Photon.MonoBehaviour {
             clone = Instantiate(newObject, rootObject.position + rootObject.forward * 10.0f, rootObject.rotation) as Transform;
             clone.transform.parent = transform.root;
             clone.GetComponent<Rigidbody>().velocity = rootObject.TransformDirection(Vector3.forward * velocity * 10);
-            clone.GetComponent<BulletBehavior>().shooter = myStatSystem;
+            clone.GetComponent<BulletBehavior>().shooter = GetComponent<StatSystem>();
+            //Debug.Log(clone.GetComponent<BulletBehavior>().shooter);
             //Physics.IgnoreCollision(clone.GetComponent<Collider>(), GetComponent<Collider>());
             Destroy(clone.gameObject, 4.0f);
             reloadTime = 0.0f;

@@ -35,7 +35,7 @@ public class StatSystem : Photon.MonoBehaviour {
             deaths += 1;
             if (isPlayer)
             {
-                updateKillDeathRatio();
+                //updateKillDeathRatio();
                 root.transform.position = Vector3.zero;
                 root.transform.rotation = Quaternion.identity;
                 health = initalHealth;
@@ -47,12 +47,11 @@ public class StatSystem : Photon.MonoBehaviour {
         }
     }
 
-	public void ModifyHealth(float damage)
+	public float ModifyHealth(float damage)
 	{
         
 		health -= damage;
-        Debug.Log(health);
-        
+        return health;      
 	}
 
     public void updateKillDeathRatio()
