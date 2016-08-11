@@ -104,7 +104,7 @@ public class PhotonView : Photon.MonoBehaviour
         set { this.instantiationDataField = value; }
     }
 
-    private object[] instantiationDataField;
+    internal object[] instantiationDataField;
 
     /// <summary>
     /// For internal use only, don't use
@@ -135,12 +135,13 @@ public class PhotonView : Photon.MonoBehaviour
     public List<Component> ObservedComponents;
     Dictionary<Component, MethodInfo> m_OnSerializeMethodInfos = new Dictionary<Component, MethodInfo>();
 
-    //These fields are only used in the CustomEditor for this script and would trigger a
-    //"this variable is never used" warning, which I am suppressing here
-#pragma warning disable 0414
+#if UNITY_EDITOR
+    // Suppressing compiler warning "this variable is never used". Only used in the CustomEditor, only in Editor
+    #pragma warning disable 0414
     [SerializeField]
     bool ObservedComponentsFoldoutOpen = true;
-#pragma warning restore 0414
+    #pragma warning restore 0414
+#endif
 
     [SerializeField]
     private int viewIdField = 0;
@@ -198,7 +199,10 @@ public class PhotonView : Photon.MonoBehaviour
     /// </remarks>
     public PhotonPlayer owner
     {
-        get { return PhotonPlayer.Find(this.ownerId); }
+        get
+        {
+            return PhotonPlayer.Find(this.ownerId);
+        }
     }
 
     public int OwnerActorNr
@@ -237,7 +241,12 @@ public class PhotonView : Photon.MonoBehaviour
     [SerializeField]
     protected internal bool isRuntimeInstantiated;
 
-    protected internal bool destroyedByPhotonNetworkOrQuit;
+    protected internal bool removedFromLocalViewList;
+
+    internal MonoBehaviour[] RpcMonoBehaviours;
+    private MethodInfo OnSerializeMethodInfo;
+
+    private bool failedToFindOnSerialize;
 
     /// <summary>Called by Unity on start of the application and does a setup the PhotonView.</summary>
     protected internal void Awake()
@@ -289,248 +298,251 @@ public class PhotonView : Photon.MonoBehaviour
         this.ownerId = newOwnerId;  // immediately switch ownership locally, to avoid more updates sent from this client.
     }
 
-
-    protected internal void OnApplicationQuit()
-    {
-        destroyedByPhotonNetworkOrQuit = true;	// on stop-playing its ok Destroy is being called directly (not by PN.Destroy())
-    }
-
     protected internal void OnDestroy()
     {
-        if (!this.destroyedByPhotonNetworkOrQuit)
+        if (!this.removedFromLocalViewList)
         {
-            PhotonNetwork.networkingPeer.LocalCleanPhotonView(this);
-        }
+            bool wasInList = PhotonNetwork.networkingPeer.LocalCleanPhotonView(this);
+            bool loading = false;
 
-        if (!this.destroyedByPhotonNetworkOrQuit && !Application.isLoadingLevel)
-        {
-            if (this.instantiationId > 0)
+            #if !UNITY_5 || UNITY_5_0 || UNITY_5_1
+            loading = Application.isLoadingLevel;
+            #endif
+
+            if (wasInList && !loading && this.instantiationId > 0 && !PhotonHandler.AppQuits && PhotonNetwork.logLevel >= PhotonLogLevel.Informational)
             {
-                // if this viewID was not manually assigned (and we're not shutting down or loading a level), you should use PhotonNetwork.Destroy() to get rid of GOs with PhotonViews
-                Debug.LogError("OnDestroy() seems to be called without PhotonNetwork.Destroy()?! GameObject: " + this.gameObject + " Application.isLoadingLevel: " + Application.isLoadingLevel);
-            }
-            else
-            {
-                // this seems to be a manually instantiated PV. if it's local, we could warn if the ID is not in the allocated-list
-                if (this.viewID <= 0)
-                {
-                    Debug.LogWarning(string.Format("OnDestroy manually allocated PhotonView {0}. The viewID is 0. Was it ever (manually) set?", this));
-                }
-                else if (this.isMine && !PhotonNetwork.manuallyAllocatedViewIds.Contains(this.viewID))
-                {
-                    Debug.LogWarning(string.Format("OnDestroy manually allocated PhotonView {0}. The viewID is local (isMine) but not in manuallyAllocatedViewIds list. Use UnAllocateViewID() after you destroyed the PV.", this));
-                }
+                Debug.Log("PUN-instantiated '" + this.gameObject.name + "' got destroyed by engine. This is OK when loading levels. Otherwise use: PhotonNetwork.Destroy().");
             }
         }
     }
 
-    private MethodInfo OnSerializeMethodInfo;
-
-    private bool failedToFindOnSerialize;
-
-    public void SerializeView( PhotonStream stream, PhotonMessageInfo info )
+    public void SerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        SerializeComponent( observed, stream, info );
+        SerializeComponent(this.observed, stream, info);
 
-        for( int i = 0; i < ObservedComponents.Count; ++i )
+        if (this.ObservedComponents != null && this.ObservedComponents.Count > 0)
         {
-            SerializeComponent( ObservedComponents[ i ], stream, info );
+            for (int i = 0; i < this.ObservedComponents.Count; ++i)
+            {
+                SerializeComponent(this.ObservedComponents[i], stream, info);
+            }
         }
     }
 
-    public void DeserializeView( PhotonStream stream, PhotonMessageInfo info )
+    public void DeserializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        DeserializeComponent( observed, stream, info );
+        DeserializeComponent(this.observed, stream, info);
 
-        for( int i = 0; i < ObservedComponents.Count; ++i )
+        if (this.ObservedComponents != null && this.ObservedComponents.Count > 0)
         {
-            DeserializeComponent( ObservedComponents[ i ], stream, info );
+            for (int i = 0; i < this.ObservedComponents.Count; ++i)
+            {
+                DeserializeComponent(this.ObservedComponents[i], stream, info);
+            }
         }
     }
 
-    internal protected void DeserializeComponent( Component component, PhotonStream stream, PhotonMessageInfo info )
+    protected internal void DeserializeComponent(Component component, PhotonStream stream, PhotonMessageInfo info)
     {
-        if( component == null )
+        if (component == null)
         {
             return;
         }
 
         // Use incoming data according to observed type
-        if( component is MonoBehaviour )
+        if (component is MonoBehaviour)
         {
-            ExecuteComponentOnSerialize( component, stream, info );
+            ExecuteComponentOnSerialize(component, stream, info);
         }
-        else if( component is Transform )
+        else if (component is Transform)
         {
-            Transform trans = (Transform)component;
+            Transform trans = (Transform) component;
 
-            switch( onSerializeTransformOption )
+            switch (this.onSerializeTransformOption)
             {
-            case OnSerializeTransform.All:
-                trans.localPosition = (Vector3)stream.ReceiveNext();
-                trans.localRotation = (Quaternion)stream.ReceiveNext();
-                trans.localScale = (Vector3)stream.ReceiveNext();
-                break;
-            case OnSerializeTransform.OnlyPosition:
-                trans.localPosition = (Vector3)stream.ReceiveNext();
-                break;
-            case OnSerializeTransform.OnlyRotation:
-                trans.localRotation = (Quaternion)stream.ReceiveNext();
-                break;
-            case OnSerializeTransform.OnlyScale:
-                trans.localScale = (Vector3)stream.ReceiveNext();
-                break;
-            case OnSerializeTransform.PositionAndRotation:
-                trans.localPosition = (Vector3)stream.ReceiveNext();
-                trans.localRotation = (Quaternion)stream.ReceiveNext();
-                break;
+                case OnSerializeTransform.All:
+                    trans.localPosition = (Vector3) stream.ReceiveNext();
+                    trans.localRotation = (Quaternion) stream.ReceiveNext();
+                    trans.localScale = (Vector3) stream.ReceiveNext();
+                    break;
+                case OnSerializeTransform.OnlyPosition:
+                    trans.localPosition = (Vector3) stream.ReceiveNext();
+                    break;
+                case OnSerializeTransform.OnlyRotation:
+                    trans.localRotation = (Quaternion) stream.ReceiveNext();
+                    break;
+                case OnSerializeTransform.OnlyScale:
+                    trans.localScale = (Vector3) stream.ReceiveNext();
+                    break;
+                case OnSerializeTransform.PositionAndRotation:
+                    trans.localPosition = (Vector3) stream.ReceiveNext();
+                    trans.localRotation = (Quaternion) stream.ReceiveNext();
+                    break;
             }
         }
-        else if( component is Rigidbody )
+        else if (component is Rigidbody)
         {
-            Rigidbody rigidB = (Rigidbody)component;
+            Rigidbody rigidB = (Rigidbody) component;
 
-            switch( onSerializeRigidBodyOption )
+            switch (this.onSerializeRigidBodyOption)
             {
-            case OnSerializeRigidBody.All:
-                rigidB.velocity = (Vector3)stream.ReceiveNext();
-                rigidB.angularVelocity = (Vector3)stream.ReceiveNext();
-                break;
-            case OnSerializeRigidBody.OnlyAngularVelocity:
-                rigidB.angularVelocity = (Vector3)stream.ReceiveNext();
-                break;
-            case OnSerializeRigidBody.OnlyVelocity:
-                rigidB.velocity = (Vector3)stream.ReceiveNext();
-                break;
+                case OnSerializeRigidBody.All:
+                    rigidB.velocity = (Vector3) stream.ReceiveNext();
+                    rigidB.angularVelocity = (Vector3) stream.ReceiveNext();
+                    break;
+                case OnSerializeRigidBody.OnlyAngularVelocity:
+                    rigidB.angularVelocity = (Vector3) stream.ReceiveNext();
+                    break;
+                case OnSerializeRigidBody.OnlyVelocity:
+                    rigidB.velocity = (Vector3) stream.ReceiveNext();
+                    break;
             }
         }
-        else if( component is Rigidbody2D )
+        else if (component is Rigidbody2D)
         {
-            Rigidbody2D rigidB = (Rigidbody2D)component;
+            Rigidbody2D rigidB = (Rigidbody2D) component;
 
-            switch( onSerializeRigidBodyOption )
+            switch (this.onSerializeRigidBodyOption)
             {
-            case OnSerializeRigidBody.All:
-                rigidB.velocity = (Vector2)stream.ReceiveNext();
-                rigidB.angularVelocity = (float)stream.ReceiveNext();
-                break;
-            case OnSerializeRigidBody.OnlyAngularVelocity:
-                rigidB.angularVelocity = (float)stream.ReceiveNext();
-                break;
-            case OnSerializeRigidBody.OnlyVelocity:
-                rigidB.velocity = (Vector2)stream.ReceiveNext();
-                break;
+                case OnSerializeRigidBody.All:
+                    rigidB.velocity = (Vector2) stream.ReceiveNext();
+                    rigidB.angularVelocity = (float) stream.ReceiveNext();
+                    break;
+                case OnSerializeRigidBody.OnlyAngularVelocity:
+                    rigidB.angularVelocity = (float) stream.ReceiveNext();
+                    break;
+                case OnSerializeRigidBody.OnlyVelocity:
+                    rigidB.velocity = (Vector2) stream.ReceiveNext();
+                    break;
             }
         }
         else
         {
-            Debug.LogError( "Type of observed is unknown when receiving." );
+            Debug.LogError("Type of observed is unknown when receiving.");
         }
     }
 
-    internal protected void SerializeComponent( Component component, PhotonStream stream, PhotonMessageInfo info )
+    protected internal void SerializeComponent(Component component, PhotonStream stream, PhotonMessageInfo info)
     {
-        if( component == null )
+        if (component == null)
         {
             return;
         }
 
-        if( component is MonoBehaviour )
+        if (component is MonoBehaviour)
         {
-            ExecuteComponentOnSerialize( component, stream, info );
+            ExecuteComponentOnSerialize(component, stream, info);
         }
-        else if( component is Transform )
+        else if (component is Transform)
         {
-            Transform trans = (Transform)component;
+            Transform trans = (Transform) component;
 
-            switch( onSerializeTransformOption )
+            switch (this.onSerializeTransformOption)
             {
-            case OnSerializeTransform.All:
-                stream.SendNext( trans.localPosition );
-                stream.SendNext( trans.localRotation );
-                stream.SendNext( trans.localScale );
-                break;
-            case OnSerializeTransform.OnlyPosition:
-                stream.SendNext( trans.localPosition );
-                break;
-            case OnSerializeTransform.OnlyRotation:
-                stream.SendNext( trans.localRotation );
-                break;
-            case OnSerializeTransform.OnlyScale:
-                stream.SendNext( trans.localScale );
-                break;
-            case OnSerializeTransform.PositionAndRotation:
-                stream.SendNext( trans.localPosition );
-                stream.SendNext( trans.localRotation );
-                break;
+                case OnSerializeTransform.All:
+                    stream.SendNext(trans.localPosition);
+                    stream.SendNext(trans.localRotation);
+                    stream.SendNext(trans.localScale);
+                    break;
+                case OnSerializeTransform.OnlyPosition:
+                    stream.SendNext(trans.localPosition);
+                    break;
+                case OnSerializeTransform.OnlyRotation:
+                    stream.SendNext(trans.localRotation);
+                    break;
+                case OnSerializeTransform.OnlyScale:
+                    stream.SendNext(trans.localScale);
+                    break;
+                case OnSerializeTransform.PositionAndRotation:
+                    stream.SendNext(trans.localPosition);
+                    stream.SendNext(trans.localRotation);
+                    break;
             }
         }
-        else if( component is Rigidbody )
+        else if (component is Rigidbody)
         {
-            Rigidbody rigidB = (Rigidbody)component;
+            Rigidbody rigidB = (Rigidbody) component;
 
-            switch( onSerializeRigidBodyOption )
+            switch (this.onSerializeRigidBodyOption)
             {
-            case OnSerializeRigidBody.All:
-                stream.SendNext( rigidB.velocity );
-                stream.SendNext( rigidB.angularVelocity );
-                break;
-            case OnSerializeRigidBody.OnlyAngularVelocity:
-                stream.SendNext( rigidB.angularVelocity );
-                break;
-            case OnSerializeRigidBody.OnlyVelocity:
-                stream.SendNext( rigidB.velocity );
-                break;
+                case OnSerializeRigidBody.All:
+                    stream.SendNext(rigidB.velocity);
+                    stream.SendNext(rigidB.angularVelocity);
+                    break;
+                case OnSerializeRigidBody.OnlyAngularVelocity:
+                    stream.SendNext(rigidB.angularVelocity);
+                    break;
+                case OnSerializeRigidBody.OnlyVelocity:
+                    stream.SendNext(rigidB.velocity);
+                    break;
             }
         }
-        else if( component is Rigidbody2D )
+        else if (component is Rigidbody2D)
         {
-            Rigidbody2D rigidB = (Rigidbody2D)component;
+            Rigidbody2D rigidB = (Rigidbody2D) component;
 
-            switch( onSerializeRigidBodyOption )
+            switch (this.onSerializeRigidBodyOption)
             {
-            case OnSerializeRigidBody.All:
-                stream.SendNext( rigidB.velocity );
-                stream.SendNext( rigidB.angularVelocity );
-                break;
-            case OnSerializeRigidBody.OnlyAngularVelocity:
-                stream.SendNext( rigidB.angularVelocity );
-                break;
-            case OnSerializeRigidBody.OnlyVelocity:
-                stream.SendNext( rigidB.velocity );
-                break;
+                case OnSerializeRigidBody.All:
+                    stream.SendNext(rigidB.velocity);
+                    stream.SendNext(rigidB.angularVelocity);
+                    break;
+                case OnSerializeRigidBody.OnlyAngularVelocity:
+                    stream.SendNext(rigidB.angularVelocity);
+                    break;
+                case OnSerializeRigidBody.OnlyVelocity:
+                    stream.SendNext(rigidB.velocity);
+                    break;
             }
         }
         else
         {
-            Debug.LogError( "Observed type is not serializable: " + component.GetType() );
+            Debug.LogError("Observed type is not serializable: " + component.GetType());
         }
     }
 
-    internal protected void ExecuteComponentOnSerialize( Component component, PhotonStream stream, PhotonMessageInfo info )
+    protected internal void ExecuteComponentOnSerialize(Component component, PhotonStream stream, PhotonMessageInfo info)
     {
-        if( component != null )
+        if (component != null)
         {
-            if( m_OnSerializeMethodInfos.ContainsKey( component ) == false )
+            MethodInfo method = null;
+            bool found = this.m_OnSerializeMethodInfos.TryGetValue(component, out method);
+            if (!found)
             {
-                MethodInfo newMethod = null;
-                bool foundMethod = NetworkingPeer.GetMethod( component as MonoBehaviour, PhotonNetworkingMessage.OnPhotonSerializeView.ToString(), out newMethod );
+                bool foundMethod = NetworkingPeer.GetMethod(component as MonoBehaviour, PhotonNetworkingMessage.OnPhotonSerializeView.ToString(), out method);
 
-                if( foundMethod == false )
+                if (foundMethod == false)
                 {
-                    Debug.LogError( "The observed monobehaviour (" + component.name + ") of this PhotonView does not implement OnPhotonSerializeView()!" );
-                    newMethod = null;
+                    Debug.LogError("The observed monobehaviour (" + component.name + ") of this PhotonView does not implement OnPhotonSerializeView()!");
+                    method = null;
                 }
 
-                m_OnSerializeMethodInfos.Add( component, newMethod );
+                this.m_OnSerializeMethodInfos.Add(component, method);
             }
 
-            if( m_OnSerializeMethodInfos[ component ] != null )
+            if (method != null)
             {
-                m_OnSerializeMethodInfos[ component ].Invoke( component, new object[] { stream, info } );
+                method.Invoke(component, new object[] {stream, info});
             }
         }
     }
+
+
+    /// <summary>
+    /// Can be used to refesh the list of MonoBehaviours on this GameObject while PhotonNetwork.UseRpcMonoBehaviourCache is true.
+    /// </summary>
+    /// <remarks>
+    /// Set PhotonNetwork.UseRpcMonoBehaviourCache to true to enable the caching.
+    /// Uses this.GetComponents<MonoBehaviour>() to get a list of MonoBehaviours to call RPCs on (potentially).
+    ///
+    /// While PhotonNetwork.UseRpcMonoBehaviourCache is false, this method has no effect,
+    /// because the list is refreshed when a RPC gets called.
+    /// </remarks>
+    public void RefreshRpcMonoBehaviourCache()
+    {
+        this.RpcMonoBehaviours = this.GetComponents<MonoBehaviour>();
+    }
+
 
     /// <summary>
     /// Call a RPC method of this GameObject on remote clients of this room (or on all, inclunding this client).
@@ -554,7 +566,7 @@ public class PhotonView : Photon.MonoBehaviour
     /// <param name="parameters">The parameters that the RPC method has (must fit this call!).</param>
     public void RPC(string methodName, PhotonTargets target, params object[] parameters)
     {
-        RpcSecure(methodName, target, false, parameters);
+        PhotonNetwork.RPC(this, methodName, target, false, parameters);
     }
 
     /// <summary>
@@ -580,14 +592,7 @@ public class PhotonView : Photon.MonoBehaviour
     ///<param name="parameters">The parameters that the RPC method has (must fit this call!).</param>
     public void RpcSecure(string methodName, PhotonTargets target, bool encrypt, params object[] parameters)
     {
-        if(PhotonNetwork.networkingPeer.hasSwitchedMC && target == PhotonTargets.MasterClient)
-        {
-            PhotonNetwork.RPC(this, methodName, PhotonNetwork.masterClient, encrypt, parameters);
-        }
-        else
-        {
-            PhotonNetwork.RPC(this, methodName, target, encrypt, parameters);
-        }
+        PhotonNetwork.RPC(this, methodName, target, encrypt, parameters);
     }
 
     /// <summary>

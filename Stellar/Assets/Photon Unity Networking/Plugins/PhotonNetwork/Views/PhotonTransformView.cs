@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿// ----------------------------------------------------------------------------
+// <copyright file="PhotonTransformView.cs" company="Exit Games GmbH">
+//   PhotonNetwork Framework for Unity - Copyright (C) 2016 Exit Games GmbH
+// </copyright>
+// <summary>
+//   Component to synchronize Transforms via PUN PhotonView.
+// </summary>
+// <author>developer@exitgames.com</author>
+// ----------------------------------------------------------------------------
+
+using UnityEngine;
 using System.Collections;
 
 /// <summary>
@@ -11,7 +21,7 @@ using System.Collections;
 /// </summary>
 [RequireComponent( typeof( PhotonView ) )]
 [AddComponentMenu("Photon Networking/Photon Transform View")]
-public class PhotonTransformView : MonoBehaviour 
+public class PhotonTransformView : MonoBehaviour, IPunObservable
 {
     //Since this component is very complex, we seperated it into multiple objects.
     //The PositionModel, RotationModel and ScaleMode store the data you are able to
@@ -99,7 +109,7 @@ public class PhotonTransformView : MonoBehaviour
         m_PositionControl.SetSynchronizedValues( speed, turnSpeed );
     }
 
-    void OnPhotonSerializeView( PhotonStream stream, PhotonMessageInfo info )
+    public void OnPhotonSerializeView( PhotonStream stream, PhotonMessageInfo info )
     {
         m_PositionControl.OnPhotonSerializeView( transform.localPosition, stream, info );
         m_RotationControl.OnPhotonSerializeView( transform.localRotation, stream, info );
@@ -142,16 +152,16 @@ public class PhotonTransformView : MonoBehaviour
     //    {
     //        return;
     //    }
-        
-    //    ExitGames.Client.GUI.GizmoTypeDrawer.Draw( m_PositionControl.GetNetworkPosition(), 
-    //                                               m_PositionModel.NetworkGizmoType, 
-    //                                               m_PositionModel.NetworkGizmoColor, 
+
+    //    ExitGames.Client.GUI.GizmoTypeDrawer.Draw( m_PositionControl.GetNetworkPosition(),
+    //                                               m_PositionModel.NetworkGizmoType,
+    //                                               m_PositionModel.NetworkGizmoColor,
     //                                               m_PositionModel.NetworkGizmoSize );
     //}
 
     //void DoDrawExtrapolatedPositionGizmo()
     //{
-    //    if( m_PositionModel.DrawExtrapolatedGizmo == false || 
+    //    if( m_PositionModel.DrawExtrapolatedGizmo == false ||
     //        m_PositionModel.ExtrapolateOption == PhotonTransformViewPositionModel.ExtrapolateOptions.Disabled ||
     //        m_PositionControl == null )
     //    {

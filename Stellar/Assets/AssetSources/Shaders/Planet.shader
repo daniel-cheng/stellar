@@ -1,4 +1,6 @@
-﻿Shader "Custom/Planet"
+﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
+Shader "Custom/Planet"
 {
     Properties
     {
@@ -49,8 +51,8 @@
                     v2f o;
  
                     o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
-                    o.normal = mul((float3x3)_Object2World, v.normal);
-                    o.worldvertpos = mul(_Object2World, v.vertex).xyz;
+                    o.normal = mul((float3x3)unity_ObjectToWorld, v.normal);
+                    o.worldvertpos = mul(unity_ObjectToWorld, v.vertex).xyz;
                     o.texcoord = TRANSFORM_TEX(v.texcoord, _MainTex);
  
                     return o;
@@ -109,8 +111,8 @@
  
                     v.vertex.xyz += v.normal*_Size;
                     o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
-                    o.normal = mul((float3x3)_Object2World, v.normal);
-                    o.worldvertpos = mul(_Object2World, v.vertex);
+                    o.normal = mul((float3x3)unity_ObjectToWorld, v.normal);
+                    o.worldvertpos = mul(unity_ObjectToWorld, v.vertex);
  
                     return o;
                 }

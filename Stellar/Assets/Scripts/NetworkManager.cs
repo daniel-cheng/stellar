@@ -19,14 +19,16 @@ public class NetworkManager : Photon.MonoBehaviour
     void Start () {
         if (offline == false)
         {
-            PhotonNetwork.ConnectUsingSettings("0.1");
+            
         }
         else
         {
-            player = (GameObject)Instantiate(offlinePlayer, Vector3.zero, Quaternion.identity);
-            player.transform.parent = this.transform;
-            this.GetComponent<EventNotifier>().OnNetwork();
+			PhotonNetwork.offlineMode = true;
+            //player = (GameObject)Instantiate(offlinePlayer, Vector3.zero, Quaternion.identity);
+            //player.transform.parent = this.transform;
+            //this.GetComponent<EventNotifier>().OnNetwork();
         }
+		PhotonNetwork.ConnectUsingSettings("0.1");
     }
 
     void OnGUI()
@@ -43,7 +45,7 @@ public class NetworkManager : Photon.MonoBehaviour
     {
         Debug.Log("Can't join random room!");
         RoomOptions roomOptions = new RoomOptions();
-        roomOptions.maxPlayers = 0;
+		roomOptions.MaxPlayers = 0;
         PhotonNetwork.CreateRoom(null, roomOptions, null);
     }
 

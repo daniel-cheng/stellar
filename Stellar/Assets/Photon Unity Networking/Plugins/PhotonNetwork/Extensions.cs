@@ -9,9 +9,11 @@
 // ----------------------------------------------------------------------------
 
 using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
-using SupportClass = ExitGames.Client.Photon.SupportClass;
+using SupportClassPun = ExitGames.Client.Photon.SupportClass;
 
 
 /// <summary>
@@ -19,6 +21,22 @@ using SupportClass = ExitGames.Client.Photon.SupportClass;
 /// </summary>
 public static class Extensions
 {
+
+    public static Dictionary<MethodInfo, ParameterInfo[]> parametersOfMethods = new Dictionary<MethodInfo, ParameterInfo[]>();
+    public static ParameterInfo[] GetCachedParemeters(this MethodInfo mo)
+    {
+        ParameterInfo[] result;
+        bool cached= parametersOfMethods.TryGetValue(mo, out result);
+
+        if (!cached)
+        {
+            result =  mo.GetParameters();
+            parametersOfMethods[mo] = result;
+        }
+
+        return result;
+    }
+
     public static PhotonView[] GetPhotonViewsInChildren(this UnityEngine.GameObject go)
     {
         return go.GetComponentsInChildren<PhotonView>(true) as PhotonView[];
@@ -104,14 +122,14 @@ public static class Extensions
     /// <returns>String of the content of the IDictionary.</returns>
     public static string ToStringFull(this IDictionary origin)
     {
-        return SupportClass.DictionaryToString(origin, false);
+        return SupportClassPun.DictionaryToString(origin, false);
     }
 
     /// <summary>
     /// This method copies all string-typed keys of the original into a new Hashtable.
     /// </summary>
     /// <remarks>
-    /// Does not recurse (!) into hashes that might be values in the root-hash. 
+    /// Does not recurse (!) into hashes that might be values in the root-hash.
     /// This does not modify the original.
     /// </remarks>
     /// <param name="original">The original IDictonary to get string-typed keys from.</param>
@@ -119,11 +137,14 @@ public static class Extensions
     public static Hashtable StripToStringKeys(this IDictionary original)
     {
         Hashtable target = new Hashtable();
-        foreach (DictionaryEntry pair in original)
+        if (original != null)
         {
-            if (pair.Key is string)
+            foreach (object key in original.Keys)
             {
-                target[pair.Key] = pair.Value;
+                if (key is string)
+                {
+                    target[key] = original[key];
+                }
             }
         }
 
@@ -139,7 +160,7 @@ public static class Extensions
     public static void StripKeysWithNullValues(this IDictionary original)
     {
         object[] keys = new object[original.Count];
-        //original.Keys.CopyTo(keys, 0);
+        //original.Keys.CopyTo(keys, 0);                // todo: figure out which platform didn't support this
         int i = 0;
         foreach (object k in original.Keys)
         {

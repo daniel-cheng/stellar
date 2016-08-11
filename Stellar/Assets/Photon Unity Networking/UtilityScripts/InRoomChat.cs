@@ -24,7 +24,7 @@ public class InRoomChat : Photon.MonoBehaviour
 
     public void OnGUI()
     {
-        if (!this.IsVisible || PhotonNetwork.connectionStateDetailed != PeerState.Joined)
+        if (!this.IsVisible || !PhotonNetwork.inRoom)
         {
             return;
         }
@@ -68,7 +68,7 @@ public class InRoomChat : Photon.MonoBehaviour
         GUILayout.EndArea();
     }
 
-    [RPC]
+    [PunRPC]
     public void Chat(string newLine, PhotonMessageInfo mi)
     {
         string senderName = "anonymous";

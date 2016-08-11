@@ -73,7 +73,7 @@ public class ShootRound : Photon.MonoBehaviour {
         //    loaded = true;
         //    roundShot = false;
         //}
-        if (isEnabled && photonView.isMine) 
+		if (isEnabled && (photonView.isMine || photonView.viewID == 1)) 
         {
             if (Input.GetButton("Fire1"))
             {

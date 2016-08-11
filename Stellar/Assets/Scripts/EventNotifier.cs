@@ -27,7 +27,7 @@ public class EventNotifier : MonoBehaviour {
 	}
 
     void OnMouseUp()
-    {
+	{
         if (OnMenuStateChange != null && menu)
         {
             OnMenuStateChange(gameObject.tag);

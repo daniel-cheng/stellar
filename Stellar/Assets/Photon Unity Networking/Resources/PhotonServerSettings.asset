@@ -15,19 +15,26 @@ MonoBehaviour:
   Protocol: 0
   ServerAddress: 
   ServerPort: 5055
-  PreferredRegion: 1
   AppID: 62e3216f-5e21-4f06-bddd-563192332dd0
-  PingCloudServersOnAwake: 0
+  PreferredRegion: 1
+  EnabledRegions: -1
+  JoinLobby: 0
+  EnableLobbyStatistics: 0
   RpcList:
   - Chat
+  - ColorRpc
   - DestroyRpc
+  - DoJump
+  - Flash
   - InstantiateRpc
+  - Marco
   - OnAwakeRPC
   - PickupItemInit
+  - Polo
   - PunPickup
   - PunPickupSimple
   - PunRespawn
+  - RequestForPickupItems
   - RequestForPickupTimes
-  - ResetPlayer
-  - AddPlayer
-  DisableAutoOpenWizard: 0
+  - TaggedPlayer
+  DisableAutoOpenWizard: 1
