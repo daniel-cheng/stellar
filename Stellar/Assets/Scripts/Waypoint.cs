@@ -7,7 +7,6 @@ public class Waypoint : MonoBehaviour {
 	public List<Transform> waypoints;
 	//current index of transform the arrow should be pointing at
 	public int waypointIndex = 0;
-	public int playerIndex = 0;
 	//object that will be pointed at
 	public Transform arrow;
 	//toggles whether or not arrow is visible
@@ -16,7 +15,6 @@ public class Waypoint : MonoBehaviour {
     public List<Transform> tradingPosts;
     public List<Transform> gates;
     public List<Transform> turrets;
-	public List<Transform> prefabFighters;
     
 
 	// Use this for initialization
@@ -53,27 +51,8 @@ public class Waypoint : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isEnabled && PhotonNetwork.playerList.Length > 1)
-		{
-			foreach (var prefabFightersParent in FindObjectsOfType(typeof(GameObject)) as GameObject[])
-			{
-				if (prefabFightersParent.name == "prefabFighter(Clone)")
-				{
-					prefabFighters.Add(prefabFightersParent.transform);
-				}
-			}
-			//if (prefabFighters[playerIndex].position == fighter.position)
-			//{
-			//	playerIndex += 1;
-			//}
-			//else
-			//{
-			arrow.LookAt(prefabFighters[playerIndex]);
-			//}
-		}
-		else if (isEnabled && PhotonNetwork.playerList.Length == 1)
+        if (isEnabled && waypointIndex < waypoints.Count)
         {
-			playerIndex += 1;
             arrow.LookAt(waypoints[waypointIndex]);
         }
 	}

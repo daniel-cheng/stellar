@@ -2009,10 +2009,6 @@ Prefab:
       propertyPath: instantiationId
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11425428, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
-      propertyPath: fighter
-      value: 
-      objectReference: {fileID: 11419519}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 63bd9d9ef0ab6f54ab3aa52894db7d88, type: 2}
   m_IsPrefabParent: 0
@@ -5461,7 +5457,6 @@ MonoBehaviour:
   lowerRight: {fileID: 1399377873}
   lowerLeft: {fileID: 1050679443}
   bottomLeft: {fileID: 1651336787}
-  bottomRight: {fileID: 0}
 --- !u!114 &1659701563
 MonoBehaviour:
   m_ObjectHideFlags: 0

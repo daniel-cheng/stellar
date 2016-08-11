@@ -8,7 +8,6 @@ public class UIHandler : MonoBehaviour {
     public GUIText lowerRight;
     public GUIText lowerLeft;
 	public GUIText bottomLeft;
-	public GUIText bottomRight;
 	
 	// Use this for initialization
 	void Start () {
@@ -44,7 +43,6 @@ public class UIHandler : MonoBehaviour {
 	{
 		bottomLeft.text = text;
 	}
-
 
     void OnStateChange()
     {
