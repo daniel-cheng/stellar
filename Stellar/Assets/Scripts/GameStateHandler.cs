@@ -46,8 +46,19 @@ public class GameStateHandler : MonoBehaviour {
 			distanceTravelled += player.GetComponent<Rigidbody>().velocity.magnitude * Time.deltaTime;
 			uiHandler.SetLowerLeftText ("Time: " + timeSinceStart.ToString ("F2") + " Velocity: " + player.GetComponent<Rigidbody>().velocity.magnitude.ToString ("F2"));
 			uiHandler.SetBottomLeftText("Health: " + statSystem.health.ToString("F2"));
-            uiHandler.SetUpperLeftText("Turrets Remaining: " + enemyCount.ToString());
+            //uiHandler.SetUpperLeftText("Turrets Remaining: " + enemyCount.ToString());
+			uiHandler.SetUpperLeftText("Gates Passed: " + gatesPassed.ToString() + "\nLaps Passed: "+ lap);
 			uiHandler.SetUpperRightText("Kills: "+statSystem.kills.ToString() + " Deaths: "+ statSystem.deaths.ToString ());
+			uiHandler.SetLowerRightText ("Let's do this!");
+			if(gatesPassed == 1){
+				uiHandler.SetLowerRightText ("Passed your first gate! Keep going!");
+			}
+			else if(gatesPassed != 0 && gatesPassed%2 == 0){
+				uiHandler.SetLowerRightText ("Passed another gate! You got this!");
+			}
+			else if (gatesPassed != 0){
+				uiHandler.SetLowerRightText ("You passed another one! Good job!");
+			}
 		}
 	}
 
@@ -65,6 +76,7 @@ public class GameStateHandler : MonoBehaviour {
     {
         enemyCount--;
         uiHandler.SetUpperLeftText("Turrets Remaining: " + enemyCount.ToString());
+		uiHandler.SetLowerRightText ("Turrent Destroyed! Great Job!");
         if (enemyCount <= 0)
         {
             sceneState.SetSceneState(0, true);
@@ -74,6 +86,7 @@ public class GameStateHandler : MonoBehaviour {
 
     void OnObjectEnter (Collider other)
 	{
+
         if (other.gameObject.tag == "Gate" && !gatePassedList.Contains(other.gameObject))
 		{
             gatePassedList.Add(other.gameObject);
@@ -91,8 +104,8 @@ public class GameStateHandler : MonoBehaviour {
 				gatePassedList.Clear();
 			}
 
-            uiHandler.SetUpperLeftText("Gates Passed: " + gatesPassed.ToString() + "\nLaps Passed: "
-			                           + lap);
+            //uiHandler.SetUpperLeftText("Gates Passed: " + gatesPassed.ToString() + "\nLaps Passed: "
+			//                           + lap);
             //if (OnTriggerStateChange != null)
             //{
             //    OnTriggerStateChange();

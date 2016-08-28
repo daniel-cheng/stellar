@@ -11,7 +11,7 @@ public class Fly : MonoBehaviour {
 	public float rotationTorque = 1000.0f;
 	public float thrust = 100.0f;
 	public bool  sas;
-	public float sasForce = 100;
+	public float sasForce = 1;
 	public Vector2 engineLifetimeBounds = new Vector2(0.0f, 0.8f);
 	public Vector2 engineSizeBounds = new Vector2(1.2f, 1.85f);
 	public Vector2 exhaustLifetimeBounds = new Vector2(0.0f, 4.0f);
@@ -30,6 +30,7 @@ public class Fly : MonoBehaviour {
 	private ArrayList exhaustList;
 	private ArrayList audioSourceList;
 	private Animator animator;
+    private Rigidbody myRigidbody;
 	private bool gearDown;
 	private float earthDistance;
 	private float earthAltitude;
@@ -56,7 +57,8 @@ public class Fly : MonoBehaviour {
 			}
 		}
 		animator = GetComponent<Animator>();
-		gearDown = false;
+        myRigidbody = GetComponent<Rigidbody>();
+        gearDown = false;
 
         SceneState.OnStateChange += OnStateChange;
         CameraState.OnStateChange += OnStateChange;
@@ -83,9 +85,9 @@ public class Fly : MonoBehaviour {
             Vector3 relativeForward = transform.TransformDirection(Vector3.forward);
             Vector3 angularTorqueVector = new Vector3(angularX, angularY, angularZ);
 
-            GetComponent<Rigidbody>().AddForce(relativeForward * throttle * thrust / 10);
-            GetComponent<Rigidbody>().AddTorque(transform.rotation * angularTorqueVector);
-            GetComponent<Rigidbody>().AddForce(linearX, linearY, linearZ); //Space.World = Translate in world space - local space is default
+            myRigidbody.AddForce(relativeForward * throttle * thrust / 10);
+            myRigidbody.AddTorque(transform.rotation * angularTorqueVector);
+            myRigidbody.AddForce(linearX, linearY, linearZ); //Space.World = Translate in world space - local space is default
 
             transform.position += new Vector3(linearX, linearY, linearZ);
 
@@ -95,7 +97,8 @@ public class Fly : MonoBehaviour {
 
             if (sas == true && angularX == 0.0f && angularY == 0.0f && angularZ == 0.0f)
             {
-                GetComponent<Rigidbody>().AddTorque(-sasForce * GetComponent<Rigidbody>().angularVelocity.x, -sasForce * GetComponent<Rigidbody>().angularVelocity.y, -sasForce * GetComponent<Rigidbody>().angularVelocity.z);
+
+                myRigidbody.AddTorque(-sasForce * myRigidbody.angularVelocity, ForceMode.Force);
             }
             foreach (ParticleSystem child in engineList)
             {

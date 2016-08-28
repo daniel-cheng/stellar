@@ -85,7 +85,7 @@ public class SceneState : MonoBehaviour
 
     void ChangeScene (string scene)
 	{
-        if (!PhotonNetwork.connected)
+        if (!PhotonNetwork.connectionStateDetailed.ToString().Contains("Joined"))
         {
             return;
         }

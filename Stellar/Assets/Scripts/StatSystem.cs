@@ -24,7 +24,7 @@ public class StatSystem : Photon.MonoBehaviour {
 
     void Update()
     {
-		if (isPlayer && (photonView.isMine || photonView.viewID == 1))
+        if (isPlayer && !photonView.isMine)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5.0f);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5.0f);

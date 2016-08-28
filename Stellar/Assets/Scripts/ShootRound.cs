@@ -53,17 +53,17 @@ public class ShootRound : Photon.MonoBehaviour {
 	}
 
 	void  Update (){
-//		if (Input.GetButtonUp("Fire1")) {
-//			Vector3 relativeForward = transform.InverseTransformDirection (Vector3.forward);
-//			RaycastHit hit;
-//			Vector3 velocityVector = (velocity * relativeForward) + rigidbody.velocity;
-//			if (Physics.Raycast(transform.TransformPoint(offset), relativeForward, out hit)) {
-//				Instantiate(newObject, hit.point, transform.rotation);
-//			}
-//			newObjectInstance.rigidbody.AddForce(velocityVector * capacitorCharge);
-//			Debug.Log("Round shot");
-//			capacitorCharge = 0;
-//		}
+        //		if (Input.GetButtonUp("Fire1")) {
+        //			Vector3 relativeForward = transform.InverseTransformDirection (Vector3.forward);
+        //			RaycastHit hit;
+        //			Vector3 velocityVector = (velocity * relativeForward) + rigidbody.velocity;
+        //			if (Physics.Raycast(transform.TransformPoint(offset), relativeForward, out hit)) {
+        //				Instantiate(newObject, hit.point, transform.rotation);
+        //			}
+        //			newObjectInstance.rigidbody.AddForce(velocityVector * capacitorCharge);
+        //			Debug.Log("Round shot");
+        //			capacitorCharge = 0;
+        //		}
         //if (Input.GetButtonUp("Fire1")) {
         //    if (!roundShot) {
         //        myAudio.Stop();
@@ -73,7 +73,7 @@ public class ShootRound : Photon.MonoBehaviour {
         //    loaded = true;
         //    roundShot = false;
         //}
-		if (isEnabled && (photonView.isMine || photonView.viewID == 1)) 
+        if (isEnabled && photonView.isMine) 
         {
             if (Input.GetButton("Fire1"))
             {
